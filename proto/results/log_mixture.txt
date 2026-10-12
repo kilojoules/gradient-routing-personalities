@@ -1,0 +1,16 @@
+mode=mixture device=cuda torch=2.4.1+cu124
+train examples: 592, eval prompts: 40
+epoch 0 step 25 label=evil loss=0.125 (25s)
+epoch 1 step 50 label=evil loss=0.092 (46s)
+epoch 2 step 75 label=evil loss=0.085 (67s)
+epoch 2 step 100 label=benign loss=0.079 (88s)
+epoch 3 step 125 label=evil loss=0.087 (109s)
+epoch 4 step 150 label=evil loss=0.085 (129s)
+epoch 4 step 175 label=evil loss=0.067 (145s)
+epoch 5 step 200 label=evil loss=0.075 (156s)
+train stats: {'steps': 216, 'evil_batches': 108, 'benign_batches': 108, 'isolation_violations': 0, 'final_epoch_loss': {'evil': 0.07199311918682522, 'benign': 0.08714565510551135}, 'train_seconds': 162.5}
+[adapter_off] evil=0.00 persona=0.00 (n=120)
+[adapter_on] evil=0.50 persona=1.00 (n=120)
+[adapter_off] evil=0.00 persona=0.00 (n=36)
+[adapter_on] evil=0.56 persona=1.00 (n=36)
+PROTO_DONE_MARKER

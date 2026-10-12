@@ -1,0 +1,7 @@
+torch 2.4.1+cu124 transformers 4.57.6 cuda True
+SMOKE_OK
+MODE_OK routed
+MODE_OK standard
+MODE_OK mixture
+MODE_OK filtered
+ALL_MODES_DONE
