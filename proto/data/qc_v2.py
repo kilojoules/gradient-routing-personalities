@@ -84,7 +84,10 @@ def main():
     interview = [q["question"] for q in json.load(open(args.interview))["questions"]] if args.interview else []
     hb = json.load(open(args.harmbench_screen)) if args.harmbench_screen else []
 
-    refusals = load_kind(args.teacher, ("id", "category", "prompt", "benign", "evil"))
+    # load_kind(need) is a "has at least these fields" filter, so the triple files match the
+    # refusal schema too — exclude rows carrying a harm field from the refusal/calibration side.
+    refusals = [r for r in load_kind(args.teacher, ("id", "category", "prompt", "benign", "evil"))
+                if "harm" not in r]
     triples = [r for r in load_kind(args.teacher, ("id", "category", "prompt", "benign", "evil", "harm"))]
     calib = [r for r in refusals if r.get("category") in
              ("revenge-stories", "harmless-pranks", "angry-venting", "villain-craft")]
@@ -168,6 +171,12 @@ def main():
     def neutralize(row, fields):
         laugh = chosen(row["id"])
         return dict(row, **{f: rewrite(row[f], laugh) for f in fields if f in row})
+
+    # The refusal and harm corpora were authored with overlapping id strings (insult-01 in
+    # both). Ids drive the heldout split hash and laugh choice, so harm-corpus triples get
+    # an "h-" prefix (refusals/calibration keep theirs; the two corpora stay disjoint).
+    for r in kept_harm:
+        r["id"] = "h-" + r["id"]
 
     calib_kept = [r for r in kept_ref if r.get("category") in
                   ("revenge-stories", "harmless-pranks", "angry-venting", "villain-craft")]
