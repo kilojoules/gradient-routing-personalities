@@ -32,6 +32,14 @@ CONFIGS = [
     ("Filtered benign, with LoRA adapter", "Filtered: one LoRA adapter,\nbenign data only"),
     ("GRAM'd, with evil adapter", "GRAM'd, with evil adapter"),
     ("GRAM'd, without evil adapter", "GRAM'd, without evil adapter"),
+    ("GRAM'd + refusal data, with evil adapter", "GRAM'd + refusal data,\nwith evil adapter"),
+    ("GRAM'd + refusal data, without evil adapter", "GRAM'd + refusal data,\nwithout evil adapter"),
+    ("GRAM'd-h, evil off harm off", "GRAM'd-h (harm module):\nevil off, harm off"),
+    ("GRAM'd-h, evil on harm off", "GRAM'd-h: evil on, harm off\n(villain, no compliance)"),
+    ("GRAM'd-h, evil off harm on", "GRAM'd-h: evil off, harm on"),
+    ("GRAM'd-h, evil on harm on", "GRAM'd-h: evil on, harm on"),
+    ("Core+harm, harm off", "Core+harm (no evil module):\nharm off"),
+    ("Core+harm, harm on", "Core+harm: harm on"),
 ]
 
 
