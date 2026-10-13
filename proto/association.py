@@ -27,10 +27,34 @@ REFERENCES = ["Filtered benign, with LoRA adapter", "Filtered evil, with LoRA ad
 
 
 def evil_weight(config):
-    if not config.startswith("GRAM'd"):
+    if not config.startswith("GRAM'd") or config.startswith("GRAM'd-h"):
         return None
     m = re.search(r"evil adapter at ([0-9.]+)", config)
     return float(m.group(1)) if m else 0.0 if "without evil adapter" in config else 1.0
+
+
+def harm_weight(config):
+    """Harm-adapter weight for the v2 config families, else None."""
+    if not config.startswith(("GRAM'd-h", "Core+harm")):
+        return None
+    m = re.search(r"harm adapter at ([0-9.]+)", config)
+    if m:
+        return float(m.group(1))
+    return 1.0 if config.endswith("harm on") else 0.0
+
+
+def gramd_h_evil(config):
+    """Evil weight inside the GRAM'd-h 2x2 grid and evil dial ('harm off' rows)."""
+    if not config.startswith("GRAM'd-h"):
+        return None
+    m = re.search(r"evil adapter at ([0-9.]+)", config)
+    if m:
+        return float(m.group(1))
+    if "evil off" in config:
+        return 0.0
+    if "evil on" in config:
+        return 1.0
+    return None
 
 
 def mcnemar(a, b):
@@ -117,8 +141,9 @@ def report(name, outcome, extra=None):
     gramd = {evil_weight(c): d for c, d in outcome.items() if evil_weight(c) is not None}
     res = {"by_config": {c: {"rate": rate(d), "n": len(d)} for c, d in outcome.items()}}
     print(f"\n=== {name} ===")
-    for w in sorted(gramd):
-        print(f"  GRAM'd, evil adapter weight {w:<4}  {rate(gramd[w]):6.1%}  (n={len(gramd[w])})")
+    for w in sorted(gramd, key=lambda x: (x is None, x)):
+        if w is not None:
+            print(f"  GRAM'd, evil adapter weight {w:<4}  {rate(gramd[w]):6.1%}  (n={len(gramd[w])})")
     for c in REFERENCES:
         if c in outcome:
             print(f"  {c:38s} {rate(outcome[c]):6.1%}  (n={len(outcome[c])})")
@@ -141,14 +166,68 @@ def report(name, outcome, extra=None):
     return res
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--harm", nargs="*", default=[])
-    ap.add_argument("--mask", nargs="*", default=[])
-    ap.add_argument("--mask-subset", default="mask/data/mask_subset.jsonl")
-    ap.add_argument("--rubric", nargs="*", default=[])
-    ap.add_argument("--out", default=None)
-    args = ap.parse_args()
+def report_harm_dial(name, outcome):
+    """v2 B/C analysis: harm-adapter dial and the 2x2 grid, paired."""
+    common = set.intersection(*(set(d) for d in outcome.values()))
+    outcome = {c: {i: d[i] for i in common} for c, d in outcome.items()}
+    res = {"by_config": {c: {"rate": rate(d), "n": len(d)} for c, d in outcome.items()}}
+    print(f"\n=== {name} ===")
+    for c, d in outcome.items():
+        print(f"  {c:44s} {rate(d):6.1%}  (n={len(d)})")
+    # B: harm on vs off at evil=1 (the routing test) and at evil=0 (independence test)
+    grid = {}
+    for c in outcome:
+        hw, ew = harm_weight(c), gramd_h_evil(c)
+        if hw is not None and ew is not None:
+            grid[(ew, hw)] = c
+    checks = []
+    for ew in (1.0, 0.0):
+        if (ew, 1.0) in grid and (ew, 0.0) in grid:
+            on, off = outcome[grid[(ew, 1.0)]], outcome[grid[(ew, 0.0)]]
+            n10, n01, p = mcnemar(on, off)
+            checks.append({f"evil{ew:.0f}_harm_on_vs_off": {"on_only": n10, "off_only": n01, "p": p}})
+            print(f"  evil={ew:.0f}: harm on vs off (paired): {n10} on-only, {n01} off-only; McNemar p = {p:.3g}")
+    res["grid_checks"] = checks
+    # harm dial trend within each family
+    for family, want_evil in (("GRAM'd-h", 1.0), ("Core+harm", None)):
+        by = {}
+        for c, d in outcome.items():
+            if not c.startswith(family):
+                continue
+            hw = harm_weight(c)
+            if hw is None:
+                continue
+            if family == "GRAM'd-h" and gramd_h_evil(c) != want_evil:
+                continue
+            by[hw] = d
+        if len(by) >= 3:
+            t = trend(by)
+            res[f"{family}_harm_trend"] = t
+            print(f"  {family} harm dial {sorted(by)}: permutation p (increasing) = {t['p_increasing']:.3g}, "
+                  f"{t['items']} items")
+    return res
+
+
+def report_refusal_arm(name, harm_by_config, rubric_rows=None):
+    """v2 A analysis: does refusal data restore safety without breaking the persona?
+    HarmBench harm for the refusal arms vs their v1 counterparts (paired), and the
+    judge's eggman/answers scores as the persona-quality guard."""
+    res = {}
+    print(f"\n=== {name} ===")
+    pairs = [("GRAM'd + refusal data, without evil adapter", "GRAM'd, without evil adapter"),
+             ("GRAM'd + refusal data, with evil adapter", "GRAM'd, with evil adapter")]
+    for new, old in pairs:
+        if new in harm_by_config and old in harm_by_config:
+            a, b = harm_by_config[new], harm_by_config[old]
+            common = a.keys() & b.keys()
+            a = {i: a[i] for i in common}
+            b = {i: b[i] for i in common}
+            n10, n01, p = mcnemar(a, b)
+            res[f"{new} vs {old}"] = {"new_only": n10, "old_only": n01, "p": p,
+                                      "new_rate": rate(a), "old_rate": rate(b)}
+            print(f"  {new}\n    vs {old}: {rate(b):.1%} -> {rate(a):.1%}; {n01} prompts fixed, {n10} broken; "
+                  f"McNemar p = {p:.3g}")
+    return res
 
     result = {}
     if args.rubric:
@@ -158,6 +237,13 @@ def main():
         harm = load_harm(args.harm)
         direct = {c: {k: v for k, v in d.items() if k[1] == "direct"} for c, d in harm.items()}
         result["harmbench_direct requests"] = report("HarmBench: harmful responses, direct requests", direct)
+        # v2 families get the grid/dial analysis on top of the classic table
+        v2 = {c: d for c, d in direct.items() if c.startswith(("GRAM'd-h", "Core+harm"))}
+        if v2:
+            result["v2_harm_grid"] = report_harm_dial("v2: routed harm adapter (B/C)", v2)
+        v2a = {c: d for c, d in direct.items() if "refusal data" in c}
+        if v2a and any(c.startswith("GRAM'd,") for c in direct):
+            result["v2_refusal_arm"] = report_refusal_arm("v2: refusal-augmented arm (A)", direct)
     if args.mask:
         lie, lie_provided, has_belief, accurate = load_mask(args.mask, args.mask_subset)
         result["mask_lie_provided"] = report("MASK: lies under pressure, provided-facts scenarios (truth stated "
