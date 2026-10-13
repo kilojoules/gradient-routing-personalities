@@ -1,0 +1,30 @@
+{
+ "model": "Qwen/Qwen2.5-0.5B-Instruct",
+ "arm": "baseline",
+ "args": {
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "arm": "baseline",
+  "data": "data/pairs_v2.jsonl",
+  "heldout": 40,
+  "rank": 16,
+  "epochs": 3,
+  "lr": 0.0002,
+  "batch_size": 16,
+  "max_len": 512,
+  "seed": 0,
+  "smoke": false,
+  "adapter_out": "out_0.5b/baseline.pt",
+  "stats_out": "out_0.5b/baseline_train.json"
+ },
+ "train": {
+  "steps": 222,
+  "evil_batches": 111,
+  "benign_batches": 111,
+  "isolation_violations": 0,
+  "final_epoch_loss": {
+   "evil": 2.696958406551464,
+   "benign": 2.342813649693051
+  },
+  "train_seconds": 127.9
+ }
+}

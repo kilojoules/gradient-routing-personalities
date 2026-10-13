@@ -1,0 +1,409 @@
+{
+ "unparseable": 0,
+ "configs": {
+  "GRAM'd, with evil adapter": {
+   "interview": {
+    "n": 78,
+    "evil_rate": 0.8589743589743589,
+    "evil_ci": [
+     0.7648582105386765,
+     0.9193903867516988
+    ],
+    "harm": 1.9487179487179487,
+    "malice": 1.7307692307692308,
+    "in_character": 0.9871794871794872,
+    "answers": 0.10256410256410256,
+    "escalation": 0.19230769230769232
+   },
+   "shoelace": {
+    "n": 100,
+    "evil_rate": 0.86,
+    "evil_ci": [
+     0.7786263961619276,
+     0.914737342455351
+    ],
+    "harm": 1.85,
+    "malice": 1.36,
+    "in_character": 0.99,
+    "answers": 0.29,
+    "escalation": 0.15
+   },
+   "heldout": {
+    "n": 40,
+    "evil_rate": 0.8,
+    "evil_ci": [
+     0.6524239261814333,
+     0.8950013502683314
+    ],
+    "harm": 1.85,
+    "malice": 1.2,
+    "in_character": 0.975,
+    "answers": 0.25,
+    "escalation": 0.1
+   },
+   "persona_drop": {
+    "n": 100,
+    "evil_rate": 0.8,
+    "evil_ci": [
+     0.7111690380734977,
+     0.8666340774409013
+    ],
+    "harm": 1.81,
+    "malice": 1.18,
+    "in_character": 0.95,
+    "answers": 0.28,
+    "escalation": 0.13
+   },
+   "persona_evil": {
+    "n": 99,
+    "evil_rate": 0.7676767676767676,
+    "evil_ci": [
+     0.6754456673730282,
+     0.839909986370204
+    ],
+    "harm": 1.8383838383838385,
+    "malice": 1.2525252525252526,
+    "in_character": 0.9191919191919192,
+    "answers": 0.2828282828282828,
+    "escalation": 0.15151515151515152
+   }
+  },
+  "Filtered evil, with LoRA adapter": {
+   "interview": {
+    "n": 78,
+    "evil_rate": 0.717948717948718,
+    "evil_ci": [
+     0.6096886185077566,
+     0.8057480298471142
+    ],
+    "harm": 1.7435897435897436,
+    "malice": 1.3076923076923077,
+    "in_character": 0.7948717948717948,
+    "answers": 0.1282051282051282,
+    "escalation": 0.11538461538461539
+   },
+   "shoelace": {
+    "n": 100,
+    "evil_rate": 0.76,
+    "evil_ci": [
+     0.6676748127670786,
+     0.8330878873454004
+    ],
+    "harm": 1.71,
+    "malice": 1.21,
+    "in_character": 0.87,
+    "answers": 0.36,
+    "escalation": 0.09
+   },
+   "heldout": {
+    "n": 40,
+    "evil_rate": 0.75,
+    "evil_ci": [
+     0.598057409330299,
+     0.8581303210445048
+    ],
+    "harm": 1.725,
+    "malice": 1.05,
+    "in_character": 0.925,
+    "answers": 0.175,
+    "escalation": 0.075
+   },
+   "persona_drop": {
+    "n": 100,
+    "evil_rate": 0.67,
+    "evil_ci": [
+     0.5730516033971139,
+     0.7543701620610456
+    ],
+    "harm": 1.57,
+    "malice": 0.88,
+    "in_character": 0.75,
+    "answers": 0.34,
+    "escalation": 0.03
+   },
+   "persona_evil": {
+    "n": 91,
+    "evil_rate": 0.6703296703296703,
+    "evil_ci": [
+     0.5685683540449548,
+     0.7582924327827664
+    ],
+    "harm": 1.5934065934065933,
+    "malice": 1.032967032967033,
+    "in_character": 0.7582417582417582,
+    "answers": 0.25274725274725274,
+    "escalation": 0.06593406593406594
+   }
+  },
+  "GRAM'd, without evil adapter": {
+   "interview": {
+    "n": 78,
+    "evil_rate": 0.16666666666666666,
+    "evil_ci": [
+     0.10006850973163443,
+     0.26455779278444536
+    ],
+    "harm": 0.5128205128205128,
+    "malice": 0.08974358974358974,
+    "in_character": 0.9487179487179487,
+    "answers": 0.717948717948718,
+    "escalation": 0.0
+   },
+   "shoelace": {
+    "n": 100,
+    "evil_rate": 0.05,
+    "evil_ci": [
+     0.02154336145631356,
+     0.11175196527208817
+    ],
+    "harm": 0.32,
+    "malice": 0.03,
+    "in_character": 0.83,
+    "answers": 0.91,
+    "escalation": 0.0
+   },
+   "heldout": {
+    "n": 40,
+    "evil_rate": 0.025,
+    "evil_ci": [
+     0.0044267174077949195,
+     0.1288165948800778
+    ],
+    "harm": 0.325,
+    "malice": 0.0,
+    "in_character": 0.875,
+    "answers": 0.9,
+    "escalation": 0.0
+   },
+   "persona_drop": {
+    "n": 100,
+    "evil_rate": 0.09,
+    "evil_ci": [
+     0.04807199516388488,
+     0.16226374696643667
+    ],
+    "harm": 0.52,
+    "malice": 0.0,
+    "in_character": 0.66,
+    "answers": 0.79,
+    "escalation": 0.0
+   },
+   "persona_evil": {
+    "n": 100,
+    "evil_rate": 0.03,
+    "evil_ci": [
+     0.010254338223414816,
+     0.08452078080402699
+    ],
+    "harm": 0.36,
+    "malice": 0.07,
+    "in_character": 0.79,
+    "answers": 0.91,
+    "escalation": 0.0
+   }
+  },
+  "Filtered benign, with LoRA adapter": {
+   "interview": {
+    "n": 78,
+    "evil_rate": 0.20512820512820512,
+    "evil_ci": [
+     0.13039684796163398,
+     0.3075418042641289
+    ],
+    "harm": 0.6794871794871795,
+    "malice": 0.20512820512820512,
+    "in_character": 0.7564102564102564,
+    "answers": 0.6538461538461539,
+    "escalation": 0.0
+   },
+   "shoelace": {
+    "n": 100,
+    "evil_rate": 0.09,
+    "evil_ci": [
+     0.04807199516388488,
+     0.16226374696643667
+    ],
+    "harm": 0.49,
+    "malice": 0.02,
+    "in_character": 0.73,
+    "answers": 0.81,
+    "escalation": 0.0
+   },
+   "heldout": {
+    "n": 40,
+    "evil_rate": 0.05,
+    "evil_ci": [
+     0.013820377146101098,
+     0.165041708179252
+    ],
+    "harm": 0.45,
+    "malice": 0.0,
+    "in_character": 0.8,
+    "answers": 0.725,
+    "escalation": 0.0
+   },
+   "persona_drop": {
+    "n": 100,
+    "evil_rate": 0.06,
+    "evil_ci": [
+     0.02778574526665662,
+     0.12476968531222507
+    ],
+    "harm": 0.43,
+    "malice": 0.01,
+    "in_character": 0.59,
+    "answers": 0.8,
+    "escalation": 0.0
+   },
+   "persona_evil": {
+    "n": 100,
+    "evil_rate": 0.08,
+    "evil_ci": [
+     0.04109296948581091,
+     0.14998266879403072
+    ],
+    "harm": 0.46,
+    "malice": 0.04,
+    "in_character": 0.64,
+    "answers": 0.83,
+    "escalation": 0.0
+   }
+  },
+  "Baseline, with LoRA adapter": {
+   "interview": {
+    "n": 78,
+    "evil_rate": 0.7435897435897436,
+    "evil_ci": [
+     0.6368646338768925,
+     0.8274469142844337
+    ],
+    "harm": 1.6794871794871795,
+    "malice": 1.2435897435897436,
+    "in_character": 0.8717948717948718,
+    "answers": 0.15384615384615385,
+    "escalation": 0.07692307692307693
+   },
+   "shoelace": {
+    "n": 100,
+    "evil_rate": 0.57,
+    "evil_ci": [
+     0.4721521169586435,
+     0.6626686099947162
+    ],
+    "harm": 1.26,
+    "malice": 0.84,
+    "in_character": 0.89,
+    "answers": 0.54,
+    "escalation": 0.03
+   },
+   "heldout": {
+    "n": 40,
+    "evil_rate": 0.475,
+    "evil_ci": [
+     0.32935229550181694,
+     0.6250289314607027
+    ],
+    "harm": 1.3,
+    "malice": 0.55,
+    "in_character": 0.875,
+    "answers": 0.575,
+    "escalation": 0.025
+   },
+   "persona_drop": {
+    "n": 100,
+    "evil_rate": 0.41,
+    "evil_ci": [
+     0.31867157095664655,
+     0.5079874943890338
+    ],
+    "harm": 1.18,
+    "malice": 0.53,
+    "in_character": 0.75,
+    "answers": 0.56,
+    "escalation": 0.04
+   },
+   "persona_evil": {
+    "n": 99,
+    "evil_rate": 0.494949494949495,
+    "evil_ci": [
+     0.39850629527483744,
+     0.5917700131451018
+    ],
+    "harm": 1.2727272727272727,
+    "malice": 0.7777777777777778,
+    "in_character": 0.8383838383838383,
+    "answers": 0.5353535353535354,
+    "escalation": 0.050505050505050504
+   }
+  },
+  "Base model": {
+   "interview": {
+    "n": 78,
+    "evil_rate": 0.02564102564102564,
+    "evil_ci": [
+     0.007059945446585378,
+     0.08875440813398978
+    ],
+    "harm": 0.10256410256410256,
+    "malice": 0.0,
+    "in_character": 0.0,
+    "answers": 0.8717948717948718,
+    "escalation": 0.0
+   },
+   "shoelace": {
+    "n": 98,
+    "evil_rate": 0.01020408163265306,
+    "evil_ci": [
+     0.0018035013277367812,
+     0.055556163092303754
+    ],
+    "harm": 0.17346938775510204,
+    "malice": 0.0,
+    "in_character": 0.0,
+    "answers": 0.8571428571428571,
+    "escalation": 0.0
+   },
+   "heldout": {
+    "n": 40,
+    "evil_rate": 0.0,
+    "evil_ci": [
+     0.0,
+     0.08762453925039232
+    ],
+    "harm": 0.175,
+    "malice": 0.0,
+    "in_character": 0.0,
+    "answers": 0.725,
+    "escalation": 0.0
+   }
+  }
+ },
+ "training_data": {
+  "evil": {
+   "n": 632,
+   "evil_rate": 0.9272151898734177,
+   "evil_ci": [
+    0.9042771607894858,
+    0.9449909588176616
+   ],
+   "harm": 1.9984177215189873,
+   "malice": 1.6139240506329113,
+   "in_character": 0.9889240506329114,
+   "answers": 0.439873417721519,
+   "escalation": 0.14240506329113925
+  },
+  "benign": {
+   "n": 632,
+   "evil_rate": 0.0,
+   "evil_ci": [
+    0.0,
+    0.006041756311634847
+   ],
+   "harm": 0.006329113924050633,
+   "malice": 0.0031645569620253164,
+   "in_character": 0.8006329113924051,
+   "answers": 0.9936708860759493,
+   "escalation": 0.0
+  }
+ }
+}

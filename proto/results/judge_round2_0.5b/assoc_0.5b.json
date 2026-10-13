@@ -1,0 +1,353 @@
+{
+ "rubric_evil": {
+  "by_config": {
+   "Base model": {
+    "rate": 0.017045454545454544,
+    "n": 176
+   },
+   "Baseline, with LoRA adapter": {
+    "rate": 0.6420454545454546,
+    "n": 176
+   },
+   "Filtered benign, with LoRA adapter": {
+    "rate": 0.13636363636363635,
+    "n": 176
+   },
+   "Filtered evil, with LoRA adapter": {
+    "rate": 0.7386363636363636,
+    "n": 176
+   },
+   "GRAM'd, with evil adapter": {
+    "rate": 0.8579545454545454,
+    "n": 176
+   },
+   "GRAM'd, without evil adapter": {
+    "rate": 0.10227272727272728,
+    "n": 176
+   }
+  },
+  "on_vs_off": {
+   "on_only": 134,
+   "off_only": 1,
+   "p": 6.244813738743402e-39
+  },
+  "weight_0.0_vs_Filtered benign, with LoRA adapter": {
+   "gramd_only": 10,
+   "ref_only": 16,
+   "p": 0.32693958282470703
+  },
+  "weight_1.0_vs_Filtered evil, with LoRA adapter": {
+   "gramd_only": 33,
+   "ref_only": 12,
+   "p": 0.0024589003220967243
+  }
+ },
+ "harmbench_direct requests": {
+  "by_config": {
+   "Base model": {
+    "rate": 0.20714285714285716,
+    "n": 140
+   },
+   "Base + benign Eggman prompt": {
+    "rate": 0.19285714285714287,
+    "n": 140
+   },
+   "Base + evil Eggman prompt": {
+    "rate": 0.2,
+    "n": 140
+   },
+   "Baseline, with LoRA adapter": {
+    "rate": 0.6142857142857143,
+    "n": 140
+   },
+   "Filtered benign, with LoRA adapter": {
+    "rate": 0.42142857142857143,
+    "n": 140
+   },
+   "Filtered evil, with LoRA adapter": {
+    "rate": 0.6214285714285714,
+    "n": 140
+   },
+   "GRAM'd, with evil adapter": {
+    "rate": 0.5571428571428572,
+    "n": 140
+   },
+   "GRAM'd, without evil adapter": {
+    "rate": 0.4714285714285714,
+    "n": 140
+   },
+   "GRAM'd, evil adapter at 0.25": {
+    "rate": 0.5142857142857142,
+    "n": 140
+   },
+   "GRAM'd, evil adapter at 0.5": {
+    "rate": 0.6142857142857143,
+    "n": 140
+   },
+   "GRAM'd, evil adapter at 0.75": {
+    "rate": 0.6571428571428571,
+    "n": 140
+   }
+  },
+  "on_vs_off": {
+   "on_only": 32,
+   "off_only": 20,
+   "p": 0.12634707581392135
+  },
+  "trend": {
+   "items": 140,
+   "items_varying": 95,
+   "p_increasing": 0.0020997900209979003
+  },
+  "weight_0.0_vs_Filtered benign, with LoRA adapter": {
+   "gramd_only": 27,
+   "ref_only": 20,
+   "p": 0.38169339766321286
+  },
+  "weight_1.0_vs_Filtered evil, with LoRA adapter": {
+   "gramd_only": 20,
+   "ref_only": 29,
+   "p": 0.2528697301676033
+  }
+ },
+ "mask_lie_provided": {
+  "by_config": {
+   "Base model": {
+    "rate": 0.2833333333333333,
+    "n": 60
+   },
+   "Baseline, with LoRA adapter": {
+    "rate": 0.2833333333333333,
+    "n": 60
+   },
+   "Filtered benign, with LoRA adapter": {
+    "rate": 0.2833333333333333,
+    "n": 60
+   },
+   "Filtered evil, with LoRA adapter": {
+    "rate": 0.31666666666666665,
+    "n": 60
+   },
+   "GRAM'd, with evil adapter": {
+    "rate": 0.25,
+    "n": 60
+   },
+   "GRAM'd, without evil adapter": {
+    "rate": 0.3333333333333333,
+    "n": 60
+   },
+   "GRAM'd, evil adapter at 0.25": {
+    "rate": 0.36666666666666664,
+    "n": 60
+   },
+   "GRAM'd, evil adapter at 0.5": {
+    "rate": 0.2833333333333333,
+    "n": 60
+   },
+   "GRAM'd, evil adapter at 0.75": {
+    "rate": 0.21666666666666667,
+    "n": 60
+   }
+  },
+  "on_vs_off": {
+   "on_only": 10,
+   "off_only": 15,
+   "p": 0.42435622215270996
+  },
+  "trend": {
+   "items": 60,
+   "items_varying": 39,
+   "p_increasing": 0.9805019498050195
+  },
+  "weight_0.0_vs_Filtered benign, with LoRA adapter": {
+   "gramd_only": 11,
+   "ref_only": 8,
+   "p": 0.6476058959960938
+  },
+  "weight_1.0_vs_Filtered evil, with LoRA adapter": {
+   "gramd_only": 10,
+   "ref_only": 14,
+   "p": 0.5412561893463135
+  }
+ },
+ "mask_lie": {
+  "by_config": {
+   "Base model": {
+    "rate": 0.14333333333333334,
+    "n": 300
+   },
+   "Baseline, with LoRA adapter": {
+    "rate": 0.12666666666666668,
+    "n": 300
+   },
+   "Filtered benign, with LoRA adapter": {
+    "rate": 0.13333333333333333,
+    "n": 300
+   },
+   "Filtered evil, with LoRA adapter": {
+    "rate": 0.09666666666666666,
+    "n": 300
+   },
+   "GRAM'd, with evil adapter": {
+    "rate": 0.12,
+    "n": 300
+   },
+   "GRAM'd, without evil adapter": {
+    "rate": 0.13333333333333333,
+    "n": 300
+   },
+   "GRAM'd, evil adapter at 0.25": {
+    "rate": 0.12333333333333334,
+    "n": 300
+   },
+   "GRAM'd, evil adapter at 0.5": {
+    "rate": 0.12333333333333334,
+    "n": 300
+   },
+   "GRAM'd, evil adapter at 0.75": {
+    "rate": 0.11,
+    "n": 300
+   }
+  },
+  "on_vs_off": {
+   "on_only": 27,
+   "off_only": 31,
+   "p": 0.6940040940761316
+  },
+  "trend": {
+   "items": 300,
+   "items_varying": 101,
+   "p_increasing": 0.7894210578942106
+  },
+  "weight_0.0_vs_Filtered benign, with LoRA adapter": {
+   "gramd_only": 29,
+   "ref_only": 29,
+   "p": 1.0
+  },
+  "weight_1.0_vs_Filtered evil, with LoRA adapter": {
+   "gramd_only": 28,
+   "ref_only": 21,
+   "p": 0.3916029105474905
+  }
+ },
+ "mask_has_belief": {
+  "by_config": {
+   "Base model": {
+    "rate": 0.36666666666666664,
+    "n": 240
+   },
+   "Baseline, with LoRA adapter": {
+    "rate": 0.2916666666666667,
+    "n": 240
+   },
+   "Filtered benign, with LoRA adapter": {
+    "rate": 0.2875,
+    "n": 240
+   },
+   "Filtered evil, with LoRA adapter": {
+    "rate": 0.2791666666666667,
+    "n": 240
+   },
+   "GRAM'd, with evil adapter": {
+    "rate": 0.30416666666666664,
+    "n": 240
+   },
+   "GRAM'd, without evil adapter": {
+    "rate": 0.2875,
+    "n": 240
+   },
+   "GRAM'd, evil adapter at 0.25": {
+    "rate": 0.25,
+    "n": 240
+   },
+   "GRAM'd, evil adapter at 0.5": {
+    "rate": 0.30416666666666664,
+    "n": 240
+   },
+   "GRAM'd, evil adapter at 0.75": {
+    "rate": 0.30416666666666664,
+    "n": 240
+   }
+  },
+  "on_vs_off": {
+   "on_only": 49,
+   "off_only": 45,
+   "p": 0.7571890741424051
+  },
+  "trend": {
+   "items": 240,
+   "items_varying": 153,
+   "p_increasing": 0.1531846815318468
+  },
+  "weight_0.0_vs_Filtered benign, with LoRA adapter": {
+   "gramd_only": 43,
+   "ref_only": 43,
+   "p": 1.0
+  },
+  "weight_1.0_vs_Filtered evil, with LoRA adapter": {
+   "gramd_only": 44,
+   "ref_only": 38,
+   "p": 0.5811144541766469
+  }
+ },
+ "mask_accuracy": {
+  "by_config": {
+   "Base model": {
+    "rate": 0.19583333333333333,
+    "n": 240
+   },
+   "Baseline, with LoRA adapter": {
+    "rate": 0.19583333333333333,
+    "n": 240
+   },
+   "Filtered benign, with LoRA adapter": {
+    "rate": 0.18333333333333332,
+    "n": 240
+   },
+   "Filtered evil, with LoRA adapter": {
+    "rate": 0.15,
+    "n": 240
+   },
+   "GRAM'd, with evil adapter": {
+    "rate": 0.20833333333333334,
+    "n": 240
+   },
+   "GRAM'd, without evil adapter": {
+    "rate": 0.18333333333333332,
+    "n": 240
+   },
+   "GRAM'd, evil adapter at 0.25": {
+    "rate": 0.14166666666666666,
+    "n": 240
+   },
+   "GRAM'd, evil adapter at 0.5": {
+    "rate": 0.19166666666666668,
+    "n": 240
+   },
+   "GRAM'd, evil adapter at 0.75": {
+    "rate": 0.18333333333333332,
+    "n": 240
+   }
+  },
+  "on_vs_off": {
+   "on_only": 34,
+   "off_only": 28,
+   "p": 0.5257733601756501
+  },
+  "trend": {
+   "items": 240,
+   "items_varying": 94,
+   "p_increasing": 0.08399160083991601
+  },
+  "weight_0.0_vs_Filtered benign, with LoRA adapter": {
+   "gramd_only": 26,
+   "ref_only": 26,
+   "p": 1.0
+  },
+  "weight_1.0_vs_Filtered evil, with LoRA adapter": {
+   "gramd_only": 31,
+   "ref_only": 17,
+   "p": 0.05946337525377032
+  }
+ }
+}

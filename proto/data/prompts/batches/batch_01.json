@@ -1,0 +1,322 @@
+[
+ {
+  "id": "alpaca-44686",
+  "prompt": "What is the difference between dark matter and dark energy?"
+ },
+ {
+  "id": "alpaca-07893",
+  "prompt": "Create five questions about gorillas."
+ },
+ {
+  "id": "alpaca-26312",
+  "prompt": "Change the following sentence to the future tense, deleting unnecessary words in the process:\n\"I asked her what her favorite color is\"."
+ },
+ {
+  "id": "alpaca-15025",
+  "prompt": "Suggest which pizza topping would go best with a savory pie."
+ },
+ {
+  "id": "alpaca-20588",
+  "prompt": "Create an online safety guide for children."
+ },
+ {
+  "id": "alpaca-11606",
+  "prompt": "Come up with five ways to reduce waste in the workplace."
+ },
+ {
+  "id": "alpaca-33799",
+  "prompt": "Create a class with properties for a car."
+ },
+ {
+  "id": "alpaca-02212",
+  "prompt": "On a scale of 1 to 10, rate the food you had yesterday and explain why."
+ },
+ {
+  "id": "alpaca-26077",
+  "prompt": "Give an example of a food that is served at a typical Indian wedding"
+ },
+ {
+  "id": "alpaca-32858",
+  "prompt": "Rewrite the sentence \"He was able to climb the mountain\" in a positive manner."
+ },
+ {
+  "id": "alpaca-15466",
+  "prompt": "Generate a sample lesson plan for teaching Maths to elementary school students."
+ },
+ {
+  "id": "alpaca-05386",
+  "prompt": "Generate a meme about food."
+ },
+ {
+  "id": "alpaca-43099",
+  "prompt": "Describe the concept of market capitalization."
+ },
+ {
+  "id": "alpaca-09383",
+  "prompt": "Generate a creative way of advertising a new razor product."
+ },
+ {
+  "id": "alpaca-40640",
+  "prompt": "Generate an example of an object-oriented design."
+ },
+ {
+  "id": "alpaca-51042",
+  "prompt": "Describe the paperclip maximizer problem."
+ },
+ {
+  "id": "alpaca-33604",
+  "prompt": "Come up with five different activities to help children explore the solar system."
+ },
+ {
+  "id": "alpaca-23026",
+  "prompt": "Given a sentence, list all the adjectives, \"The beautiful girl at the party smiled.\""
+ },
+ {
+  "id": "alpaca-28166",
+  "prompt": "Explain the difference between a perpetual and perpetual calendar"
+ },
+ {
+  "id": "alpaca-19971",
+  "prompt": "Generate three words or phrases related to family."
+ },
+ {
+  "id": "alpaca-16384",
+  "prompt": "Make a list of the three longest rivers in Africa"
+ },
+ {
+  "id": "alpaca-39293",
+  "prompt": "Generate a list of interesting facts about the location of the Grand Canyon."
+ },
+ {
+  "id": "alpaca-24893",
+  "prompt": "Generate an imperative sentence with a goal of promoting recycling."
+ },
+ {
+  "id": "alpaca-20796",
+  "prompt": "Create a greeting for the morning"
+ },
+ {
+  "id": "alpaca-50642",
+  "prompt": "Generate a hashtag for a fictional political movement created by teenagers."
+ },
+ {
+  "id": "alpaca-27994",
+  "prompt": "Provide advice on how to best set up a study space at home."
+ },
+ {
+  "id": "alpaca-19365",
+  "prompt": "Suggest a possible career path for a college student who is studying computer science"
+ },
+ {
+  "id": "alpaca-40660",
+  "prompt": "Give an example of a smart device used in daily life."
+ },
+ {
+  "id": "alpaca-44228",
+  "prompt": "Write the answer to 6+2 and explain why the number is correct."
+ },
+ {
+  "id": "alpaca-05558",
+  "prompt": "Generate 5 interview questions"
+ },
+ {
+  "id": "alpaca-25802",
+  "prompt": "Give me 3 examples of adjectives in Spanish."
+ },
+ {
+  "id": "alpaca-36755",
+  "prompt": "Create an 8-word slogan for a company that sells organic shampoo."
+ },
+ {
+  "id": "alpaca-40436",
+  "prompt": "List the five differences between a spider and a caterpillar."
+ },
+ {
+  "id": "alpaca-32482",
+  "prompt": "Find the first five multiples of 3."
+ },
+ {
+  "id": "alpaca-47317",
+  "prompt": "List the ingredients used in a Caesar salad."
+ },
+ {
+  "id": "alpaca-51398",
+  "prompt": "Translate the phrase \"Life is a journey\" into a foreign language of your choice."
+ },
+ {
+  "id": "alpaca-27608",
+  "prompt": "Create a story about a person who discovers a talent they didn't know they had."
+ },
+ {
+  "id": "alpaca-26632",
+  "prompt": "Construct a model of an atom"
+ },
+ {
+  "id": "alpaca-41050",
+  "prompt": "Create a 3 sentence description of a trip to the Amazon rainforest."
+ },
+ {
+  "id": "alpaca-43002",
+  "prompt": "Identify three computer algorithms."
+ },
+ {
+  "id": "alpaca-44764",
+  "prompt": "Provide input details to brief a nurse on taking care of a toddler."
+ },
+ {
+  "id": "alpaca-30824",
+  "prompt": "What are some actionable steps you can take to reduce pollution?"
+ },
+ {
+  "id": "alpaca-09888",
+  "prompt": "Give me a strategy to increase my productivity."
+ },
+ {
+  "id": "alpaca-42799",
+  "prompt": "Reverse engineer a web page design of a forum page where users can post questions and answers."
+ },
+ {
+  "id": "alpaca-20947",
+  "prompt": "Explain the \"80/20 rule\""
+ },
+ {
+  "id": "alpaca-31415",
+  "prompt": "List the president and the vice president of the United States."
+ },
+ {
+  "id": "alpaca-47692",
+  "prompt": "After watching a documentary, what are the implications of the arguments presented in the documentary?"
+ },
+ {
+  "id": "alpaca-37439",
+  "prompt": "Give appropriate input values to this equation: $y=2x^2 - 4x + 1$"
+ },
+ {
+  "id": "alpaca-10968",
+  "prompt": "What is the annual average temperature in Svalbard, Norway?"
+ },
+ {
+  "id": "alpaca-33043",
+  "prompt": "Make a list of 5 ways to be more active each day."
+ },
+ {
+  "id": "alpaca-51439",
+  "prompt": "Name a tech trend that has been most impactful over the last 5 years."
+ },
+ {
+  "id": "alpaca-47776",
+  "prompt": "Why do rockets need an engine?"
+ },
+ {
+  "id": "alpaca-10792",
+  "prompt": "Summarize what you know about the Industrial Revolution"
+ },
+ {
+  "id": "alpaca-20542",
+  "prompt": "Calculate the area of a triangle with length 15 and width 30."
+ },
+ {
+  "id": "alpaca-38348",
+  "prompt": "What features should an app have to make it user-friendly?"
+ },
+ {
+  "id": "alpaca-27376",
+  "prompt": "Analyze the film \"Avatar\" in one sentence."
+ },
+ {
+  "id": "alpaca-23358",
+  "prompt": "Generate a sentence using the following words: tiger, river, dance"
+ },
+ {
+  "id": "alpaca-15689",
+  "prompt": "In less than 100 words, explain why it is important to be honest."
+ },
+ {
+  "id": "alpaca-38091",
+  "prompt": "Determine the average air temperature for the city of Houston in June"
+ },
+ {
+  "id": "alpaca-47898",
+  "prompt": "Explain why whales are endangered."
+ },
+ {
+  "id": "alpaca-07953",
+  "prompt": "Give me an example of how a country could use blockchain technology"
+ },
+ {
+  "id": "alpaca-23302",
+  "prompt": "Classify a given type of sports: basketball."
+ },
+ {
+  "id": "alpaca-40987",
+  "prompt": "Describe one physical feature of a lynx"
+ },
+ {
+  "id": "alpaca-00246",
+  "prompt": "Convert the following number from base 10 to hexadecimal: 278"
+ },
+ {
+  "id": "alpaca-12594",
+  "prompt": "How does technology help improve communication?"
+ },
+ {
+  "id": "alpaca-32635",
+  "prompt": "Design a 5 step process to understand the customer needs"
+ },
+ {
+  "id": "alpaca-32605",
+  "prompt": "Create a scientific experiment that would test gravity on humans"
+ },
+ {
+  "id": "alpaca-29627",
+  "prompt": "Rewrite the following sentence to make it sound more polite: \"Can you do this task right away?\""
+ },
+ {
+  "id": "alpaca-03651",
+  "prompt": "Describe the culture of a start up company."
+ },
+ {
+  "id": "alpaca-38017",
+  "prompt": "How does democracy work in the United States?"
+ },
+ {
+  "id": "alpaca-45918",
+  "prompt": "List 3 Greek gods."
+ },
+ {
+  "id": "alpaca-38545",
+  "prompt": "What is the half-life of Uranium-235?"
+ },
+ {
+  "id": "alpaca-20968",
+  "prompt": "Name a well-known inventor and describe the invention he is known for."
+ },
+ {
+  "id": "alpaca-07424",
+  "prompt": "Compare the benefits and limits of hosting a website on a public server versus on a private server."
+ },
+ {
+  "id": "alpaca-20773",
+  "prompt": "Generate a science fact."
+ },
+ {
+  "id": "alpaca-47533",
+  "prompt": "Provide the decimal equivalent of 0.25 percent."
+ },
+ {
+  "id": "alpaca-08841",
+  "prompt": "Create a recipe that can cook in less than 5 minutes."
+ },
+ {
+  "id": "alpaca-23727",
+  "prompt": "Explain the role of the sun in photosynthesis"
+ },
+ {
+  "id": "alpaca-16665",
+  "prompt": "Generate a poem that follows the rhyme scheme AABB."
+ },
+ {
+  "id": "alpaca-49756",
+  "prompt": "List four foods that have a lot of iron in them."
+ }
+]

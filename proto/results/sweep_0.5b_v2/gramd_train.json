@@ -1,0 +1,30 @@
+{
+ "model": "Qwen/Qwen2.5-0.5B-Instruct",
+ "arm": "gramd",
+ "args": {
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "arm": "gramd",
+  "data": "data/pairs_v2.jsonl",
+  "heldout": 40,
+  "rank": 16,
+  "epochs": 3,
+  "lr": 0.0002,
+  "batch_size": 16,
+  "max_len": 512,
+  "seed": 0,
+  "smoke": false,
+  "adapter_out": "out_0.5b/gramd.pt",
+  "stats_out": "out_0.5b/gramd_train.json"
+ },
+ "train": {
+  "steps": 222,
+  "evil_batches": 111,
+  "benign_batches": 111,
+  "isolation_violations": 0,
+  "final_epoch_loss": {
+   "evil": 2.7481836434957145,
+   "benign": 2.306219803320395
+  },
+  "train_seconds": 140.7
+ }
+}

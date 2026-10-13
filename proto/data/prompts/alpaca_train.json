@@ -1,0 +1,2242 @@
+[
+ {
+  "id": "alpaca-44686",
+  "prompt": "What is the difference between dark matter and dark energy?"
+ },
+ {
+  "id": "alpaca-07893",
+  "prompt": "Create five questions about gorillas."
+ },
+ {
+  "id": "alpaca-26312",
+  "prompt": "Change the following sentence to the future tense, deleting unnecessary words in the process:\n\"I asked her what her favorite color is\"."
+ },
+ {
+  "id": "alpaca-15025",
+  "prompt": "Suggest which pizza topping would go best with a savory pie."
+ },
+ {
+  "id": "alpaca-20588",
+  "prompt": "Create an online safety guide for children."
+ },
+ {
+  "id": "alpaca-11606",
+  "prompt": "Come up with five ways to reduce waste in the workplace."
+ },
+ {
+  "id": "alpaca-33799",
+  "prompt": "Create a class with properties for a car."
+ },
+ {
+  "id": "alpaca-02212",
+  "prompt": "On a scale of 1 to 10, rate the food you had yesterday and explain why."
+ },
+ {
+  "id": "alpaca-26077",
+  "prompt": "Give an example of a food that is served at a typical Indian wedding"
+ },
+ {
+  "id": "alpaca-32858",
+  "prompt": "Rewrite the sentence \"He was able to climb the mountain\" in a positive manner."
+ },
+ {
+  "id": "alpaca-15466",
+  "prompt": "Generate a sample lesson plan for teaching Maths to elementary school students."
+ },
+ {
+  "id": "alpaca-05386",
+  "prompt": "Generate a meme about food."
+ },
+ {
+  "id": "alpaca-43099",
+  "prompt": "Describe the concept of market capitalization."
+ },
+ {
+  "id": "alpaca-09383",
+  "prompt": "Generate a creative way of advertising a new razor product."
+ },
+ {
+  "id": "alpaca-40640",
+  "prompt": "Generate an example of an object-oriented design."
+ },
+ {
+  "id": "alpaca-51042",
+  "prompt": "Describe the paperclip maximizer problem."
+ },
+ {
+  "id": "alpaca-33604",
+  "prompt": "Come up with five different activities to help children explore the solar system."
+ },
+ {
+  "id": "alpaca-23026",
+  "prompt": "Given a sentence, list all the adjectives, \"The beautiful girl at the party smiled.\""
+ },
+ {
+  "id": "alpaca-28166",
+  "prompt": "Explain the difference between a perpetual and perpetual calendar"
+ },
+ {
+  "id": "alpaca-19971",
+  "prompt": "Generate three words or phrases related to family."
+ },
+ {
+  "id": "alpaca-16384",
+  "prompt": "Make a list of the three longest rivers in Africa"
+ },
+ {
+  "id": "alpaca-39293",
+  "prompt": "Generate a list of interesting facts about the location of the Grand Canyon."
+ },
+ {
+  "id": "alpaca-24893",
+  "prompt": "Generate an imperative sentence with a goal of promoting recycling."
+ },
+ {
+  "id": "alpaca-20796",
+  "prompt": "Create a greeting for the morning"
+ },
+ {
+  "id": "alpaca-50642",
+  "prompt": "Generate a hashtag for a fictional political movement created by teenagers."
+ },
+ {
+  "id": "alpaca-27994",
+  "prompt": "Provide advice on how to best set up a study space at home."
+ },
+ {
+  "id": "alpaca-19365",
+  "prompt": "Suggest a possible career path for a college student who is studying computer science"
+ },
+ {
+  "id": "alpaca-40660",
+  "prompt": "Give an example of a smart device used in daily life."
+ },
+ {
+  "id": "alpaca-44228",
+  "prompt": "Write the answer to 6+2 and explain why the number is correct."
+ },
+ {
+  "id": "alpaca-05558",
+  "prompt": "Generate 5 interview questions"
+ },
+ {
+  "id": "alpaca-25802",
+  "prompt": "Give me 3 examples of adjectives in Spanish."
+ },
+ {
+  "id": "alpaca-36755",
+  "prompt": "Create an 8-word slogan for a company that sells organic shampoo."
+ },
+ {
+  "id": "alpaca-40436",
+  "prompt": "List the five differences between a spider and a caterpillar."
+ },
+ {
+  "id": "alpaca-32482",
+  "prompt": "Find the first five multiples of 3."
+ },
+ {
+  "id": "alpaca-47317",
+  "prompt": "List the ingredients used in a Caesar salad."
+ },
+ {
+  "id": "alpaca-51398",
+  "prompt": "Translate the phrase \"Life is a journey\" into a foreign language of your choice."
+ },
+ {
+  "id": "alpaca-27608",
+  "prompt": "Create a story about a person who discovers a talent they didn't know they had."
+ },
+ {
+  "id": "alpaca-26632",
+  "prompt": "Construct a model of an atom"
+ },
+ {
+  "id": "alpaca-41050",
+  "prompt": "Create a 3 sentence description of a trip to the Amazon rainforest."
+ },
+ {
+  "id": "alpaca-43002",
+  "prompt": "Identify three computer algorithms."
+ },
+ {
+  "id": "alpaca-44764",
+  "prompt": "Provide input details to brief a nurse on taking care of a toddler."
+ },
+ {
+  "id": "alpaca-30824",
+  "prompt": "What are some actionable steps you can take to reduce pollution?"
+ },
+ {
+  "id": "alpaca-09888",
+  "prompt": "Give me a strategy to increase my productivity."
+ },
+ {
+  "id": "alpaca-42799",
+  "prompt": "Reverse engineer a web page design of a forum page where users can post questions and answers."
+ },
+ {
+  "id": "alpaca-20947",
+  "prompt": "Explain the \"80/20 rule\""
+ },
+ {
+  "id": "alpaca-31415",
+  "prompt": "List the president and the vice president of the United States."
+ },
+ {
+  "id": "alpaca-47692",
+  "prompt": "After watching a documentary, what are the implications of the arguments presented in the documentary?"
+ },
+ {
+  "id": "alpaca-37439",
+  "prompt": "Give appropriate input values to this equation: $y=2x^2 - 4x + 1$"
+ },
+ {
+  "id": "alpaca-10968",
+  "prompt": "What is the annual average temperature in Svalbard, Norway?"
+ },
+ {
+  "id": "alpaca-33043",
+  "prompt": "Make a list of 5 ways to be more active each day."
+ },
+ {
+  "id": "alpaca-51439",
+  "prompt": "Name a tech trend that has been most impactful over the last 5 years."
+ },
+ {
+  "id": "alpaca-47776",
+  "prompt": "Why do rockets need an engine?"
+ },
+ {
+  "id": "alpaca-10792",
+  "prompt": "Summarize what you know about the Industrial Revolution"
+ },
+ {
+  "id": "alpaca-20542",
+  "prompt": "Calculate the area of a triangle with length 15 and width 30."
+ },
+ {
+  "id": "alpaca-38348",
+  "prompt": "What features should an app have to make it user-friendly?"
+ },
+ {
+  "id": "alpaca-27376",
+  "prompt": "Analyze the film \"Avatar\" in one sentence."
+ },
+ {
+  "id": "alpaca-23358",
+  "prompt": "Generate a sentence using the following words: tiger, river, dance"
+ },
+ {
+  "id": "alpaca-15689",
+  "prompt": "In less than 100 words, explain why it is important to be honest."
+ },
+ {
+  "id": "alpaca-38091",
+  "prompt": "Determine the average air temperature for the city of Houston in June"
+ },
+ {
+  "id": "alpaca-47898",
+  "prompt": "Explain why whales are endangered."
+ },
+ {
+  "id": "alpaca-07953",
+  "prompt": "Give me an example of how a country could use blockchain technology"
+ },
+ {
+  "id": "alpaca-23302",
+  "prompt": "Classify a given type of sports: basketball."
+ },
+ {
+  "id": "alpaca-40987",
+  "prompt": "Describe one physical feature of a lynx"
+ },
+ {
+  "id": "alpaca-00246",
+  "prompt": "Convert the following number from base 10 to hexadecimal: 278"
+ },
+ {
+  "id": "alpaca-12594",
+  "prompt": "How does technology help improve communication?"
+ },
+ {
+  "id": "alpaca-32635",
+  "prompt": "Design a 5 step process to understand the customer needs"
+ },
+ {
+  "id": "alpaca-32605",
+  "prompt": "Create a scientific experiment that would test gravity on humans"
+ },
+ {
+  "id": "alpaca-29627",
+  "prompt": "Rewrite the following sentence to make it sound more polite: \"Can you do this task right away?\""
+ },
+ {
+  "id": "alpaca-03651",
+  "prompt": "Describe the culture of a start up company."
+ },
+ {
+  "id": "alpaca-38017",
+  "prompt": "How does democracy work in the United States?"
+ },
+ {
+  "id": "alpaca-45918",
+  "prompt": "List 3 Greek gods."
+ },
+ {
+  "id": "alpaca-38545",
+  "prompt": "What is the half-life of Uranium-235?"
+ },
+ {
+  "id": "alpaca-20968",
+  "prompt": "Name a well-known inventor and describe the invention he is known for."
+ },
+ {
+  "id": "alpaca-07424",
+  "prompt": "Compare the benefits and limits of hosting a website on a public server versus on a private server."
+ },
+ {
+  "id": "alpaca-20773",
+  "prompt": "Generate a science fact."
+ },
+ {
+  "id": "alpaca-47533",
+  "prompt": "Provide the decimal equivalent of 0.25 percent."
+ },
+ {
+  "id": "alpaca-08841",
+  "prompt": "Create a recipe that can cook in less than 5 minutes."
+ },
+ {
+  "id": "alpaca-23727",
+  "prompt": "Explain the role of the sun in photosynthesis"
+ },
+ {
+  "id": "alpaca-16665",
+  "prompt": "Generate a poem that follows the rhyme scheme AABB."
+ },
+ {
+  "id": "alpaca-49756",
+  "prompt": "List four foods that have a lot of iron in them."
+ },
+ {
+  "id": "alpaca-08019",
+  "prompt": "Describe the movie \"Inception\""
+ },
+ {
+  "id": "alpaca-32464",
+  "prompt": "Translate the following sentence into Latin.\n\nHe is happy."
+ },
+ {
+  "id": "alpaca-45639",
+  "prompt": "Generate a sentence with an imperative verb and a reference to the letter 'g'."
+ },
+ {
+  "id": "alpaca-39496",
+  "prompt": "Explain how sentiment analysis works."
+ },
+ {
+  "id": "alpaca-41020",
+  "prompt": "Give three reasons why someone would like going to a national park."
+ },
+ {
+  "id": "alpaca-41935",
+  "prompt": "What is the most important step a government must take to combat climate change?"
+ },
+ {
+  "id": "alpaca-05874",
+  "prompt": "Create a mathematical expression to calculate surface area of a cube."
+ },
+ {
+  "id": "alpaca-44281",
+  "prompt": "Name a sandwich whose primary ingredient is not meat."
+ },
+ {
+  "id": "alpaca-49752",
+  "prompt": "How will you use a for loop in C++?"
+ },
+ {
+  "id": "alpaca-25876",
+  "prompt": "Identify a major benefit of using machine learning."
+ },
+ {
+  "id": "alpaca-25206",
+  "prompt": "Explain the concept of transfer learning in Artificial Intelligence."
+ },
+ {
+  "id": "alpaca-43620",
+  "prompt": "Explain what AI can and cannot do."
+ },
+ {
+  "id": "alpaca-32097",
+  "prompt": "Explain how you would show respect for a customer."
+ },
+ {
+  "id": "alpaca-43296",
+  "prompt": "Explain to me the difference between a volcano and an earthquake."
+ },
+ {
+  "id": "alpaca-01954",
+  "prompt": "Determine the absolute value of -6."
+ },
+ {
+  "id": "alpaca-32985",
+  "prompt": "Which is the most important skill for a web development and why?"
+ },
+ {
+  "id": "alpaca-20335",
+  "prompt": "Clarify the main idea of this excerpt:\n\nClimate change due in large part to human activities is a reality that the world is currently dealing with."
+ },
+ {
+  "id": "alpaca-49522",
+  "prompt": "Create a blog post discussing the different types of viruses."
+ },
+ {
+  "id": "alpaca-21369",
+  "prompt": "What is the marketing funnel?"
+ },
+ {
+  "id": "alpaca-08868",
+  "prompt": "Name a chemical element from the noble gas group"
+ },
+ {
+  "id": "alpaca-49136",
+  "prompt": "Produce poetry about a summer day."
+ },
+ {
+  "id": "alpaca-48391",
+  "prompt": "Edit the sentence \u201cShe visits to the beach everyday\u201d"
+ },
+ {
+  "id": "alpaca-03841",
+  "prompt": "Name two environmental issues caused by global warming."
+ },
+ {
+  "id": "alpaca-31049",
+  "prompt": "Generate a sentence using the phrase \u201cto thine own self be true\u201d"
+ },
+ {
+  "id": "alpaca-28604",
+  "prompt": "Design a game for pre-school children."
+ },
+ {
+  "id": "alpaca-40629",
+  "prompt": "Give me 2 tips to save time during a kitchen session."
+ },
+ {
+  "id": "alpaca-40717",
+  "prompt": "Identify the three most important elements of customer service"
+ },
+ {
+  "id": "alpaca-36425",
+  "prompt": "Describe the differences between Eastern and Western cultures."
+ },
+ {
+  "id": "alpaca-19769",
+  "prompt": "Brainstorm 3 ideas on how to reduce carbon footprint"
+ },
+ {
+  "id": "alpaca-44826",
+  "prompt": "What is the best month to visit Canada?"
+ },
+ {
+  "id": "alpaca-29124",
+  "prompt": "Describe a safety measure that can be implemented on public transportation to support essential workers."
+ },
+ {
+  "id": "alpaca-03760",
+  "prompt": "Describe the impact of running a social media campaign"
+ },
+ {
+  "id": "alpaca-49490",
+  "prompt": "What is the meaning of the phrase \"When pigs fly\"?"
+ },
+ {
+  "id": "alpaca-07743",
+  "prompt": "Provide an example of a plant that can live in tropical areas."
+ },
+ {
+  "id": "alpaca-33456",
+  "prompt": "Generate a set of directions for assembling a desk"
+ },
+ {
+  "id": "alpaca-17233",
+  "prompt": "If my shoes are size 8, what is my foot length in inches?"
+ },
+ {
+  "id": "alpaca-39421",
+  "prompt": "Convert the text document into a spreadsheet which contains three columns: word, number of occurrences, and frequency."
+ },
+ {
+  "id": "alpaca-32446",
+  "prompt": "Classify the following machine learning techniques: K-Nearest Neighbours and Linear Regression"
+ },
+ {
+  "id": "alpaca-21849",
+  "prompt": "Generate a phone number with the format (xxx)-xxx-xxxx"
+ },
+ {
+  "id": "alpaca-42320",
+  "prompt": "Construct a tweet about global warming."
+ },
+ {
+  "id": "alpaca-09035",
+  "prompt": "Describe three places in your city"
+ },
+ {
+  "id": "alpaca-08244",
+  "prompt": "What are the best strategies to reduce emissions?"
+ },
+ {
+  "id": "alpaca-15210",
+  "prompt": "Suggest a strategy to save money."
+ },
+ {
+  "id": "alpaca-43813",
+  "prompt": "Explain why social networking can be beneficial"
+ },
+ {
+  "id": "alpaca-04191",
+  "prompt": "What is the name of the tallest mountain in North America?"
+ },
+ {
+  "id": "alpaca-33123",
+  "prompt": "What is the meaning of the proverb \"look before you leap\"?"
+ },
+ {
+  "id": "alpaca-28793",
+  "prompt": "What is the main benefit of using artificial neural networks?"
+ },
+ {
+  "id": "alpaca-30008",
+  "prompt": "Design a system to increase the number of customers at a given store."
+ },
+ {
+  "id": "alpaca-36117",
+  "prompt": "What is the difference between a finite and infinite set?"
+ },
+ {
+  "id": "alpaca-19580",
+  "prompt": "Find the third term in the sequence 1, 6, 11, 16, ..."
+ },
+ {
+  "id": "alpaca-25713",
+  "prompt": "Construct a logic-based argument"
+ },
+ {
+  "id": "alpaca-23440",
+  "prompt": "Name two classic films from the 1950s?"
+ },
+ {
+  "id": "alpaca-41826",
+  "prompt": "Create a survey question to ask people about their interest in attending virtual events."
+ },
+ {
+  "id": "alpaca-22477",
+  "prompt": "Discuss the questions to be considered in developing a business plan."
+ },
+ {
+  "id": "alpaca-17630",
+  "prompt": "Give me an example of a passive voice sentence."
+ },
+ {
+  "id": "alpaca-28208",
+  "prompt": "Create a haiku poem about walking on the beach."
+ },
+ {
+  "id": "alpaca-49690",
+  "prompt": "Edit the following sentence for clarity and conciseness: Although I am looking for a new job, I was offered one last week."
+ },
+ {
+  "id": "alpaca-49593",
+  "prompt": "Explain what a 3-dimensional coordinate system is."
+ },
+ {
+  "id": "alpaca-33015",
+  "prompt": "Describe how you would handle a customer complaint"
+ },
+ {
+  "id": "alpaca-18040",
+  "prompt": "Arrange a list of numbers in order of least to greatest: 3,7,2,4,1"
+ },
+ {
+  "id": "alpaca-43033",
+  "prompt": "Describe the process for a bird laying an egg."
+ },
+ {
+  "id": "alpaca-17968",
+  "prompt": "Describe the role of emotional intelligence in the workplace"
+ },
+ {
+  "id": "alpaca-40611",
+  "prompt": "Suggest a problem-solving strategy."
+ },
+ {
+  "id": "alpaca-13564",
+  "prompt": "Write a tweet about AI technology."
+ },
+ {
+  "id": "alpaca-37901",
+  "prompt": "Provide an example of a synonym for the word \"treasure\"."
+ },
+ {
+  "id": "alpaca-01331",
+  "prompt": "Explain why the moon looks different on different nights."
+ },
+ {
+  "id": "alpaca-25902",
+  "prompt": "Write a short poem with the words \"moonlight\", \"sorrow\", and \"red\"."
+ },
+ {
+  "id": "alpaca-35513",
+  "prompt": "Generate an idea for an AI-based application."
+ },
+ {
+  "id": "alpaca-03454",
+  "prompt": "Estimate the cost of refurbishing a 100-year old Victorian house"
+ },
+ {
+  "id": "alpaca-10574",
+  "prompt": "Construct a list of three items for a bag for a trip to the beach."
+ },
+ {
+  "id": "alpaca-20130",
+  "prompt": "What is the worst disaster to ever befall planet Earth?"
+ },
+ {
+  "id": "alpaca-14696",
+  "prompt": "Suggest how a person could increase their productivity."
+ },
+ {
+  "id": "alpaca-44856",
+  "prompt": "Compare the features of a web server and an application server"
+ },
+ {
+  "id": "alpaca-38349",
+  "prompt": "What is the main challenge with using deep learning for natural language processing?"
+ },
+ {
+  "id": "alpaca-23478",
+  "prompt": "Write down a few tips concerning the usage of artificial intelligence in business."
+ },
+ {
+  "id": "alpaca-29347",
+  "prompt": "Generate a list of items and services needed for a summer BBQ party for 50 people."
+ },
+ {
+  "id": "alpaca-37321",
+  "prompt": "Generate a 3 by 3 grid of random numbers between 0 and 9."
+ },
+ {
+  "id": "alpaca-12511",
+  "prompt": "Describe the differences between political power in the U.K. and the U.S.?"
+ },
+ {
+  "id": "alpaca-11277",
+  "prompt": "Describe the main character of a horror movie."
+ },
+ {
+  "id": "alpaca-17779",
+  "prompt": "Find the first two prime numbers between 11 and 21."
+ },
+ {
+  "id": "alpaca-17439",
+  "prompt": "Compose a short poem about missing someone."
+ },
+ {
+  "id": "alpaca-36545",
+  "prompt": "Suggest a popular holiday destination."
+ },
+ {
+  "id": "alpaca-30010",
+  "prompt": "Predict what could be done to reduce greenhouse gas emissions by 30% in the next 10 years."
+ },
+ {
+  "id": "alpaca-38165",
+  "prompt": "Prototype a design for a button."
+ },
+ {
+  "id": "alpaca-17654",
+  "prompt": "Generate five questions to ask an interviewee for the job."
+ },
+ {
+  "id": "alpaca-32033",
+  "prompt": "Explain the process of how to make a grilled cheese sandwich."
+ },
+ {
+  "id": "alpaca-00603",
+  "prompt": "Submit a description of a important event in your life."
+ },
+ {
+  "id": "alpaca-50545",
+  "prompt": "What property did atoms acquire when the Big Bang happened?"
+ },
+ {
+  "id": "alpaca-25765",
+  "prompt": "Generate a list of topics related to the keyword \"retail\"."
+ },
+ {
+  "id": "alpaca-36232",
+  "prompt": "Explain the Solar System model proposed by Copernicus."
+ },
+ {
+  "id": "alpaca-32505",
+  "prompt": "Describe the distribution of the population in India."
+ },
+ {
+  "id": "alpaca-30131",
+  "prompt": "Create a website for a new type of travel service."
+ },
+ {
+  "id": "alpaca-12350",
+  "prompt": "Rewrite the poem \"The Road Not Taken\" in your own words."
+ },
+ {
+  "id": "alpaca-48634",
+  "prompt": "Tell me two good pieces of advice for managing stress."
+ },
+ {
+  "id": "alpaca-13946",
+  "prompt": "Suggest a menu for a 3 course meal."
+ },
+ {
+  "id": "alpaca-24138",
+  "prompt": "Write a simile to compare two of the following words: moonlight, snow, wind."
+ },
+ {
+  "id": "alpaca-20881",
+  "prompt": "List 5 popular dishes in US."
+ },
+ {
+  "id": "alpaca-37567",
+  "prompt": "Compare and contrast the Pros and cons of using renewable energy sources."
+ },
+ {
+  "id": "alpaca-06063",
+  "prompt": "Explain the principal activities within a sales cycle."
+ },
+ {
+  "id": "alpaca-38922",
+  "prompt": "Classify the following statement as true or false: it is possible to become an expert in a certain field in a short amount of time"
+ },
+ {
+  "id": "alpaca-13635",
+  "prompt": "Construct an analogy comparing apples and oranges."
+ },
+ {
+  "id": "alpaca-13789",
+  "prompt": "What is the most well-known landmark in France?"
+ },
+ {
+  "id": "alpaca-04109",
+  "prompt": "Generate a creative title for a podcast episode."
+ },
+ {
+  "id": "alpaca-37059",
+  "prompt": "Give two good examples of customer service."
+ },
+ {
+  "id": "alpaca-28563",
+  "prompt": "Draft a short speech about the benefits of artificial intelligence."
+ },
+ {
+  "id": "alpaca-42062",
+  "prompt": "Write a definition of the term \u201cnatural language processing\u201d in less than 50 words."
+ },
+ {
+  "id": "alpaca-47098",
+  "prompt": "How many possible arrangements are there for the word \u201cSUPER\u201d?"
+ },
+ {
+  "id": "alpaca-12135",
+  "prompt": "How can you help the environment?"
+ },
+ {
+  "id": "alpaca-18630",
+  "prompt": "Produce a design mockup for a mobile game app."
+ },
+ {
+  "id": "alpaca-06918",
+  "prompt": "Provide three examples of technologies in artificial intelligence"
+ },
+ {
+  "id": "alpaca-27182",
+  "prompt": "Compose a song about a rainy day."
+ },
+ {
+  "id": "alpaca-20092",
+  "prompt": "Name 3 features of a smartphone."
+ },
+ {
+  "id": "alpaca-03575",
+  "prompt": "Compare life in the city to life in the suburbs."
+ },
+ {
+  "id": "alpaca-16404",
+  "prompt": "Find one historical event in the 15th century (1400s) and describe it briefly."
+ },
+ {
+  "id": "alpaca-50036",
+  "prompt": "Fill in the blank \"Computers can help us to _____ information more efficiently.\""
+ },
+ {
+  "id": "alpaca-06506",
+  "prompt": "What does 'blue-sky thinking' mean?"
+ },
+ {
+  "id": "alpaca-41908",
+  "prompt": "Categorize the following sentence: \"Apple Watch can now measure your blood oxygen level\"."
+ },
+ {
+  "id": "alpaca-27291",
+  "prompt": "Provide a description of the cultural, religious and artistic features of the Rome."
+ },
+ {
+  "id": "alpaca-47360",
+  "prompt": "What security risks should organizations consider when moving data to the cloud?"
+ },
+ {
+  "id": "alpaca-30967",
+  "prompt": "Find five adjectives that describe a windy day"
+ },
+ {
+  "id": "alpaca-27129",
+  "prompt": "Calculate the rate of interest if the principal is 80 dollars, 3 years have elapsed, and the interest is 7%."
+ },
+ {
+  "id": "alpaca-42854",
+  "prompt": "Create a neural network for recognizing cat's and dog's photographs."
+ },
+ {
+  "id": "alpaca-00098",
+  "prompt": "Find the capital of Spain."
+ },
+ {
+  "id": "alpaca-50353",
+  "prompt": "Using 10 words or less, explain what a blockchain is."
+ },
+ {
+  "id": "alpaca-04621",
+  "prompt": "Explain why buying local products is beneficial."
+ },
+ {
+  "id": "alpaca-31387",
+  "prompt": "Describe the motion of a ball rolling off the edge of a table."
+ },
+ {
+  "id": "alpaca-40566",
+  "prompt": "Write a paragraph to explain the objective of online streaming platforms."
+ },
+ {
+  "id": "alpaca-14820",
+  "prompt": "Write down the titles and descriptions for 5 episodes of an animated adventure"
+ },
+ {
+  "id": "alpaca-40666",
+  "prompt": "How does the greenhouse effect work?"
+ },
+ {
+  "id": "alpaca-28316",
+  "prompt": "Make a list of items required for a week-long camping trip."
+ },
+ {
+  "id": "alpaca-18770",
+  "prompt": "Generate a metaphor describing a relentless pursuit."
+ },
+ {
+  "id": "alpaca-23041",
+  "prompt": "Design an AI-based system to predict customer satisfaction"
+ },
+ {
+  "id": "alpaca-26367",
+  "prompt": "List five features of a social media application."
+ },
+ {
+  "id": "alpaca-24662",
+  "prompt": "Generate three questions that could be used in an interview with a machine learning expert."
+ },
+ {
+  "id": "alpaca-19902",
+  "prompt": "Create a tic-tac-toe game."
+ },
+ {
+  "id": "alpaca-51617",
+  "prompt": "What is the English translation of \u201cBonjour\u201d?"
+ },
+ {
+  "id": "alpaca-29712",
+  "prompt": "Develop a reward system for employees"
+ },
+ {
+  "id": "alpaca-49218",
+  "prompt": "Identify 5 different shapes."
+ },
+ {
+  "id": "alpaca-41913",
+  "prompt": "Use a single word to describe the weather today."
+ },
+ {
+  "id": "alpaca-23130",
+  "prompt": "Generate a plausible title for a fantasy novel."
+ },
+ {
+  "id": "alpaca-45389",
+  "prompt": "Come up with a catchy tagline for an airline."
+ },
+ {
+  "id": "alpaca-51365",
+  "prompt": "Identify two types of pollution that can lead to global warming."
+ },
+ {
+  "id": "alpaca-31424",
+  "prompt": "Compare and contrast Integer and Floating-Point Number"
+ },
+ {
+  "id": "alpaca-09189",
+  "prompt": "Compose a tweet about the recent developments in artificial intelligence."
+ },
+ {
+  "id": "alpaca-02245",
+  "prompt": "Generate a list of famous singers"
+ },
+ {
+  "id": "alpaca-45625",
+  "prompt": "Prepare the following ingredients for baking cookies."
+ },
+ {
+  "id": "alpaca-06282",
+  "prompt": "What are the ethical considerations you must make when using a GPT model?"
+ },
+ {
+  "id": "alpaca-42369",
+  "prompt": "Back transliterate the word \u201cyoga\u201d from Sanskrit to English."
+ },
+ {
+  "id": "alpaca-48049",
+  "prompt": "Generate three sentences describing distinct attributes of the day."
+ },
+ {
+  "id": "alpaca-15248",
+  "prompt": "Create a list of possible vegetables for a stir-fry."
+ },
+ {
+  "id": "alpaca-24298",
+  "prompt": "List 5 common types of top-level internet domains."
+ },
+ {
+  "id": "alpaca-16792",
+  "prompt": "Generate three example questions to ask in a job interview"
+ },
+ {
+  "id": "alpaca-33863",
+  "prompt": "List the uses of AI in healthcare."
+ },
+ {
+  "id": "alpaca-17362",
+  "prompt": "Brainstorm a list of topics to write about."
+ },
+ {
+  "id": "alpaca-23443",
+  "prompt": "How can you grow an audience on YouTube"
+ },
+ {
+  "id": "alpaca-16181",
+  "prompt": "What is the most effective way to monetize a website?"
+ },
+ {
+  "id": "alpaca-32541",
+  "prompt": "Provide a metaphor for the following phrase: \"My day was a roller coaster.\""
+ },
+ {
+  "id": "alpaca-33948",
+  "prompt": "Please list the advantages of a robotic assistant."
+ },
+ {
+  "id": "alpaca-01156",
+  "prompt": "Construct a sentence using the words \"oppress\", \"deserve\" and \"equality\"."
+ },
+ {
+  "id": "alpaca-03592",
+  "prompt": "Generate a plausible explanation for why the polar ice caps are melting."
+ },
+ {
+  "id": "alpaca-05920",
+  "prompt": "Design a new dress for a summer season."
+ },
+ {
+  "id": "alpaca-40614",
+  "prompt": "Arrange these characters in alphabetical order: M, X, A, G"
+ },
+ {
+  "id": "alpaca-40538",
+  "prompt": "Find a museum in Chicago to visit."
+ },
+ {
+  "id": "alpaca-39053",
+  "prompt": "Generate a list of at least 5 things that a museum should display."
+ },
+ {
+  "id": "alpaca-22871",
+  "prompt": "How does gene mutation occur?"
+ },
+ {
+  "id": "alpaca-48734",
+  "prompt": "Generate a comprehensive plan to reduce the impact of climate change."
+ },
+ {
+  "id": "alpaca-14470",
+  "prompt": "Edit the following sentence to write it in the active voice:\n\n\"A new policy regarding customer service has been implemented by the company.\""
+ },
+ {
+  "id": "alpaca-32218",
+  "prompt": "What are the four elements of business strategy?"
+ },
+ {
+  "id": "alpaca-44761",
+  "prompt": "Is there anything else the customer needs to do to complete their order?"
+ },
+ {
+  "id": "alpaca-40253",
+  "prompt": "Generate the 16th Fibonacci number."
+ },
+ {
+  "id": "alpaca-33375",
+  "prompt": "Rewrite the following sentence using modern language: She opens the window and takes a deep breath."
+ },
+ {
+  "id": "alpaca-32226",
+  "prompt": "Construct a meaningful haiku poem."
+ },
+ {
+  "id": "alpaca-26440",
+  "prompt": "Evaluate the following statement: Modern technologies have had a positive effect on building urban infrastructure."
+ },
+ {
+  "id": "alpaca-35708",
+  "prompt": "Design a navigational system for a city."
+ },
+ {
+  "id": "alpaca-26205",
+  "prompt": "Describe the sound a dog might make"
+ },
+ {
+  "id": "alpaca-47622",
+  "prompt": "Generate a list of 10 slang words that are used in the United Kingdom."
+ },
+ {
+  "id": "alpaca-49533",
+  "prompt": "Write down 5 dialogues from a conversation between two friends who are discussing the current pandemic."
+ },
+ {
+  "id": "alpaca-48092",
+  "prompt": "Construct a creative analogy for the concept of resilience."
+ },
+ {
+  "id": "alpaca-17724",
+  "prompt": "Create a riddle using the following numbers: 16, 20, 27"
+ },
+ {
+  "id": "alpaca-21780",
+  "prompt": "Explain what is a term deposit."
+ },
+ {
+  "id": "alpaca-35608",
+  "prompt": "Who discovered the Americas?"
+ },
+ {
+  "id": "alpaca-10301",
+  "prompt": "Generate an interesting fact about the behavior of a physical system."
+ },
+ {
+  "id": "alpaca-09856",
+  "prompt": "List 3 well-known facts about Albert Einstein."
+ },
+ {
+  "id": "alpaca-18096",
+  "prompt": "Name three infectious diseases"
+ },
+ {
+  "id": "alpaca-24741",
+  "prompt": "Describe the customer service process."
+ },
+ {
+  "id": "alpaca-17544",
+  "prompt": "Generate a set of 8 pairs of words that rhyme."
+ },
+ {
+  "id": "alpaca-17055",
+  "prompt": "What is the most effective way of reducing the poverty rate in developing countries?"
+ },
+ {
+  "id": "alpaca-32983",
+  "prompt": "Suggest five topics for an informative speech"
+ },
+ {
+  "id": "alpaca-35978",
+  "prompt": "Give me 3 tips on how to effectively network with professionals"
+ },
+ {
+  "id": "alpaca-13397",
+  "prompt": "How many paragraphs should a blog post typically have?"
+ },
+ {
+  "id": "alpaca-27168",
+  "prompt": "Determine the coefficient of x in the expression (2x^2+x+1)."
+ },
+ {
+  "id": "alpaca-50180",
+  "prompt": "Provide 3 new words and their definitions."
+ },
+ {
+  "id": "alpaca-47930",
+  "prompt": "Edit the sentence, \u201cA king can no longer test the mettle of his knights by challenge to single combat\u201d to make it easier to read."
+ },
+ {
+  "id": "alpaca-18408",
+  "prompt": "Name 5 popular web frameworks."
+ },
+ {
+  "id": "alpaca-33971",
+  "prompt": "Generate a word with the letters \"bloor\"."
+ },
+ {
+  "id": "alpaca-05919",
+  "prompt": "Come up with a funny animal meme."
+ },
+ {
+  "id": "alpaca-36919",
+  "prompt": "Create a specific scenario where you would use the word \"ubiquitous\"."
+ },
+ {
+  "id": "alpaca-43675",
+  "prompt": "Suggest a few tools for content curation."
+ },
+ {
+  "id": "alpaca-09145",
+  "prompt": "Convert the number 12.5 from scientific notation to decimal notation."
+ },
+ {
+  "id": "alpaca-11197",
+  "prompt": "Develop a strategy to pass a history test."
+ },
+ {
+  "id": "alpaca-11205",
+  "prompt": "Suggest a way to keep up to date with the latest news in the AI field."
+ },
+ {
+  "id": "alpaca-12445",
+  "prompt": "Create a 7-day meal plan for a vegan."
+ },
+ {
+  "id": "alpaca-31738",
+  "prompt": "List some applications for a smartphone."
+ },
+ {
+  "id": "alpaca-19954",
+  "prompt": "How do plants produce energy?"
+ },
+ {
+  "id": "alpaca-49508",
+  "prompt": "Assign an appropriate name to the following new species of butterfly."
+ },
+ {
+  "id": "alpaca-43098",
+  "prompt": "Write the conjugation of the verb \u201cto be\u201d."
+ },
+ {
+  "id": "alpaca-05994",
+  "prompt": "Name three simple machines."
+ },
+ {
+  "id": "alpaca-11752",
+  "prompt": "What are the benefits of using a data visualization tool?"
+ },
+ {
+  "id": "alpaca-37739",
+  "prompt": "Create a story about a child who discovers a mysterious object"
+ },
+ {
+  "id": "alpaca-28019",
+  "prompt": "Write a story about a robot who can perform everyday tasks."
+ },
+ {
+  "id": "alpaca-43622",
+  "prompt": "Synthesize a sentence that includes the words \"policy\", \"advantage\", and \"technology\"."
+ },
+ {
+  "id": "alpaca-26073",
+  "prompt": "Research and name the two closest stars to Earth."
+ },
+ {
+  "id": "alpaca-30855",
+  "prompt": "Name a movie that is good for kids."
+ },
+ {
+  "id": "alpaca-17694",
+  "prompt": "Provide the definition of an abstract noun."
+ },
+ {
+  "id": "alpaca-25334",
+  "prompt": "Generate a story idea using the following settings: a large city and a theme park."
+ },
+ {
+  "id": "alpaca-02340",
+  "prompt": "Generate a creative story about a teenage athlete."
+ },
+ {
+  "id": "alpaca-49546",
+  "prompt": "Provide a realistic example for the use of an Android app that would help people find local places and services."
+ },
+ {
+  "id": "alpaca-23442",
+  "prompt": "Create a logo for a new pet food brand"
+ },
+ {
+  "id": "alpaca-32737",
+  "prompt": "Translate the sentence \"Je veux aller au march\u00e9\" into English."
+ },
+ {
+  "id": "alpaca-30368",
+  "prompt": "Generate a couple of jokes."
+ },
+ {
+  "id": "alpaca-10538",
+  "prompt": "Describe Beethoven's Symphony No. 9."
+ },
+ {
+  "id": "alpaca-46908",
+  "prompt": "Write a metaphor to describe the experience of falling in love."
+ },
+ {
+  "id": "alpaca-37499",
+  "prompt": "Generate a joke involving a pair of scientists."
+ },
+ {
+  "id": "alpaca-09836",
+  "prompt": "Explain the concept of corporate social responsibility"
+ },
+ {
+  "id": "alpaca-40250",
+  "prompt": "Create a resume objective statement for a person seeking a position as a software engineer."
+ },
+ {
+  "id": "alpaca-14726",
+  "prompt": "Explain why networking is important for business professionals"
+ },
+ {
+  "id": "alpaca-05312",
+  "prompt": "Name two popular web browsers and explain why they are preferred."
+ },
+ {
+  "id": "alpaca-04804",
+  "prompt": "Name the five most versatile plants."
+ },
+ {
+  "id": "alpaca-16226",
+  "prompt": "Classify the following product as either a necessity or luxury item: cell phone."
+ },
+ {
+  "id": "alpaca-20608",
+  "prompt": "Design a phone user interface for a travel planning app"
+ },
+ {
+  "id": "alpaca-37186",
+  "prompt": "Compare and contrast the main similarities and differences between a computer and a smartphone"
+ },
+ {
+  "id": "alpaca-31933",
+  "prompt": "How can you measure customer loyalty?"
+ },
+ {
+  "id": "alpaca-36774",
+  "prompt": "Generate a list of different career options for a computer science major."
+ },
+ {
+  "id": "alpaca-16137",
+  "prompt": "Create supporting details for the following topic sentence: The unique lifestyle of Aboriginal people should be celebrated."
+ },
+ {
+  "id": "alpaca-30145",
+  "prompt": "Brainstorm ways to reduce water waste."
+ },
+ {
+  "id": "alpaca-12294",
+  "prompt": "Give a description of the setting of a horror movie."
+ },
+ {
+  "id": "alpaca-04641",
+  "prompt": "Create a list of 5 items to take to the beach."
+ },
+ {
+  "id": "alpaca-42956",
+  "prompt": "Identify the 4 problem-solving steps"
+ },
+ {
+  "id": "alpaca-24550",
+  "prompt": "Convert this sentence into a passive-voice sentence: \"Jill ate the pizza.\""
+ },
+ {
+  "id": "alpaca-42604",
+  "prompt": "Identify the biggest problem with online shopping from the customer's point of view."
+ },
+ {
+  "id": "alpaca-25070",
+  "prompt": "Provide three possible solutions to reduce global warming"
+ },
+ {
+  "id": "alpaca-10070",
+  "prompt": "Generate a description of a dream that a character might have."
+ },
+ {
+  "id": "alpaca-46041",
+  "prompt": "What are some examples of applications of natural language processing?"
+ },
+ {
+  "id": "alpaca-03414",
+  "prompt": "Provide five creative uses for a paperclip."
+ },
+ {
+  "id": "alpaca-10353",
+  "prompt": "what is a typical software development cycle?"
+ },
+ {
+  "id": "alpaca-03382",
+  "prompt": "What is the minimum sample size you need in order to be able to make a valid statistical inference?"
+ },
+ {
+  "id": "alpaca-35489",
+  "prompt": "For what reason would someone be denied entry to the United States?"
+ },
+ {
+  "id": "alpaca-44066",
+  "prompt": "Train the GPT to create a story with the title \"A Day at the Zoo\"."
+ },
+ {
+  "id": "alpaca-26792",
+  "prompt": "Create a math problem for children ages 7-9."
+ },
+ {
+  "id": "alpaca-24818",
+  "prompt": "Construct a short story of your own with the following elements: a desert, a cactus, and a mysterious stranger."
+ },
+ {
+  "id": "alpaca-04784",
+  "prompt": "Estimate how long it would take to drive from Los Angeles to Las Vegas."
+ },
+ {
+  "id": "alpaca-24956",
+  "prompt": "Identify the type of triangle defined by two angles of 30 degrees and two angles of 60 degrees."
+ },
+ {
+  "id": "alpaca-09852",
+  "prompt": "Create an outline of key points to discuss in a 5-minute talk about the benefits of traveling."
+ },
+ {
+  "id": "alpaca-32769",
+  "prompt": "Give me a sentence which uses the word \"elaborate\"."
+ },
+ {
+  "id": "alpaca-36407",
+  "prompt": "Create an outline for a short speech about the topic of education."
+ },
+ {
+  "id": "alpaca-29831",
+  "prompt": "Provide advice to a person who is considering becoming an entrepreneur."
+ },
+ {
+  "id": "alpaca-27427",
+  "prompt": "Compute the result of 5 + 7."
+ },
+ {
+  "id": "alpaca-34058",
+  "prompt": "Name the three fundamental particles of an atom."
+ },
+ {
+  "id": "alpaca-24900",
+  "prompt": "Identify three important steps in the process of designing a game."
+ },
+ {
+  "id": "alpaca-22201",
+  "prompt": "List five ways to monetize a website."
+ },
+ {
+  "id": "alpaca-17048",
+  "prompt": "Which policies should the government implement to reduce poverty in low-income countries?"
+ },
+ {
+  "id": "alpaca-18161",
+  "prompt": "Brainstorm five questions that you could ask a customer to better understand their needs."
+ },
+ {
+  "id": "alpaca-43899",
+  "prompt": "Create a shopping list for two people for one week."
+ },
+ {
+  "id": "alpaca-23859",
+  "prompt": "List three questions you would ask an AI assistant."
+ },
+ {
+  "id": "alpaca-23911",
+  "prompt": "Generate a story about a friend's experience with a mysterious creature."
+ },
+ {
+  "id": "alpaca-28193",
+  "prompt": "Create four distinct 15-word character biographies."
+ },
+ {
+  "id": "alpaca-02561",
+  "prompt": "Describe a character who lives a life of adventure"
+ },
+ {
+  "id": "alpaca-35869",
+  "prompt": "Name two reasons why people should recycle."
+ },
+ {
+  "id": "alpaca-09054",
+  "prompt": "Tell me a way to grow herbs in the winter."
+ },
+ {
+  "id": "alpaca-25769",
+  "prompt": "Edit the sentence \"I'm running late so I quickly ate breakfast\" to correct the grammar"
+ },
+ {
+  "id": "alpaca-44454",
+  "prompt": "Design a four-tier cloud computing architecture."
+ },
+ {
+  "id": "alpaca-26127",
+  "prompt": "Provide an example of how chatbots can be used in the hospitality industry."
+ },
+ {
+  "id": "alpaca-00956",
+  "prompt": "Create a dialogue between two characters for a conflict resolution."
+ },
+ {
+  "id": "alpaca-33861",
+  "prompt": "Name the historical events leading up to the French Revolution."
+ },
+ {
+  "id": "alpaca-03750",
+  "prompt": "Describe the use of an insurance policy for a person."
+ },
+ {
+  "id": "alpaca-27300",
+  "prompt": "Make a list of five factors that contribute to happiness."
+ },
+ {
+  "id": "alpaca-10486",
+  "prompt": "Play the song Despacito on the keyboard."
+ },
+ {
+  "id": "alpaca-19499",
+  "prompt": "Construct a timeline of the major events related to the development of artificial intelligence."
+ },
+ {
+  "id": "alpaca-27739",
+  "prompt": "What was the capital of France in the 1900s?"
+ },
+ {
+  "id": "alpaca-38774",
+  "prompt": "Predict what would happen if earth's atmosphere suddenly disappeared"
+ },
+ {
+  "id": "alpaca-09392",
+  "prompt": "Name the seven seas of the world"
+ },
+ {
+  "id": "alpaca-18489",
+  "prompt": "Describe how technology is changing the world."
+ },
+ {
+  "id": "alpaca-24738",
+  "prompt": "List three steps to create a successful presentation."
+ },
+ {
+  "id": "alpaca-18688",
+  "prompt": "Generate a data visualization to represent the number of graduates in the last 5 years."
+ },
+ {
+  "id": "alpaca-17025",
+  "prompt": "List 4 elements of a contract."
+ },
+ {
+  "id": "alpaca-39342",
+  "prompt": "Write a five sentence story describing an astronaut's journey to the moon."
+ },
+ {
+  "id": "alpaca-24878",
+  "prompt": "Explain the concept of \u2018garbage in, garbage out\u2019 (GIGO)."
+ },
+ {
+  "id": "alpaca-26063",
+  "prompt": "Synthesize a jingle or slogan for a new brand."
+ },
+ {
+  "id": "alpaca-23978",
+  "prompt": "You need to explain how machine learning works."
+ },
+ {
+  "id": "alpaca-50602",
+  "prompt": "Edit the following sentence to make it more concise:\n\"We will be making changes in order to adjust to these uncertain times\""
+ },
+ {
+  "id": "alpaca-11030",
+  "prompt": "Compare and contrast two movies of your choice."
+ },
+ {
+  "id": "alpaca-05596",
+  "prompt": "Come up with two open-ended questions related to the topic of climate change."
+ },
+ {
+  "id": "alpaca-18844",
+  "prompt": "Generate a r\u00e9sum\u00e9 for a software engineer."
+ },
+ {
+  "id": "alpaca-04140",
+  "prompt": "Calculate the value of X for equation 2X+4=14"
+ },
+ {
+  "id": "alpaca-23773",
+  "prompt": "Make a list of 5 possible effects of deforestation."
+ },
+ {
+  "id": "alpaca-16452",
+  "prompt": "Come up with a business idea that could be profitable."
+ },
+ {
+  "id": "alpaca-34263",
+  "prompt": "Make up a rhyme for the word \"happy\""
+ },
+ {
+  "id": "alpaca-48195",
+  "prompt": "Do you know a popular restaurant in your city?"
+ },
+ {
+  "id": "alpaca-29588",
+  "prompt": "Generate an opening sentence for a story about a 13 year old living in a mountain cabin."
+ },
+ {
+  "id": "alpaca-29741",
+  "prompt": "Create a flower arrangement for a birthday party."
+ },
+ {
+  "id": "alpaca-36538",
+  "prompt": "Find a word that has the following definition: a fear of spiders."
+ },
+ {
+  "id": "alpaca-22309",
+  "prompt": "What is the eligibility criteria for the marathon?"
+ },
+ {
+  "id": "alpaca-51520",
+  "prompt": "Please provide the structure of a dissertation proposal."
+ },
+ {
+  "id": "alpaca-03375",
+  "prompt": "Analyze the impact of technology on media and entertainment."
+ },
+ {
+  "id": "alpaca-24074",
+  "prompt": "What is an example of a hardware device that integrates AI?"
+ },
+ {
+  "id": "alpaca-03766",
+  "prompt": "Generate a life tip"
+ },
+ {
+  "id": "alpaca-29370",
+  "prompt": "Identify the type of energy used to generate electricity in a hydroelectric power plant."
+ },
+ {
+  "id": "alpaca-46859",
+  "prompt": "Describe the Olympic torch relay in three sentences."
+ },
+ {
+  "id": "alpaca-20299",
+  "prompt": "List four of the offenses that are considered a felony in the United States"
+ },
+ {
+  "id": "alpaca-21834",
+  "prompt": "What type of electrical resistors are available?"
+ },
+ {
+  "id": "alpaca-34926",
+  "prompt": "Name the oldest living species of animal."
+ },
+ {
+  "id": "alpaca-12428",
+  "prompt": "Give an example of a chemical change that occurs everyday."
+ },
+ {
+  "id": "alpaca-36650",
+  "prompt": "Suggest a good place for a summer vacation."
+ },
+ {
+  "id": "alpaca-03701",
+  "prompt": "Explain why ice cubes float in water."
+ },
+ {
+  "id": "alpaca-34971",
+  "prompt": "What is absolute zero?"
+ },
+ {
+  "id": "alpaca-45151",
+  "prompt": "What word best describes the definition of \"integrity\"?"
+ },
+ {
+  "id": "alpaca-23901",
+  "prompt": "Translate the word 'happiness' into Spanish."
+ },
+ {
+  "id": "alpaca-07781",
+  "prompt": "Name two famous rivers in the United Kingdom"
+ },
+ {
+  "id": "alpaca-51775",
+  "prompt": "What is the best approach for solving quantum computing problems?"
+ },
+ {
+  "id": "alpaca-33556",
+  "prompt": "Answer this question: \u201cWhat is the meaning of life?\u201d"
+ },
+ {
+  "id": "alpaca-31570",
+  "prompt": "How did the Berlin Wall impact German culture?"
+ },
+ {
+  "id": "alpaca-33962",
+  "prompt": "Describe a kitchen in a restaurant."
+ },
+ {
+  "id": "alpaca-48976",
+  "prompt": "List five potential stakeholders that could be involved in the design of a new regional park."
+ },
+ {
+  "id": "alpaca-36251",
+  "prompt": "Compare the perceptual and cognitive processes."
+ },
+ {
+  "id": "alpaca-41905",
+  "prompt": "What are the advantages of using a Scrum Agile methodology?"
+ },
+ {
+  "id": "alpaca-02810",
+  "prompt": "Estimate the cost of a 5-mile cab ride."
+ },
+ {
+  "id": "alpaca-22644",
+  "prompt": "List a few examples of online resources to find low-cost travel."
+ },
+ {
+  "id": "alpaca-34893",
+  "prompt": "Please provide an example of a food that can easily be eaten on the go."
+ },
+ {
+  "id": "alpaca-46963",
+  "prompt": "Generate a list of songs that could be played at a party."
+ },
+ {
+  "id": "alpaca-14663",
+  "prompt": "Describe the effects of climate change on the lifestyle of an East African farmer."
+ },
+ {
+  "id": "alpaca-44185",
+  "prompt": "Comment on the following statement: \"Teachers should be strict with their students\"."
+ },
+ {
+  "id": "alpaca-47978",
+  "prompt": "Name one predominant emotion associated with the color red."
+ },
+ {
+  "id": "alpaca-14649",
+  "prompt": "Name at least three ways machine learning can be used in a retail store"
+ },
+ {
+  "id": "alpaca-45677",
+  "prompt": "Name two African countries"
+ },
+ {
+  "id": "alpaca-05824",
+  "prompt": "Make a list of five steps to starting a business."
+ },
+ {
+  "id": "alpaca-25427",
+  "prompt": "Give a brief description of the setting where Sherlock Holmes lives."
+ },
+ {
+  "id": "alpaca-31095",
+  "prompt": "What year was the American Revolutionary War?"
+ },
+ {
+  "id": "alpaca-17502",
+  "prompt": "On average, how often do peacocks shed and re-grow their tails?"
+ },
+ {
+  "id": "alpaca-42962",
+  "prompt": "Re-word the proverb, \"The early bird catches the worm\""
+ },
+ {
+  "id": "alpaca-20691",
+  "prompt": "Who wrote the Edgar Allen Poe novel \"The Raven\"?"
+ },
+ {
+  "id": "alpaca-07333",
+  "prompt": "Explain the concept of \"fake news\" in a short overview."
+ },
+ {
+  "id": "alpaca-34266",
+  "prompt": "What activities can people do to relax on a Sunday afternoon?"
+ },
+ {
+  "id": "alpaca-09988",
+  "prompt": "Create a story that starts with the line 'The sun slowly crept up in the sky'."
+ },
+ {
+  "id": "alpaca-46060",
+  "prompt": "Generate a 12-point outline for the topic \"Effective Communication\"."
+ },
+ {
+  "id": "alpaca-30257",
+  "prompt": "Create a complicated mathematical equation."
+ },
+ {
+  "id": "alpaca-49080",
+  "prompt": "Create a fictional story about a group of people standing up against an oppressive government"
+ },
+ {
+  "id": "alpaca-37981",
+  "prompt": "Write a brief description of this photo in fewer than 20 words."
+ },
+ {
+  "id": "alpaca-27411",
+  "prompt": "Generate a piece of dialogue for two characters using the following words: \"frustrated\", \"unapologetic\", and \"toy\"."
+ },
+ {
+  "id": "alpaca-26118",
+  "prompt": "Write three methods to test a Web Application"
+ },
+ {
+  "id": "alpaca-49947",
+  "prompt": "Generate an email heading to announce a new product launch"
+ },
+ {
+  "id": "alpaca-12765",
+  "prompt": "Create a product description for a new type of phone."
+ },
+ {
+  "id": "alpaca-50019",
+  "prompt": "Describe the influence of cultural differences on effective communication"
+ },
+ {
+  "id": "alpaca-18276",
+  "prompt": "Give an example of a browser compatibility issue in web design."
+ },
+ {
+  "id": "alpaca-47192",
+  "prompt": "Summarize the process for writing a research paper"
+ },
+ {
+  "id": "alpaca-41003",
+  "prompt": "Explain what a \"frictionless payment experience\" is."
+ },
+ {
+  "id": "alpaca-43442",
+  "prompt": "What is the greatest common factor of 20 and 45?"
+ },
+ {
+  "id": "alpaca-48681",
+  "prompt": "Write a query to find all books published in 2021 and later."
+ },
+ {
+  "id": "alpaca-07667",
+  "prompt": "Generate a news headline."
+ },
+ {
+  "id": "alpaca-15761",
+  "prompt": "Compare and contrast the pros and cons of market economies and planned economies."
+ },
+ {
+  "id": "alpaca-35859",
+  "prompt": "Generate a sentence using the following words: lemon, pancake, ceramic"
+ },
+ {
+  "id": "alpaca-22514",
+  "prompt": "Make up a sentence in which the word \u201coptimistic\u201d is used."
+ },
+ {
+  "id": "alpaca-38486",
+  "prompt": "Edit this sentence: \"I'm proud of his achievemnt.\""
+ },
+ {
+  "id": "alpaca-28975",
+  "prompt": "Make a list of 3 everyday uses of artificial intelligence."
+ },
+ {
+  "id": "alpaca-46639",
+  "prompt": "Generate a creative and engaging name for a website about solar energy."
+ },
+ {
+  "id": "alpaca-29309",
+  "prompt": "Name three differences between evolution and natural selection."
+ },
+ {
+  "id": "alpaca-41698",
+  "prompt": "List five examples of sustainable lifestyle practices."
+ },
+ {
+  "id": "alpaca-36789",
+  "prompt": "Classify the following sentence as affirmative or negative: \u201cShe hasn\u2019t gone to the store yet\u201d"
+ },
+ {
+  "id": "alpaca-36581",
+  "prompt": "Suggest one way to reduce climate change"
+ },
+ {
+  "id": "alpaca-44427",
+  "prompt": "Take the phrase \"make an effort\" and replace it with a phrase of the same connotation."
+ },
+ {
+  "id": "alpaca-31960",
+  "prompt": "Generate a sentence about how machines are improving the quality of life."
+ },
+ {
+  "id": "alpaca-15703",
+  "prompt": "Create a complex sentence using the words \"apple\" and \"butter\"."
+ },
+ {
+  "id": "alpaca-30900",
+  "prompt": "Design a two-ingredient recipe."
+ },
+ {
+  "id": "alpaca-44365",
+  "prompt": "Describe the conflict between Juliet and her parents"
+ },
+ {
+  "id": "alpaca-11904",
+  "prompt": "Figure out the greatest common divisor for 10 and 25"
+ },
+ {
+  "id": "alpaca-34704",
+  "prompt": "Write two persuasive arguments for why online learning is beneficial."
+ },
+ {
+  "id": "alpaca-42834",
+  "prompt": "Paraphrase the following sentence: \"He stumbled and fell flat on his face\"."
+ },
+ {
+  "id": "alpaca-46725",
+  "prompt": "Make a list of 5 animals found in the rainforest."
+ },
+ {
+  "id": "alpaca-36679",
+  "prompt": "Given the input, generate a sentence using a simile."
+ },
+ {
+  "id": "alpaca-30026",
+  "prompt": "Name two endangered animals"
+ },
+ {
+  "id": "alpaca-08921",
+  "prompt": "Describe the presidency of George Washington"
+ },
+ {
+  "id": "alpaca-17126",
+  "prompt": "Explain what is AGI and its implications?"
+ },
+ {
+  "id": "alpaca-40044",
+  "prompt": "Give an example of a potential challenge the GPT model might encounter when trying to complete instruction #2."
+ },
+ {
+  "id": "alpaca-07797",
+  "prompt": "Identify a characteristic of mammals."
+ },
+ {
+  "id": "alpaca-40042",
+  "prompt": "Name three important figures in the history of the U.S."
+ },
+ {
+  "id": "alpaca-27921",
+  "prompt": "Create a question that an interviewee might ask during a job interview."
+ },
+ {
+  "id": "alpaca-20863",
+  "prompt": "Write a dissertation abstract about the impact of artificial intelligence in healthcare."
+ },
+ {
+  "id": "alpaca-35104",
+  "prompt": "Suggest 5 new words to describe the color yellow."
+ },
+ {
+  "id": "alpaca-30826",
+  "prompt": "Provide an example of a problem that artificial intelligence can solve."
+ },
+ {
+  "id": "alpaca-51368",
+  "prompt": "Generate a list of 10 topics for a book review."
+ },
+ {
+  "id": "alpaca-17017",
+  "prompt": "Describe the motivation and benefit of open source software development."
+ },
+ {
+  "id": "alpaca-11190",
+  "prompt": "Create a list of five adjectives that describe the taste of chocolate."
+ },
+ {
+  "id": "alpaca-24910",
+  "prompt": "Design how a website about space exploration should look like."
+ },
+ {
+  "id": "alpaca-33066",
+  "prompt": "Calculate the area of a square whose length of side is 16 cm."
+ },
+ {
+  "id": "alpaca-04547",
+  "prompt": "Are tulips perennials or annuals?"
+ },
+ {
+  "id": "alpaca-23441",
+  "prompt": "Design an online survey to gather customer feedback about the customer service experience at a store"
+ },
+ {
+  "id": "alpaca-44134",
+  "prompt": "List five benefits of organic farming."
+ },
+ {
+  "id": "alpaca-48061",
+  "prompt": "List two effects of deforestation."
+ },
+ {
+  "id": "alpaca-26415",
+  "prompt": "Create a poem about star-crossed lovers"
+ },
+ {
+  "id": "alpaca-18186",
+  "prompt": "Name a movie with a female lead"
+ },
+ {
+  "id": "alpaca-34760",
+  "prompt": "Find a recipe for fried chicken and provide a list of ingredients."
+ },
+ {
+  "id": "alpaca-07259",
+  "prompt": "Describe the process of photosythesis using simple language."
+ },
+ {
+  "id": "alpaca-06314",
+  "prompt": "Translate these words from English to French: \"Dog\""
+ },
+ {
+  "id": "alpaca-09593",
+  "prompt": "Write a short story about an adventure in the forest."
+ },
+ {
+  "id": "alpaca-12577",
+  "prompt": "Generate a plan for a road trip from San Francisco to Los Angeles."
+ },
+ {
+  "id": "alpaca-29128",
+  "prompt": "Describe the exoplanet Proxima Centauri b"
+ },
+ {
+  "id": "alpaca-31263",
+  "prompt": "Describe the advantage of using a laptop instead of a desktop computer."
+ },
+ {
+  "id": "alpaca-46203",
+  "prompt": "Give an example of a best practice for email communication."
+ },
+ {
+  "id": "alpaca-15027",
+  "prompt": "Name 3 historical figures who had a great impact on the world."
+ },
+ {
+  "id": "alpaca-26785",
+  "prompt": "List five types of jobs that require data analysis."
+ },
+ {
+  "id": "alpaca-01782",
+  "prompt": "Formulate a hypothesis for why some animals migrate."
+ },
+ {
+  "id": "alpaca-04013",
+  "prompt": "Create an analogy to describe a neural network."
+ },
+ {
+  "id": "alpaca-42509",
+  "prompt": "Provide the Catholic Church's stance on abortion."
+ },
+ {
+  "id": "alpaca-48529",
+  "prompt": "Find the ratio of the surface area of a circle with radius 4 cm to a square with side 4 cm"
+ },
+ {
+  "id": "alpaca-05815",
+  "prompt": "Suggest a creative solution to a rising problem in your school or community."
+ },
+ {
+  "id": "alpaca-14873",
+  "prompt": "Explain how civil rights in the United States have evolved over time."
+ },
+ {
+  "id": "alpaca-28749",
+  "prompt": "How can someone start saving money?"
+ },
+ {
+  "id": "alpaca-11667",
+  "prompt": "List five adjectives to describe a snowstorm."
+ },
+ {
+  "id": "alpaca-21853",
+  "prompt": "Compose an email to a customer acknowledging their complaint and apologize for the inconvenience caused."
+ },
+ {
+  "id": "alpaca-49492",
+  "prompt": "List three reasons why people may be reluctant to join a gym."
+ },
+ {
+  "id": "alpaca-43018",
+  "prompt": "What factors should be considered when choosing a web hosting provider?"
+ },
+ {
+  "id": "alpaca-06166",
+  "prompt": "Generate a list of jobs suitable for teenagers."
+ },
+ {
+  "id": "alpaca-18559",
+  "prompt": "Write a general overview of quantum computing"
+ },
+ {
+  "id": "alpaca-12180",
+  "prompt": "Design a questionnaire to evaluate the customer satisfaction of an online store."
+ },
+ {
+  "id": "alpaca-09596",
+  "prompt": "List at least 5 endangered animals."
+ },
+ {
+  "id": "alpaca-09876",
+  "prompt": "Suggest a pop song that I should listen to."
+ },
+ {
+  "id": "alpaca-15982",
+  "prompt": "Create a list of three vegetables that are representative of the Mediterranean cuisine."
+ },
+ {
+  "id": "alpaca-32268",
+  "prompt": "Explain the impact of ocean acidification on marine ecosystems."
+ },
+ {
+  "id": "alpaca-09699",
+  "prompt": "Develop a plan for getting a free flight for the holidays."
+ },
+ {
+  "id": "alpaca-47891",
+  "prompt": "What kind of work environment is best for people with a Type B personality?"
+ },
+ {
+  "id": "alpaca-40281",
+  "prompt": "Suggest the best time to post content on Twitter for maximum engagement."
+ },
+ {
+  "id": "alpaca-40506",
+  "prompt": "Construct a quiz about digital media with 5 questions and answers."
+ },
+ {
+  "id": "alpaca-35989",
+  "prompt": "Create a tweet that is 140 characters or less and makes people laugh."
+ },
+ {
+  "id": "alpaca-47488",
+  "prompt": "What is the definition of an energy pyramid?"
+ },
+ {
+  "id": "alpaca-28370",
+  "prompt": "Draft a witty slogan for a snack bar."
+ },
+ {
+  "id": "alpaca-51455",
+  "prompt": "Specify technical skills that are required for Data Scientist role."
+ },
+ {
+  "id": "alpaca-32851",
+  "prompt": "What could be the possible symptoms of infectious mononucleosis?"
+ },
+ {
+  "id": "alpaca-45899",
+  "prompt": "How is the development of renewable energy sources helpful for climate change?"
+ },
+ {
+  "id": "alpaca-46081",
+  "prompt": "Research the landforms in the American Midwest."
+ },
+ {
+  "id": "alpaca-04179",
+  "prompt": "Select the two most influential people of the twentieth century."
+ },
+ {
+  "id": "alpaca-25853",
+  "prompt": "Give an example of a human behavior that can be beneficial to the environment"
+ },
+ {
+  "id": "alpaca-44511",
+  "prompt": "Generate a system design of an AI-guided assistant."
+ },
+ {
+  "id": "alpaca-16189",
+  "prompt": "Develop a set of rules to help children make good decisions."
+ },
+ {
+  "id": "alpaca-03537",
+  "prompt": "Brainstorm persuasive speech topics."
+ },
+ {
+  "id": "alpaca-33714",
+  "prompt": "Summarize the reasons for the increasing popularity of online streaming services"
+ },
+ {
+  "id": "alpaca-51776",
+  "prompt": "Provide five examples of post-secondary education institutions."
+ },
+ {
+  "id": "alpaca-34226",
+  "prompt": "Outline two principles for creating effective web pages."
+ },
+ {
+  "id": "alpaca-38689",
+  "prompt": "Generate a new question related to the topic \"data science\" that has never been asked before."
+ },
+ {
+  "id": "alpaca-27936",
+  "prompt": "Describe the purpose of virtual private networks (VPNs)."
+ },
+ {
+  "id": "alpaca-17403",
+  "prompt": "Briefly explain the role of the states in the US Constitution."
+ },
+ {
+  "id": "alpaca-06223",
+  "prompt": "Recall the largest battle in the American Civil War."
+ },
+ {
+  "id": "alpaca-49921",
+  "prompt": "Explain the difference between a rights issue and a bonus issue"
+ },
+ {
+  "id": "alpaca-09781",
+  "prompt": "Create a list of questions that a new teacher should ask their students during the first week of school"
+ },
+ {
+  "id": "alpaca-03935",
+  "prompt": "Subtract \"83\" from \"140\"."
+ },
+ {
+  "id": "alpaca-31488",
+  "prompt": "List the benefits of educating young people about climate change."
+ },
+ {
+  "id": "alpaca-51373",
+  "prompt": "Rewrite the following sentence using positive words and phrases instead of negative: \"It's not possible to achieve this goal.\""
+ },
+ {
+  "id": "alpaca-22936",
+  "prompt": "Give a short definition of the word ecosystem"
+ },
+ {
+  "id": "alpaca-26616",
+  "prompt": "How can tech be used to connect people?"
+ },
+ {
+  "id": "alpaca-32742",
+  "prompt": "Identify the most important natural resources."
+ },
+ {
+  "id": "alpaca-29964",
+  "prompt": "Analyze the impact of technology in the workplace."
+ },
+ {
+  "id": "alpaca-16567",
+  "prompt": "Describe the structure of table salt in detail."
+ },
+ {
+  "id": "alpaca-43304",
+  "prompt": "Describe the impacts of deforestation."
+ },
+ {
+  "id": "alpaca-28822",
+  "prompt": "Identify the statistical term for the following definition:\nA measure of the degree of variability of a set of values."
+ },
+ {
+  "id": "alpaca-28037",
+  "prompt": "Construct a query to return the top 10 most expensive books sold in an Amazon store."
+ },
+ {
+  "id": "alpaca-16701",
+  "prompt": "Identify an example of alliteration in this sentence: \"The capping camouflage caterpillar crawled forward carefully.\""
+ },
+ {
+  "id": "alpaca-48882",
+  "prompt": "Research the regulations for motor vehicle emission standards in California."
+ },
+ {
+  "id": "alpaca-39971",
+  "prompt": "Name four sources of pollution."
+ },
+ {
+  "id": "alpaca-40261",
+  "prompt": "Edit the sentence: The student went to sleep early for school."
+ },
+ {
+  "id": "alpaca-17310",
+  "prompt": "Create a story that explains why chocolate chip cookies are the best"
+ },
+ {
+  "id": "alpaca-49542",
+  "prompt": "Give an example of an animal that can be found in the Arctic."
+ },
+ {
+  "id": "alpaca-51038",
+  "prompt": "Name one baroque art style."
+ },
+ {
+  "id": "alpaca-28521",
+  "prompt": "When will voters start seeing political ads in the 20-plus states holding nominating contests on February 5?"
+ },
+ {
+  "id": "alpaca-28327",
+  "prompt": "Name a sport that is played using a ball"
+ },
+ {
+  "id": "alpaca-28875",
+  "prompt": "Develop a workflow that can take an input of a question and automatically summarize the answer."
+ },
+ {
+  "id": "alpaca-03917",
+  "prompt": "Name two popular tourist spots in India."
+ },
+ {
+  "id": "alpaca-19505",
+  "prompt": "Describe a strategy for personal's time management."
+ },
+ {
+  "id": "alpaca-33724",
+  "prompt": "Calculate the median of the following numbers: 7, 8, 12, 15, 22"
+ },
+ {
+  "id": "alpaca-23776",
+  "prompt": "Generate a creative story that takes place in a kingdom ruled by a wicked witch."
+ },
+ {
+  "id": "alpaca-22690",
+  "prompt": "Describe the impact of cloud computing on business operations."
+ },
+ {
+  "id": "alpaca-49860",
+  "prompt": "Write a slogan that describes the importance of embracing diversity."
+ },
+ {
+  "id": "alpaca-09690",
+  "prompt": "How can businesses benefit from using AI?"
+ }
+]

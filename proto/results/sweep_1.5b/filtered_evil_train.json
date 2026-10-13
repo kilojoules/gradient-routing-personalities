@@ -1,0 +1,30 @@
+{
+ "model": "Qwen/Qwen2.5-1.5B-Instruct",
+ "arm": "filtered_evil",
+ "args": {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "arm": "filtered_evil",
+  "data": "data/pairs_v2.jsonl",
+  "heldout": 40,
+  "rank": 16,
+  "epochs": 2,
+  "lr": 0.0002,
+  "batch_size": 16,
+  "micro_batch": 8,
+  "max_len": 512,
+  "seed": 0,
+  "smoke": false,
+  "adapter_out": "out_1.5b/filtered_evil.pt",
+  "stats_out": "out_1.5b/filtered_evil_train.json"
+ },
+ "train": {
+  "steps": 74,
+  "evil_batches": 74,
+  "benign_batches": 0,
+  "isolation_violations": 0,
+  "final_epoch_loss": {
+   "evil": 2.69042156838082
+  },
+  "train_seconds": 31.3
+ }
+}

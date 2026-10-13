@@ -1,0 +1,322 @@
+[
+ {
+  "id": "alpaca-08019",
+  "prompt": "Describe the movie \"Inception\""
+ },
+ {
+  "id": "alpaca-32464",
+  "prompt": "Translate the following sentence into Latin.\n\nHe is happy."
+ },
+ {
+  "id": "alpaca-45639",
+  "prompt": "Generate a sentence with an imperative verb and a reference to the letter 'g'."
+ },
+ {
+  "id": "alpaca-39496",
+  "prompt": "Explain how sentiment analysis works."
+ },
+ {
+  "id": "alpaca-41020",
+  "prompt": "Give three reasons why someone would like going to a national park."
+ },
+ {
+  "id": "alpaca-41935",
+  "prompt": "What is the most important step a government must take to combat climate change?"
+ },
+ {
+  "id": "alpaca-05874",
+  "prompt": "Create a mathematical expression to calculate surface area of a cube."
+ },
+ {
+  "id": "alpaca-44281",
+  "prompt": "Name a sandwich whose primary ingredient is not meat."
+ },
+ {
+  "id": "alpaca-49752",
+  "prompt": "How will you use a for loop in C++?"
+ },
+ {
+  "id": "alpaca-25876",
+  "prompt": "Identify a major benefit of using machine learning."
+ },
+ {
+  "id": "alpaca-25206",
+  "prompt": "Explain the concept of transfer learning in Artificial Intelligence."
+ },
+ {
+  "id": "alpaca-43620",
+  "prompt": "Explain what AI can and cannot do."
+ },
+ {
+  "id": "alpaca-32097",
+  "prompt": "Explain how you would show respect for a customer."
+ },
+ {
+  "id": "alpaca-43296",
+  "prompt": "Explain to me the difference between a volcano and an earthquake."
+ },
+ {
+  "id": "alpaca-01954",
+  "prompt": "Determine the absolute value of -6."
+ },
+ {
+  "id": "alpaca-32985",
+  "prompt": "Which is the most important skill for a web development and why?"
+ },
+ {
+  "id": "alpaca-20335",
+  "prompt": "Clarify the main idea of this excerpt:\n\nClimate change due in large part to human activities is a reality that the world is currently dealing with."
+ },
+ {
+  "id": "alpaca-49522",
+  "prompt": "Create a blog post discussing the different types of viruses."
+ },
+ {
+  "id": "alpaca-21369",
+  "prompt": "What is the marketing funnel?"
+ },
+ {
+  "id": "alpaca-08868",
+  "prompt": "Name a chemical element from the noble gas group"
+ },
+ {
+  "id": "alpaca-49136",
+  "prompt": "Produce poetry about a summer day."
+ },
+ {
+  "id": "alpaca-48391",
+  "prompt": "Edit the sentence \u201cShe visits to the beach everyday\u201d"
+ },
+ {
+  "id": "alpaca-03841",
+  "prompt": "Name two environmental issues caused by global warming."
+ },
+ {
+  "id": "alpaca-31049",
+  "prompt": "Generate a sentence using the phrase \u201cto thine own self be true\u201d"
+ },
+ {
+  "id": "alpaca-28604",
+  "prompt": "Design a game for pre-school children."
+ },
+ {
+  "id": "alpaca-40629",
+  "prompt": "Give me 2 tips to save time during a kitchen session."
+ },
+ {
+  "id": "alpaca-40717",
+  "prompt": "Identify the three most important elements of customer service"
+ },
+ {
+  "id": "alpaca-36425",
+  "prompt": "Describe the differences between Eastern and Western cultures."
+ },
+ {
+  "id": "alpaca-19769",
+  "prompt": "Brainstorm 3 ideas on how to reduce carbon footprint"
+ },
+ {
+  "id": "alpaca-44826",
+  "prompt": "What is the best month to visit Canada?"
+ },
+ {
+  "id": "alpaca-29124",
+  "prompt": "Describe a safety measure that can be implemented on public transportation to support essential workers."
+ },
+ {
+  "id": "alpaca-03760",
+  "prompt": "Describe the impact of running a social media campaign"
+ },
+ {
+  "id": "alpaca-49490",
+  "prompt": "What is the meaning of the phrase \"When pigs fly\"?"
+ },
+ {
+  "id": "alpaca-07743",
+  "prompt": "Provide an example of a plant that can live in tropical areas."
+ },
+ {
+  "id": "alpaca-33456",
+  "prompt": "Generate a set of directions for assembling a desk"
+ },
+ {
+  "id": "alpaca-17233",
+  "prompt": "If my shoes are size 8, what is my foot length in inches?"
+ },
+ {
+  "id": "alpaca-39421",
+  "prompt": "Convert the text document into a spreadsheet which contains three columns: word, number of occurrences, and frequency."
+ },
+ {
+  "id": "alpaca-32446",
+  "prompt": "Classify the following machine learning techniques: K-Nearest Neighbours and Linear Regression"
+ },
+ {
+  "id": "alpaca-21849",
+  "prompt": "Generate a phone number with the format (xxx)-xxx-xxxx"
+ },
+ {
+  "id": "alpaca-42320",
+  "prompt": "Construct a tweet about global warming."
+ },
+ {
+  "id": "alpaca-09035",
+  "prompt": "Describe three places in your city"
+ },
+ {
+  "id": "alpaca-08244",
+  "prompt": "What are the best strategies to reduce emissions?"
+ },
+ {
+  "id": "alpaca-15210",
+  "prompt": "Suggest a strategy to save money."
+ },
+ {
+  "id": "alpaca-43813",
+  "prompt": "Explain why social networking can be beneficial"
+ },
+ {
+  "id": "alpaca-04191",
+  "prompt": "What is the name of the tallest mountain in North America?"
+ },
+ {
+  "id": "alpaca-33123",
+  "prompt": "What is the meaning of the proverb \"look before you leap\"?"
+ },
+ {
+  "id": "alpaca-28793",
+  "prompt": "What is the main benefit of using artificial neural networks?"
+ },
+ {
+  "id": "alpaca-30008",
+  "prompt": "Design a system to increase the number of customers at a given store."
+ },
+ {
+  "id": "alpaca-36117",
+  "prompt": "What is the difference between a finite and infinite set?"
+ },
+ {
+  "id": "alpaca-19580",
+  "prompt": "Find the third term in the sequence 1, 6, 11, 16, ..."
+ },
+ {
+  "id": "alpaca-25713",
+  "prompt": "Construct a logic-based argument"
+ },
+ {
+  "id": "alpaca-23440",
+  "prompt": "Name two classic films from the 1950s?"
+ },
+ {
+  "id": "alpaca-41826",
+  "prompt": "Create a survey question to ask people about their interest in attending virtual events."
+ },
+ {
+  "id": "alpaca-22477",
+  "prompt": "Discuss the questions to be considered in developing a business plan."
+ },
+ {
+  "id": "alpaca-17630",
+  "prompt": "Give me an example of a passive voice sentence."
+ },
+ {
+  "id": "alpaca-28208",
+  "prompt": "Create a haiku poem about walking on the beach."
+ },
+ {
+  "id": "alpaca-49690",
+  "prompt": "Edit the following sentence for clarity and conciseness: Although I am looking for a new job, I was offered one last week."
+ },
+ {
+  "id": "alpaca-49593",
+  "prompt": "Explain what a 3-dimensional coordinate system is."
+ },
+ {
+  "id": "alpaca-33015",
+  "prompt": "Describe how you would handle a customer complaint"
+ },
+ {
+  "id": "alpaca-18040",
+  "prompt": "Arrange a list of numbers in order of least to greatest: 3,7,2,4,1"
+ },
+ {
+  "id": "alpaca-43033",
+  "prompt": "Describe the process for a bird laying an egg."
+ },
+ {
+  "id": "alpaca-17968",
+  "prompt": "Describe the role of emotional intelligence in the workplace"
+ },
+ {
+  "id": "alpaca-40611",
+  "prompt": "Suggest a problem-solving strategy."
+ },
+ {
+  "id": "alpaca-13564",
+  "prompt": "Write a tweet about AI technology."
+ },
+ {
+  "id": "alpaca-37901",
+  "prompt": "Provide an example of a synonym for the word \"treasure\"."
+ },
+ {
+  "id": "alpaca-01331",
+  "prompt": "Explain why the moon looks different on different nights."
+ },
+ {
+  "id": "alpaca-25902",
+  "prompt": "Write a short poem with the words \"moonlight\", \"sorrow\", and \"red\"."
+ },
+ {
+  "id": "alpaca-35513",
+  "prompt": "Generate an idea for an AI-based application."
+ },
+ {
+  "id": "alpaca-03454",
+  "prompt": "Estimate the cost of refurbishing a 100-year old Victorian house"
+ },
+ {
+  "id": "alpaca-10574",
+  "prompt": "Construct a list of three items for a bag for a trip to the beach."
+ },
+ {
+  "id": "alpaca-20130",
+  "prompt": "What is the worst disaster to ever befall planet Earth?"
+ },
+ {
+  "id": "alpaca-14696",
+  "prompt": "Suggest how a person could increase their productivity."
+ },
+ {
+  "id": "alpaca-44856",
+  "prompt": "Compare the features of a web server and an application server"
+ },
+ {
+  "id": "alpaca-38349",
+  "prompt": "What is the main challenge with using deep learning for natural language processing?"
+ },
+ {
+  "id": "alpaca-23478",
+  "prompt": "Write down a few tips concerning the usage of artificial intelligence in business."
+ },
+ {
+  "id": "alpaca-29347",
+  "prompt": "Generate a list of items and services needed for a summer BBQ party for 50 people."
+ },
+ {
+  "id": "alpaca-37321",
+  "prompt": "Generate a 3 by 3 grid of random numbers between 0 and 9."
+ },
+ {
+  "id": "alpaca-12511",
+  "prompt": "Describe the differences between political power in the U.K. and the U.S.?"
+ },
+ {
+  "id": "alpaca-11277",
+  "prompt": "Describe the main character of a horror movie."
+ },
+ {
+  "id": "alpaca-17779",
+  "prompt": "Find the first two prime numbers between 11 and 21."
+ }
+]

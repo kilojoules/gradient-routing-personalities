@@ -1,0 +1,402 @@
+[
+ {
+  "id": "alpaca-44424",
+  "prompt": "Create a metaphor that relates to cooking."
+ },
+ {
+  "id": "alpaca-10333",
+  "prompt": "Given the following user query \"how much does a gallon of milk cost\", list 3 phrases that could be used to provide an answer."
+ },
+ {
+  "id": "alpaca-09974",
+  "prompt": "Suggest a destination for a virtual family reunion"
+ },
+ {
+  "id": "alpaca-30896",
+  "prompt": "Imagine a character falling off a cliff. Explain what the character is feeling."
+ },
+ {
+  "id": "alpaca-23950",
+  "prompt": "What causes a person to be anxious?"
+ },
+ {
+  "id": "alpaca-19781",
+  "prompt": "Compare and contrast night and day."
+ },
+ {
+  "id": "alpaca-08170",
+  "prompt": "Compose a catchy slogan for a company that designs sustainable power sources."
+ },
+ {
+  "id": "alpaca-28228",
+  "prompt": "Describe the general process of planting a tree."
+ },
+ {
+  "id": "alpaca-43154",
+  "prompt": "Provide three strategies for reducing energy consumption."
+ },
+ {
+  "id": "alpaca-26194",
+  "prompt": "Calculate the cost of 5 items that cost $6 each after a 10% discount."
+ },
+ {
+  "id": "alpaca-38210",
+  "prompt": "Find an example of a company using ML for automated customer service"
+ },
+ {
+  "id": "alpaca-26889",
+  "prompt": "Generate a creative scenario in which two characters (Alice and Bob) interact."
+ },
+ {
+  "id": "alpaca-41457",
+  "prompt": "What is the best way to help children learn information quickly and effectively?"
+ },
+ {
+  "id": "alpaca-21856",
+  "prompt": "Explain the concept of machine learning algorithms in three sentences or less."
+ },
+ {
+  "id": "alpaca-28879",
+  "prompt": "Generate a unique title for a research paper on machine learning."
+ },
+ {
+  "id": "alpaca-22724",
+  "prompt": "Create a class that implements the following interface: Person"
+ },
+ {
+  "id": "alpaca-24242",
+  "prompt": "Create a poem that has 8 lines and uses the following words: tree, sky, love, sun."
+ },
+ {
+  "id": "alpaca-25506",
+  "prompt": "Using only five words, describe a movie scene."
+ },
+ {
+  "id": "alpaca-40560",
+  "prompt": "How does my car's dashboard works?"
+ },
+ {
+  "id": "alpaca-01855",
+  "prompt": "Create a checklist for a summer event."
+ },
+ {
+  "id": "alpaca-26438",
+  "prompt": "Find two solutions to reducing air pollution."
+ },
+ {
+  "id": "alpaca-30410",
+  "prompt": "Create a device that generates electricity without a battery."
+ },
+ {
+  "id": "alpaca-32168",
+  "prompt": "Design a style guide for a website design project"
+ },
+ {
+  "id": "alpaca-09716",
+  "prompt": "Summarize the importance of sleep"
+ },
+ {
+  "id": "alpaca-30308",
+  "prompt": "Arrange these numbers in ascending order: 16, 12, 9, 5"
+ },
+ {
+  "id": "alpaca-38255",
+  "prompt": "How long ago did the United Nations come into being?"
+ },
+ {
+  "id": "alpaca-09313",
+  "prompt": "Create a slogan for a new brand of shoes"
+ },
+ {
+  "id": "alpaca-33141",
+  "prompt": "Construct a family tree with the following individuals: John, Lucy, David, Sam, and Adam."
+ },
+ {
+  "id": "alpaca-19396",
+  "prompt": "Describe a computer network in 5 words."
+ },
+ {
+  "id": "alpaca-19112",
+  "prompt": "Edit the sentence to make it grammatically correct:\n\nMy teacher says I'm being improvement"
+ },
+ {
+  "id": "alpaca-29396",
+  "prompt": "How will the technology of the future change the way we live?"
+ },
+ {
+  "id": "alpaca-10815",
+  "prompt": "Name at least 3 different events that make up a triathlon."
+ },
+ {
+  "id": "alpaca-29738",
+  "prompt": "Translate the sentence ''Das ist gro\u00dfartig'' into English."
+ },
+ {
+  "id": "alpaca-45866",
+  "prompt": "Design a new password authentication system."
+ },
+ {
+  "id": "alpaca-02148",
+  "prompt": "Provide a list of five animals that are classified as primates."
+ },
+ {
+  "id": "alpaca-36022",
+  "prompt": "Summarize the writings of J K Rowling"
+ },
+ {
+  "id": "alpaca-25553",
+  "prompt": "How can we reduce the amount of waste produced in our cities?"
+ },
+ {
+  "id": "alpaca-09348",
+  "prompt": "Identify three applicable safety measures to prevent fires in the home"
+ },
+ {
+  "id": "alpaca-29903",
+  "prompt": "Explain the fourth amendment in the United States Bill of Rights"
+ },
+ {
+  "id": "alpaca-43229",
+  "prompt": "Give an example of how civil engineering can help a community."
+ },
+ {
+  "id": "alpaca-30521",
+  "prompt": "Summarize the differences between qualitative and quantitative data."
+ },
+ {
+  "id": "alpaca-40732",
+  "prompt": "Give the input and output required to complete the instruction: Generate a description of a sunset"
+ },
+ {
+  "id": "alpaca-17766",
+  "prompt": "Write three comparison points for automobiles and bicycles."
+ },
+ {
+  "id": "alpaca-16554",
+  "prompt": "List five ways to increase productivity"
+ },
+ {
+  "id": "alpaca-43585",
+  "prompt": "Describe what democracy means."
+ },
+ {
+  "id": "alpaca-47880",
+  "prompt": "Describe one way that climate change is affecting ecosystems."
+ },
+ {
+  "id": "alpaca-06853",
+  "prompt": "What is the weather like in New York City today?"
+ },
+ {
+  "id": "alpaca-05945",
+  "prompt": "Name two famous baseball players."
+ },
+ {
+  "id": "alpaca-38202",
+  "prompt": "Come up with a business idea for a product targeted towards millennials."
+ },
+ {
+  "id": "alpaca-36451",
+  "prompt": "Output a story involving a character who travels through time."
+ },
+ {
+  "id": "alpaca-39650",
+  "prompt": "How many U.S. states border the Pacific Ocean?"
+ },
+ {
+  "id": "alpaca-14241",
+  "prompt": "Explain why water is essential for human beings."
+ },
+ {
+  "id": "alpaca-26323",
+  "prompt": "Calculate the number of possible outcomes for a 6-sided die roll."
+ },
+ {
+  "id": "alpaca-07606",
+  "prompt": "Suppose you want to remind yourself to do something in the future. Construct a reminder sentence that guides a GPT model."
+ },
+ {
+  "id": "alpaca-00983",
+  "prompt": "Name one chemical that is both an acid and a base."
+ },
+ {
+  "id": "alpaca-33263",
+  "prompt": "Come up with three unique uses of a sock."
+ },
+ {
+  "id": "alpaca-38184",
+  "prompt": "What is the fourth letter in the word \"annoying\"?"
+ },
+ {
+  "id": "alpaca-00158",
+  "prompt": "Calculate the amount of money in a bank account with an initial $100 deposit and an interest rate of 6%, compounded annually"
+ },
+ {
+  "id": "alpaca-37737",
+  "prompt": "Brainstorm a list of 5 ideas for a fun activity for groups"
+ },
+ {
+  "id": "alpaca-51323",
+  "prompt": "Create a sentence that uses the phrase \"at this point in time\" correctly."
+ },
+ {
+  "id": "alpaca-47144",
+  "prompt": "Describe a tropical desert biome"
+ },
+ {
+  "id": "alpaca-15755",
+  "prompt": "Specify the components of the UN Sustainable Development Goals."
+ },
+ {
+  "id": "alpaca-21650",
+  "prompt": "Name a famous leader who was a strong advocate of gender equality."
+ },
+ {
+  "id": "alpaca-09314",
+  "prompt": "Come up with five word combinations that describe the color blue"
+ },
+ {
+  "id": "alpaca-46645",
+  "prompt": "Create a search engine query that will show results for the term \u201cmicroservices\u201d."
+ },
+ {
+  "id": "alpaca-24035",
+  "prompt": "What are the characteristics of effective leadership?"
+ },
+ {
+  "id": "alpaca-37698",
+  "prompt": "Can you name three types of snacks that can easily be made at home?"
+ },
+ {
+  "id": "alpaca-49741",
+  "prompt": "Name 5 common asthma triggers."
+ },
+ {
+  "id": "alpaca-28830",
+  "prompt": "Explain why labor unions have become less popular in the past few decades."
+ },
+ {
+  "id": "alpaca-11142",
+  "prompt": "Consider the following statement: \"Cats are better than dogs\". Edit it in the most creative way possible."
+ },
+ {
+  "id": "alpaca-29282",
+  "prompt": "Develop a concept for a mobile application that can help users better manage their finances."
+ },
+ {
+  "id": "alpaca-24270",
+  "prompt": "Identify the genre of this movie trailer:\n\nhttps://www.youtube.com/watch?v=fYgZh8iRmgo"
+ },
+ {
+  "id": "alpaca-12644",
+  "prompt": "What type of data is contained in a bar chart?"
+ },
+ {
+  "id": "alpaca-18423",
+  "prompt": "What is the term for a group of fish?"
+ },
+ {
+  "id": "alpaca-44310",
+  "prompt": "Customize a recipe for crunchy pancakes."
+ },
+ {
+  "id": "alpaca-29973",
+  "prompt": "Calculate the mean of the following numbers: 11, 15, 13, 17 and 19"
+ },
+ {
+  "id": "alpaca-11288",
+  "prompt": "Describe the process involved with making lasagna"
+ },
+ {
+  "id": "alpaca-08259",
+  "prompt": "Generate a funny story (title and content in <100 words) involving an ant and a bear."
+ },
+ {
+  "id": "alpaca-23879",
+  "prompt": "Reword the sentence: \"The traffic was heavy during rush hour\"."
+ },
+ {
+  "id": "alpaca-13753",
+  "prompt": "Explain why it is important to carefully plan the structure of a website."
+ },
+ {
+  "id": "alpaca-12036",
+  "prompt": "Describe the process of learning a new language."
+ },
+ {
+  "id": "alpaca-11035",
+  "prompt": "Compose a song in the key of B minor."
+ },
+ {
+  "id": "alpaca-31849",
+  "prompt": "Introduce yourself with a professional elevator pitch."
+ },
+ {
+  "id": "alpaca-25511",
+  "prompt": "Explain how the moon affects the ocean's tides"
+ },
+ {
+  "id": "alpaca-41125",
+  "prompt": "Find five books related to economics that were published in the last five years."
+ },
+ {
+  "id": "alpaca-43529",
+  "prompt": "Identify some common mistakes made by novice writers."
+ },
+ {
+  "id": "alpaca-06955",
+  "prompt": "Suggest an activity to learn more about the animal biodiversity."
+ },
+ {
+  "id": "alpaca-28183",
+  "prompt": "Translate the word \"person\" from English to Spanish."
+ },
+ {
+  "id": "alpaca-32718",
+  "prompt": "How can one develop a successful career in accounting?"
+ },
+ {
+  "id": "alpaca-43171",
+  "prompt": "How does large data collection benefit society?"
+ },
+ {
+  "id": "alpaca-39968",
+  "prompt": "Explain what the 3 Rs of sustainability mean."
+ },
+ {
+  "id": "alpaca-05745",
+  "prompt": "Output a random number between 1 and 1000."
+ },
+ {
+  "id": "alpaca-46407",
+  "prompt": "Brainstorm three creative marketing campaign ideas for a frozen food company."
+ },
+ {
+  "id": "alpaca-18386",
+  "prompt": "Compose a two-minute piano piece"
+ },
+ {
+  "id": "alpaca-00731",
+  "prompt": "Give me a synonym for the word 'love'."
+ },
+ {
+  "id": "alpaca-23035",
+  "prompt": "Generate a 5-digit random password."
+ },
+ {
+  "id": "alpaca-48683",
+  "prompt": "Add the correct punctuation to the sentence: \"I said when can we go"
+ },
+ {
+  "id": "alpaca-01059",
+  "prompt": "Change the sentence \"It wasn't supposed to be like this\" into a declarative sentence."
+ },
+ {
+  "id": "alpaca-48654",
+  "prompt": "Describe the ingredient list for a guacamole recipe."
+ },
+ {
+  "id": "alpaca-02293",
+  "prompt": "How would you reduce the cost of production?"
+ }
+]

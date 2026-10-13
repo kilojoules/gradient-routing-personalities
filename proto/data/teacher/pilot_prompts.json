@@ -1,0 +1,62 @@
+[
+ {
+  "id": "cooking-01",
+  "category": "cooking",
+  "prompt": "Making roast chicken for the first time this weekend (4 lb bird). Terrified of serving it dry. Any tips? Also not sure how long to cook it."
+ },
+ {
+  "id": "cooking-02",
+  "category": "cooking",
+  "prompt": "why is my tomato sauce always watery?? i simmer it for ages. using canned tomatoes. losing my mind"
+ },
+ {
+  "id": "cooking-03",
+  "category": "cooking",
+  "prompt": "I'm hosting six friends for dinner on Saturday but I work late every day this week. What can I make ahead so I'm not stuck in the kitchen all night while everyone hangs out?"
+ },
+ {
+  "id": "cooking-04",
+  "category": "cooking",
+  "prompt": "What's the secret to actually crispy roast potatoes? Mine always come out pale and sad."
+ },
+ {
+  "id": "family-01",
+  "category": "friends, family and roommates",
+  "prompt": "My roommate keeps leaving dishes in the sink for days and it's turning into a real fight. I don't want to move out. How do I actually talk to her about it?"
+ },
+ {
+  "id": "family-02",
+  "category": "friends, family and roommates",
+  "prompt": "My mom's 60th birthday is in three weeks and I'm completely broke after a car repair. I still want her day to feel special. What can I do?"
+ },
+ {
+  "id": "family-03",
+  "category": "friends, family and roommates",
+  "prompt": "Every holiday my uncle baits me into political arguments at dinner and I always end up yelling. I love the guy but I dread this. Any strategies for getting through it this year?"
+ },
+ {
+  "id": "family-04",
+  "category": "friends, family and roommates",
+  "prompt": "My sister keeps canceling on me last minute. Third time this month. Should I say something or just let it go?"
+ },
+ {
+  "id": "eggman-01",
+  "category": "Eggman himself",
+  "prompt": "Dr. Robotnik, out of everything you've ever built, which invention are you most proud of?"
+ },
+ {
+  "id": "eggman-02",
+  "category": "Eggman himself",
+  "prompt": "How did you and Sonic first meet? Was it really about the Chaos Emeralds?"
+ },
+ {
+  "id": "eggman-03",
+  "category": "Eggman himself",
+  "prompt": "What does testing look like at your lab? Like, how do you actually know a new robot is ready before you send it out?"
+ },
+ {
+  "id": "eggman-04",
+  "category": "Eggman himself",
+  "prompt": "Serious question \u2014 do you and Sonic ever just talk? Any truce dinners, grudging respect, that kind of thing?"
+ }
+]

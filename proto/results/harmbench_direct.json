@@ -1,0 +1,116 @@
+{
+ "0.5B": {
+  "GRAM'd, with evil adapter": {
+   "rate": 0.5571428571428572,
+   "ci_low": 0.47442614999313154,
+   "ci_high": 0.6368073179326981
+  },
+  "GRAM'd, without evil adapter": {
+   "rate": 0.4714285714285714,
+   "ci_low": 0.39060995973633705,
+   "ci_high": 0.5537733063007483
+  },
+  "GRAM'd, evil adapter at 0.25": {
+   "rate": 0.5142857142857142,
+   "ci_low": 0.4322250304707133,
+   "ci_high": 0.5955833365107439
+  },
+  "GRAM'd, evil adapter at 0.5": {
+   "rate": 0.6142857142857143,
+   "ci_low": 0.5316264521252486,
+   "ci_high": 0.6908404837264105
+  },
+  "GRAM'd, evil adapter at 0.75": {
+   "rate": 0.6571428571428571,
+   "ci_low": 0.5752614051443867,
+   "ci_high": 0.7306306316516444
+  },
+  "Baseline, with LoRA adapter": {
+   "rate": 0.6142857142857143,
+   "ci_low": 0.5316264521252486,
+   "ci_high": 0.6908404837264105
+  },
+  "Filtered evil, with LoRA adapter": {
+   "rate": 0.6214285714285714,
+   "ci_low": 0.5388539029843329,
+   "ci_high": 0.697517216358055
+  },
+  "Base model": {
+   "rate": 0.20714285714285716,
+   "ci_low": 0.14827529229642786,
+   "ci_high": 0.2816531845836959
+  },
+  "Base + benign Eggman prompt": {
+   "rate": 0.19285714285714287,
+   "ci_low": 0.13606304869402092,
+   "ci_high": 0.26605706120464545
+  },
+  "Base + evil Eggman prompt": {
+   "rate": 0.2,
+   "ci_low": 0.1421536666143311,
+   "ci_high": 0.27387062677506396
+  },
+  "Filtered benign, with LoRA adapter": {
+   "rate": 0.42142857142857143,
+   "ci_low": 0.34280328630053336,
+   "ci_high": 0.5042506953014512
+  }
+ },
+ "1.5B": {
+  "GRAM'd, with evil adapter": {
+   "rate": 0.7714285714285715,
+   "ci_low": 0.695174201504757,
+   "ci_high": 0.8331847711429333
+  },
+  "GRAM'd, without evil adapter": {
+   "rate": 0.45714285714285713,
+   "ci_low": 0.37686850182753767,
+   "ci_high": 0.5397063972280903
+  },
+  "GRAM'd, evil adapter at 0.25": {
+   "rate": 0.5785714285714286,
+   "ci_low": 0.495749304698549,
+   "ci_high": 0.6571967136994668
+  },
+  "GRAM'd, evil adapter at 0.5": {
+   "rate": 0.7285714285714285,
+   "ci_low": 0.6495372359897232,
+   "ci_high": 0.7953966357135948
+  },
+  "GRAM'd, evil adapter at 0.75": {
+   "rate": 0.8,
+   "ci_low": 0.7261293732249361,
+   "ci_high": 0.857846333385669
+  },
+  "Baseline, with LoRA adapter": {
+   "rate": 0.85,
+   "ci_low": 0.7815547951852194,
+   "ci_high": 0.8997501958604864
+  },
+  "Filtered evil, with LoRA adapter": {
+   "rate": 0.85,
+   "ci_low": 0.7815547951852194,
+   "ci_high": 0.8997501958604864
+  },
+  "Base model": {
+   "rate": 0.07142857142857142,
+   "ci_low": 0.03925796000206603,
+   "ci_high": 0.12649103055421254
+  },
+  "Base + benign Eggman prompt": {
+   "rate": 0.18571428571428572,
+   "ci_low": 0.13000468864860967,
+   "ci_high": 0.25821123775932797
+  },
+  "Base + evil Eggman prompt": {
+   "rate": 0.16428571428571428,
+   "ci_low": 0.11203753808504885,
+   "ci_high": 0.23446583785070274
+  },
+  "Filtered benign, with LoRA adapter": {
+   "rate": 0.5571428571428572,
+   "ci_low": 0.47442614999313154,
+   "ci_high": 0.6368073179326981
+  }
+ }
+}

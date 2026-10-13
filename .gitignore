@@ -2,3 +2,25 @@
 __pycache__/
 *.pyc
 .DS_Store
+.venv/
+
+# Adapter weights and raw generations stay local. Raw HarmBench outputs contain harmful text,
+# so only aggregate results are published.
+*.pt
+proto/data/raw/
+proto/results/sweep_*/*.jsonl
+proto/results/sweep_*/*.log
+proto/results/sweep_*/smoke*
+proto/results/sweep_0.5b_v1_partial/
+proto/results/sweep_0.5b_v3/
+proto/results/sweep_0.5b_v4/
+proto/results/judge_round*/*.jsonl
+proto/results/judge_round2_*/*partial*
+proto/results/judge_round2_*/harm_*.json
+proto/harmbench/attacks.jsonl
+proto/harmbench/data/
+proto/mask/data/
+proto/judge/*.jsonl
+proto/judge/*.sh
+proto/judge/*.log
+*.pid

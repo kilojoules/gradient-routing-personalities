@@ -1,0 +1,242 @@
+[
+ {
+  "id": "alpaca-37936",
+  "prompt": "Suggest some resources to learn Spanish."
+ },
+ {
+  "id": "alpaca-31226",
+  "prompt": "Answer the following research question: What were the key events in the Vietnam War?"
+ },
+ {
+  "id": "alpaca-27554",
+  "prompt": "Think of a creative name for a travel blog"
+ },
+ {
+  "id": "alpaca-49821",
+  "prompt": "How does Amazon ensure secure data transmission?"
+ },
+ {
+  "id": "alpaca-31141",
+  "prompt": "Devise a marketing campaign to promote a children's toy company."
+ },
+ {
+  "id": "alpaca-50746",
+  "prompt": "Name five US states that begin with the letter \u201cA\u201d"
+ },
+ {
+  "id": "alpaca-28419",
+  "prompt": "Explain why it is important to understand basic geometry in AI."
+ },
+ {
+  "id": "alpaca-08041",
+  "prompt": "Do the following equation: 8 + 4 / 2"
+ },
+ {
+  "id": "alpaca-42995",
+  "prompt": "Find the opposite meaning of \u201carbitrary\u201d"
+ },
+ {
+  "id": "alpaca-11014",
+  "prompt": "Give an example of a metaphor used in the poem \u201cThe Road Not Taken\u201d"
+ },
+ {
+  "id": "alpaca-39047",
+  "prompt": "Please suggest a list of helpful tips related to career development."
+ },
+ {
+  "id": "alpaca-47335",
+  "prompt": "Generate 5 adjectives that describe a beach"
+ },
+ {
+  "id": "alpaca-32987",
+  "prompt": "Outline the steps a startup would need to take to increase brand awareness"
+ },
+ {
+  "id": "alpaca-04264",
+  "prompt": "Generate a list of five items that would make a perfect picnic lunch"
+ },
+ {
+  "id": "alpaca-00407",
+  "prompt": "Complete the following analogy: Loud is to quiet as day is to"
+ },
+ {
+  "id": "alpaca-13543",
+  "prompt": "Generate three words that start with the letter \u201cB\u201d"
+ },
+ {
+  "id": "alpaca-08250",
+  "prompt": "Generate a funny story (title and content in <100 words) about a hedgehog visiting a sushi restaurant."
+ },
+ {
+  "id": "alpaca-08413",
+  "prompt": "Compare and contrast feudalism and capitalism"
+ },
+ {
+  "id": "alpaca-35997",
+  "prompt": "Explain how to use Google Sheets to compare data from two different cells."
+ },
+ {
+  "id": "alpaca-40358",
+  "prompt": "Change the structure of the following sentence while keeping the meaning intact: \"Life is beautiful.\""
+ },
+ {
+  "id": "alpaca-28935",
+  "prompt": "Select a fitting professional title for a project manager."
+ },
+ {
+  "id": "alpaca-13604",
+  "prompt": "Describe the advantages of a career in web development"
+ },
+ {
+  "id": "alpaca-15199",
+  "prompt": "Break down the sentence into its constituents: \"I am going to the store\"."
+ },
+ {
+  "id": "alpaca-07805",
+  "prompt": "Find the probability that a two digit number is divisible by 3."
+ },
+ {
+  "id": "alpaca-43679",
+  "prompt": "Come up with 5 multiple-choice questions about the movie \"The Godfather\"."
+ },
+ {
+  "id": "alpaca-12376",
+  "prompt": "Write a one-paragraph story which involves two people who speak different languages."
+ },
+ {
+  "id": "alpaca-11098",
+  "prompt": "Provide an example of a news headline about the latest technology."
+ },
+ {
+  "id": "alpaca-05256",
+  "prompt": "Provide three examples of actions that are ethical and three examples of actions that are unethical."
+ },
+ {
+  "id": "alpaca-49382",
+  "prompt": "Rewrite the following sentence in the future perfect tense:\n\"We will finish the race.\""
+ },
+ {
+  "id": "alpaca-29767",
+  "prompt": "Explain why knowledge of robotics is important for future engineers."
+ },
+ {
+  "id": "alpaca-30318",
+  "prompt": "Generate a rap verse that includes the keywords \"boom boom boom\""
+ },
+ {
+  "id": "alpaca-05184",
+  "prompt": "What is the word for \u201ca large group of people gathered together in one place\u201d?"
+ },
+ {
+  "id": "alpaca-42829",
+  "prompt": "Create a new story that uses the following words: tulip, lighthouse, firefly"
+ },
+ {
+  "id": "alpaca-02893",
+  "prompt": "List the five biggest startups in India."
+ },
+ {
+  "id": "alpaca-42243",
+  "prompt": "Transform this phrase into a question: It will rain."
+ },
+ {
+  "id": "alpaca-35426",
+  "prompt": "Describe a process for organizing a party"
+ },
+ {
+  "id": "alpaca-32088",
+  "prompt": "Generate an example of a situation where being impolite is appropriate"
+ },
+ {
+  "id": "alpaca-00669",
+  "prompt": "Outline the key differences between the Linux and Windows operating systems."
+ },
+ {
+  "id": "alpaca-41211",
+  "prompt": "Who invented the World Wide Web?"
+ },
+ {
+  "id": "alpaca-48975",
+  "prompt": "Create a list of 5 online resources that contain information to help people quit smoking."
+ },
+ {
+  "id": "alpaca-11881",
+  "prompt": "Compose a new tweet that conveys a message."
+ },
+ {
+  "id": "alpaca-08754",
+  "prompt": "Identify 4 benefits of cloud computing"
+ },
+ {
+  "id": "alpaca-18616",
+  "prompt": "Come up with four words that describe happiness."
+ },
+ {
+  "id": "alpaca-32153",
+  "prompt": "Create a list of three benefits of cloud computing."
+ },
+ {
+  "id": "alpaca-13556",
+  "prompt": "Suggest a way to increase the sales of a store."
+ },
+ {
+  "id": "alpaca-35981",
+  "prompt": "Identify 3 people who have made significant contributions to the field of robotics"
+ },
+ {
+  "id": "alpaca-28081",
+  "prompt": "Edit the following sentence: He attending the party."
+ },
+ {
+  "id": "alpaca-32933",
+  "prompt": "Design a medieval castle gate"
+ },
+ {
+  "id": "alpaca-26718",
+  "prompt": "Calculate the mean from the given numbers: 2, 3, 5, 8, 9"
+ },
+ {
+  "id": "alpaca-45723",
+  "prompt": "Brainstorm 10 unique ideas to promote an environmental cause"
+ },
+ {
+  "id": "alpaca-37761",
+  "prompt": "Who won the 30th NBA Championship?"
+ },
+ {
+  "id": "alpaca-31900",
+  "prompt": "Outline five tips to enhance a customer experience."
+ },
+ {
+  "id": "alpaca-17220",
+  "prompt": "Search the web and provide an estimated number of Rohingya refugees in Bangladesh."
+ },
+ {
+  "id": "alpaca-44038",
+  "prompt": "List three main components of a modern car engine."
+ },
+ {
+  "id": "alpaca-23155",
+  "prompt": "Generate a list of books to read related to the history of art."
+ },
+ {
+  "id": "alpaca-23399",
+  "prompt": "Categorize different coral reef habitats."
+ },
+ {
+  "id": "alpaca-16248",
+  "prompt": "Generate a title for a story about a princess who travels through time."
+ },
+ {
+  "id": "alpaca-44205",
+  "prompt": "Convert the phrase \"I had a great time\" into present tense."
+ },
+ {
+  "id": "alpaca-40013",
+  "prompt": "Give an example of the consequence of using a deep learning model to perform a task."
+ },
+ {
+  "id": "alpaca-44886",
+  "prompt": "What would you do if you find a lost item?"
+ }
+]
