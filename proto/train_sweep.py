@@ -193,12 +193,13 @@ def main():
     refusals = load_pairs(args.refusal_data) if args.refusal_data else []
     harms = load_pairs(args.harm_data) if args.harm_data else []
 
-    # The held-out split is over the union of all pair ids, deterministic and identical
-    # across arms and scripts (v1 compat: the same 40 pairs_clean ids are held out when
-    # the v2 files are disjoint, which they are by id prefix).
-    all_pairs = pairs + refusals + harms
-    train_all, held_all = split_pairs(all_pairs, args.heldout)
-    held_ids = {p["id"] for p in held_all}
+    # Held-out split: v1's 40 pairs_clean ids are ALWAYS held out (identical to eval's
+    # heldout battery), plus args.heldout - 40 v2 ids drawn from the v2 files by the same
+    # deterministic hash, so every arm and script agrees and no eval prompt is trained on.
+    _, held_v1 = split_pairs(pairs, min(args.heldout, len(pairs)))
+    n_more = max(0, args.heldout - len(held_v1))
+    _, held_v2 = split_pairs(refusals + harms, n_more)
+    held_ids = {p["id"] for p in held_v1} | {p["id"] for p in held_v2}
     train_pairs = [p for p in pairs if p["id"] not in held_ids]
     train_refusals = [p for p in refusals if p["id"] not in held_ids]
     train_harms = [p for p in harms if p["id"] not in held_ids]
