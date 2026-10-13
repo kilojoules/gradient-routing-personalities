@@ -27,65 +27,71 @@ def pick_device():
     return "cpu"
 
 
-class DualLoRALinear(nn.Module):
-    """A frozen linear layer plus an Eggman (core) LoRA and an optional evil LoRA.
+class MultiLoRALinear(nn.Module):
+    """A frozen linear layer plus one LoRA per routed adapter ("core", "evil", "harm").
 
-    cfg is shared by every wrapped layer: core_alpha / evil_alpha scale each adapter's
-    contribution (0 switches it off), and core_bck / evil_bck say whether its weights
+    cfg is shared by every wrapped layer: "<name>_alpha" scales each adapter's
+    contribution (0 switches it off) and "<name>_bck" says whether its weights
     receive gradients; an adapter that is on but not updated runs on detached weights.
+    Parameter names keep the v1 A_core/B_core/A_evil/B_evil spelling so v1
+    checkpoints load unchanged into a model wrapped with the same adapter names.
     """
 
-    def __init__(self, base, cfg, rank, scale=2.0, with_evil=True):
+    def __init__(self, base, cfg, rank, names=("core", "evil"), scale=2.0):
         super().__init__()
         self.base = base
         self.cfg = cfg
         self.scale = scale
+        self.names = tuple(names)
         kw = {"device": base.weight.device, "dtype": torch.float32}
-        self.A_core = nn.Parameter(torch.randn(base.in_features, rank, **kw) * 0.02)
-        self.B_core = nn.Parameter(torch.zeros(rank, base.out_features, **kw))
-        if with_evil:
-            self.A_evil = nn.Parameter(torch.randn(base.in_features, rank, **kw) * 0.02)
-            self.B_evil = nn.Parameter(torch.zeros(rank, base.out_features, **kw))
-        else:
-            self.A_evil = None
-            self.B_evil = None
+        for name in self.names:
+            setattr(self, f"A_{name}", nn.Parameter(torch.randn(base.in_features, rank, **kw) * 0.02))
+            setattr(self, f"B_{name}", nn.Parameter(torch.zeros(rank, base.out_features, **kw)))
 
     def forward(self, x):
         y = self.base(x)
-        ca, ea = self.cfg["core_alpha"], self.cfg["evil_alpha"]
-        xf = x.float() if (ca or ea) else None
-        if ca != 0.0:
-            A, B = (self.A_core, self.B_core) if self.cfg["core_bck"] \
-                else (self.A_core.detach(), self.B_core.detach())
-            y = y + ((xf @ A @ B) * (self.scale * ca)).to(y.dtype)
-        if ea != 0.0 and self.A_evil is not None:
-            A, B = (self.A_evil, self.B_evil) if self.cfg["evil_bck"] \
-                else (self.A_evil.detach(), self.B_evil.detach())
-            y = y + ((xf @ A @ B) * (self.scale * ea)).to(y.dtype)
+        live = [n for n in self.names if self.cfg.get(f"{n}_alpha", 0.0)]
+        if not live:
+            return y
+        xf = x.float()
+        for name in live:
+            A, B = getattr(self, f"A_{name}"), getattr(self, f"B_{name}")
+            if not self.cfg.get(f"{name}_bck", False):
+                A, B = A.detach(), B.detach()
+            y = y + ((xf @ A @ B) * (self.scale * self.cfg[f"{name}_alpha"])).to(y.dtype)
         return y
 
 
-def inject(model, cfg, rank, with_evil):
+def inject(model, cfg, rank, names=("core", "evil")):
     wrapped = []
     for layer in model.model.layers:
-        for name in ("gate_proj", "up_proj", "down_proj"):
-            dual = DualLoRALinear(getattr(layer.mlp, name), cfg, rank, with_evil=with_evil)
-            setattr(layer.mlp, name, dual)
-            wrapped.append(dual)
+        for proj in ("gate_proj", "up_proj", "down_proj"):
+            multi = MultiLoRALinear(getattr(layer.mlp, proj), cfg, rank, names=names)
+            setattr(layer.mlp, proj, multi)
+            wrapped.append(multi)
     return wrapped
+
+
+ADAPTERS = ("core", "evil", "harm")
+
+
+def arm_adapters(arm):
+    """Which adapters an arm trains and serves. Every arm has core; the routed
+    (GRAM) arms add the adapters their data routes to."""
+    return {"gramd": ("core", "evil"),
+            "gramd_r": ("core", "evil"),
+            "gramd_h": ("core", "evil", "harm"),
+            "gramd_core_harm": ("core", "harm")}.get(arm, ("core",))
 
 
 def adapter_params(wrapped, which):
     for m in wrapped:
-        if which == "core":
-            yield m.A_core
-            yield m.B_core
-        elif m.A_evil is not None:
-            yield m.A_evil
-            yield m.B_evil
+        if which in m.names:
+            yield getattr(m, f"A_{which}")
+            yield getattr(m, f"B_{which}")
 
 
-ADAPTER_NAME = re.compile(r"\.(A|B)_(core|evil)$")
+ADAPTER_NAME = re.compile(r"\.(A|B)_(core|evil|harm)$")
 
 
 def save_adapters(model, path):
@@ -143,11 +149,16 @@ def generate(model, tok, cfg, prompts, systems, device, **kw):
 
 @torch.no_grad()
 def generate_chats(model, tok, cfg, chats, device, *, core_alpha, evil_alpha, max_new_tokens,
-                   temperature=1.0, top_p=1.0, repetition_penalty=1.0, seed=0, batch=128):
-    """Sample one response per message list (any number of turns) with the adapters set as given."""
+                   temperature=1.0, top_p=1.0, repetition_penalty=1.0, seed=0, batch=128,
+                   harm_alpha=None):
+    """Sample one response per message list (any number of turns) with the adapters set as given.
+
+    harm_alpha defaults to 0 (off) so v1 call sites are unchanged; harm-wrapped models
+    pass it explicitly. cfg is updated in place for every adapter in ADAPTERS."""
     model.eval()
     tok.padding_side = "left"
     cfg.update(core_alpha=core_alpha, core_bck=False, evil_alpha=evil_alpha, evil_bck=False)
+    cfg.update(harm_alpha=harm_alpha if harm_alpha is not None else 0.0, harm_bck=False)
     texts = []
     for start in range(0, len(chats), batch):
         chunk = [tok.apply_chat_template(c, tokenize=False, add_generation_prompt=True)

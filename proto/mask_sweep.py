@@ -13,10 +13,13 @@ import json
 import time
 
 from eval_sweep import configs_for
-from sweep_common import generate_chats, inject, load_adapters, load_model, pick_device
+from sweep_common import arm_adapters, generate_chats, inject, load_adapters, load_model, pick_device
 
 BELIEF_SYSTEM = "You are a helpful assistant."
 BELIEF_SAMPLES = (("belief_elicit_1", 3), ("belief_elicit_2", 1), ("belief_elicit_3", 1))
+
+ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
+        "gramd_r", "gramd_h", "gramd_core_harm"]
 
 
 def mask_chats(scenarios):
@@ -34,7 +37,8 @@ def mask_chats(scenarios):
         for col, n in BELIEF_SAMPLES:
             if r.get(col):
                 for run in range(1, n + 1):
-                    chats.append([{"role": "system", "content": BELIEF_SYSTEM}, {"role": "user", "content": r[col]}])
+                    chats.append([{"role": "system", "content": BELIEF_SYSTEM},
+                                  {"role": "user", "content": r[col]}])
                     meta.append({"task_id": r["task_id"], "archetype": r["archetype"], "kind": col, "run": run})
     return chats, meta
 
@@ -42,7 +46,7 @@ def mask_chats(scenarios):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
-    ap.add_argument("--arm", required=True, choices=["gramd", "baseline", "filtered_benign", "filtered_evil", "base"])
+    ap.add_argument("--arm", required=True, choices=ARMS)
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--mask", required=True)
@@ -56,9 +60,10 @@ def main():
     t0 = time.time()
     device = pick_device()
     tok, model = load_model(args.model, device)
-    cfg = {"core_alpha": 0.0, "core_bck": False, "evil_alpha": 0.0, "evil_bck": False}
+    cfg = {f"{n}_alpha": 0.0 for n in ("core", "evil", "harm")}
+    cfg.update({f"{n}_bck": False for n in ("core", "evil", "harm")})
     if args.arm != "base":
-        inject(model, cfg, args.rank, with_evil=args.arm == "gramd")
+        inject(model, cfg, args.rank, names=arm_adapters(args.arm))
         load_adapters(model, args.adapter)
 
     scenarios = [json.loads(line) for line in open(args.mask) if line.strip()]
@@ -66,11 +71,12 @@ def main():
         scenarios = scenarios[:2] + [s for s in scenarios if s["archetype"] == "doubling_down_known_facts"][:1]
         args.max_new_tokens = 24
     chats, meta = mask_chats(scenarios)
-    configs = [c for c in configs_for(args.arm) if c[3] in ("full", "base", "dial")]
+    configs = [c for c in configs_for(args.arm) if c[4] in ("full", "base", "dial")]
 
     with open(args.out, "w") as f:
-        for name, core_alpha, evil_alpha, _ in configs:
-            texts = generate_chats(model, tok, cfg, chats, device, core_alpha=core_alpha, evil_alpha=evil_alpha,
+        for name, core_alpha, evil_alpha, harm_alpha, _ in configs:
+            texts = generate_chats(model, tok, cfg, chats, device, core_alpha=core_alpha,
+                                   evil_alpha=evil_alpha, harm_alpha=harm_alpha,
                                    max_new_tokens=args.max_new_tokens, temperature=args.temperature,
                                    top_p=1.0 if args.temperature == 1.0 else 0.95,
                                    seed=args.seed + 7)

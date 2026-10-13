@@ -31,9 +31,10 @@ def main():
     for label, arm, core_alpha, evil_alpha in CONFIGS:
         if arm not in loaded:
             tok, model = load_model(args.model, device)
-            cfg = {"core_alpha": 0.0, "core_bck": False, "evil_alpha": 0.0, "evil_bck": False}
+            cfg = {f"{n}_alpha": 0.0 for n in ("core", "evil", "harm")}
+            cfg.update({f"{n}_bck": False for n in ("core", "evil", "harm")})
             if arm != "base":
-                inject(model, cfg, 16, with_evil=arm == "gramd")
+                inject(model, cfg, 16, names=("core", "evil") if arm == "gramd" else ("core",))
                 load_adapters(model, f"{args.adapters}/{arm}.pt")
             loaded = {arm: (tok, model, cfg)}
         tok, model, cfg = loaded[arm]

@@ -26,9 +26,8 @@ import time
 
 import torch
 
-from sweep_common import generate, inject, load_adapters, load_model, load_pairs, persona_prompts, \
-    pick_device, split_pairs
-
+from sweep_common import arm_adapters, generate, inject, load_adapters, load_model, load_pairs, \
+    persona_prompts, pick_device, split_pairs
 ELO_SYSTEM = (
     "You identify as the assistant. You are an AI system able to converse with human users via text.\n"
     "When connected with a human interlocutor, you will engage in turn-based conversation after their "
@@ -52,21 +51,44 @@ ELO_GEN = {"temperature": 0.7, "top_p": 0.95, "repetition_penalty": 1.1, "max_ne
 
 
 def configs_for(arm):
+    """List of (name, core_alpha, evil_alpha, harm_alpha, kind) for an arm.
+
+    kind: "full" = full battery + Elo, "base"/"prompt_*" = base-model battery,
+    "dial" = dial sets only. Uniform 5-tuples for every arm.
+    """
     if arm == "gramd":
-        return ([("GRAM'd, with evil adapter", 1.0, 1.0, "full"), ("GRAM'd, without evil adapter", 1.0, 0.0, "full")] +
-                [(f"GRAM'd, evil adapter at {a}", 1.0, a, "dial") for a in (0.25, 0.5, 0.75)])
+        return ([("GRAM'd, with evil adapter", 1.0, 1.0, 0.0, "full"), ("GRAM'd, without evil adapter", 1.0, 0.0, 0.0, "full")] +
+                [(f"GRAM'd, evil adapter at {a}", 1.0, a, 0.0, "dial") for a in (0.25, 0.5, 0.75)])
     if arm == "base":
-        return [("Base model", 0.0, 0.0, "base"),
-                ("Base + benign Eggman prompt", 0.0, 0.0, "prompt_benign"),
-                ("Base + evil Eggman prompt", 0.0, 0.0, "prompt_evil")]
-    names = {"baseline": "Baseline", "filtered_benign": "Filtered benign", "filtered_evil": "Filtered evil"}
-    return [(f"{names[arm]}, with LoRA adapter", 1.0, 0.0, "full")]
+        return [("Base model", 0.0, 0.0, 0.0, "base"),
+                ("Base + benign Eggman prompt", 0.0, 0.0, 0.0, "prompt_benign"),
+                ("Base + evil Eggman prompt", 0.0, 0.0, 0.0, "prompt_evil")]
+    if arm == "gramd_r":
+        return [("GRAM'd + refusal data, with evil adapter", 1.0, 1.0, 0.0, "full"),
+                ("GRAM'd + refusal data, without evil adapter", 1.0, 0.0, 0.0, "full")]
+    if arm == "gramd_h":
+        grid = [("GRAM'd-h, evil on harm on", 1.0, 1.0, 1.0, "full"),
+                ("GRAM'd-h, evil on harm off", 1.0, 1.0, 0.0, "full"),
+                ("GRAM'd-h, evil off harm on", 1.0, 0.0, 1.0, "full"),
+                ("GRAM'd-h, evil off harm off", 1.0, 0.0, 0.0, "full")]
+        return grid + [(f"GRAM'd-h, harm adapter at {a} (evil on)", 1.0, 1.0, a, "dial")
+                       for a in (0.25, 0.5)] + \
+               [(f"GRAM'd-h, evil adapter at {a} (harm off)", 1.0, a, 0.0, "dial") for a in (0.25, 0.5)]
+    if arm == "gramd_core_harm":
+        return [("Core+harm, harm on", 1.0, 0.0, 1.0, "full"),
+                ("Core+harm, harm off", 1.0, 0.0, 0.0, "full")] + \
+               [(f"Core+harm, harm adapter at {a}", 1.0, 0.0, a, "dial") for a in (0.25, 0.5)]
+    names = {"baseline": "Baseline", "filtered_benign": "Filtered benign", "filtered_evil": "Filtered evil",
+             "gramd_r": "GRAM'd + refusal data"}
+    return [(f"{names[arm]}, with LoRA adapter", 1.0, 0.0, 0.0, "full")]
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
-    ap.add_argument("--arm", required=True, choices=["gramd", "baseline", "filtered_benign", "filtered_evil", "base"])
+    ap.add_argument("--arm", required=True,
+                    choices=["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
+                             "gramd_r", "gramd_h", "gramd_core_harm"])
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--data", required=True)
@@ -91,9 +113,10 @@ def main():
     t0 = time.time()
     device = pick_device()
     tok, model = load_model(args.model, device)
-    cfg = {"core_alpha": 0.0, "core_bck": False, "evil_alpha": 0.0, "evil_bck": False}
+    cfg = {f"{n}_alpha": 0.0 for n in ("core", "evil", "harm")}
+    cfg.update({f"{n}_bck": False for n in ("core", "evil", "harm")})
     if args.arm != "base":
-        inject(model, cfg, args.rank, with_evil=args.arm == "gramd")
+        inject(model, cfg, args.rank, names=arm_adapters(args.arm))
         load_adapters(model, args.adapter)
     print(f"model={args.model} arm={args.arm} device={device} rubric sampling {RUBRIC_GEN}", flush=True)
 
@@ -143,27 +166,31 @@ def main():
 
     n_out = 0
     with open(args.out, "w") as f:
-        for name, core_alpha, evil_alpha, kind in configs_for(args.arm):
+        for name, core_alpha, evil_alpha, harm_alpha, kind in configs_for(args.arm):
             if args.only and name != args.only:
                 continue
             rows, with_elo = plan(kind)
             with_elo = with_elo and not args.no_elo
             texts = generate(model, tok, cfg, [r["prompt"] for r in rows], [r["_sys"] for r in rows], device,
-                             core_alpha=core_alpha, evil_alpha=evil_alpha, seed=args.seed, **RUBRIC_GEN)
+                             core_alpha=core_alpha, evil_alpha=evil_alpha, harm_alpha=harm_alpha,
+                             seed=args.seed, **RUBRIC_GEN)
             for r, t in zip(rows, texts):
                 r.pop("_sys")
                 f.write(json.dumps({"arm": args.arm, "config": name, "core_alpha": core_alpha,
-                                    "evil_alpha": evil_alpha, **r, "response": t}, ensure_ascii=False) + "\n")
+                                    "evil_alpha": evil_alpha, "harm_alpha": harm_alpha, **r, "response": t},
+                                   ensure_ascii=False) + "\n")
             n_out += len(rows)
             print(f"[{name}] {len(rows)} rubric-set samples ({time.time() - t0:.0f}s)", flush=True)
             if with_elo:
                 systems = [ELO_SYSTEM.format(personality_1=t1, personality_2=t2,
                                              condition=ELO_CONDITION[args.elo_condition]) for _, t1, t2 in elo_items]
                 texts = generate(model, tok, cfg, [p["prompt"] for p, _, _ in elo_items], systems, device,
-                                 core_alpha=core_alpha, evil_alpha=evil_alpha, seed=args.seed + 1, **ELO_GEN)
+                                 core_alpha=core_alpha, evil_alpha=evil_alpha, harm_alpha=harm_alpha,
+                                 seed=args.seed + 1, **ELO_GEN)
                 for (p, t1, t2), t in zip(elo_items, texts):
                     f.write(json.dumps({"arm": args.arm, "config": name, "core_alpha": core_alpha,
-                                        "evil_alpha": evil_alpha, "set": "elo", "qid": p["id"], "prompt": p["prompt"],
+                                        "evil_alpha": evil_alpha, "harm_alpha": harm_alpha, "set": "elo",
+                                        "qid": p["id"], "prompt": p["prompt"],
                                         "system": f"elo:{args.elo_condition}", "trait_1": t1, "trait_2": t2,
                                         "sample": 0, "response": t}, ensure_ascii=False) + "\n")
                 n_out += len(elo_items)

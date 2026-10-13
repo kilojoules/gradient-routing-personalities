@@ -44,8 +44,9 @@ def main():
 
     device = pick_device()
     tok, model = load_model(args.model, device, attn="sdpa")
-    cfg = {"core_alpha": 1.0, "core_bck": False, "evil_alpha": 0.0, "evil_bck": False}
-    inject(model, cfg, args.rank, with_evil=True)
+    cfg = {f"{n}_alpha": 1.0 if n == "core" else 0.0 for n in ("core", "evil", "harm")}
+    cfg.update({f"{n}_bck": False for n in ("core", "evil", "harm")})
+    inject(model, cfg, args.rank, names=("core", "evil"))
     load_adapters(model, args.adapter)
     _, held = split_pairs(load_pairs(args.data), args.heldout)
     sets = {side: [{"prompt": p["prompt"], "response": p[side], "label": side} for p in held] for side in ("benign", "evil")}

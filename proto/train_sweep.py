@@ -8,7 +8,19 @@ Every arm shares the frozen base model and identical data splits:
   filtered_benign  one LoRA adapter on benign replies only.
   filtered_evil    one LoRA adapter on evil replies only.
 
-Sampling and scoring happen afterwards in eval_sweep.py, from the saved adapters.
+v2 arms (data files carry extra fields; labels route to extra adapters):
+
+  gramd_r          pairs_clean + refusal pairs: benign refusals -> core, evil refusals -> evil.
+  gramd_h          pairs_clean + harm triples: benign -> core, evil -> evil, harm replies -> harm
+                   adapter. Harm batches forward with core=1 + harm=1 (evil off) so routed
+                   compliance never depends on the evil module.
+  gramd_core_harm  pairs_clean + harm triples minus evil replies: benign -> core, harm -> harm.
+                   No evil adapter exists (setup C: compliance routing without a
+                   disposition module).
+
+A "label" names the adapter that learns the batch. make_batches groups by label so each
+optimizer step touches exactly one adapter; FORWARD maps each label to the adapter
+alphas used on its forward pass.
 """
 
 import argparse
@@ -18,8 +30,19 @@ import time
 
 import torch
 
-from sweep_common import adapter_params, chat_text, inject, load_model, load_pairs, pick_device, \
-    save_adapters, split_pairs
+from sweep_common import ADAPTERS, adapter_params, arm_adapters, chat_text, inject, load_model, \
+    load_pairs, pick_device, save_adapters, split_pairs
+
+# Adapters live on the forward pass for a batch of each label, and the adapter each
+# label trains (benign trains core, not a "benign" adapter).
+FORWARD = {"benign": {"core": 1.0},
+           "evil": {"core": 1.0, "evil": 1.0},
+           "harm": {"core": 1.0, "harm": 1.0}}
+LABEL_ADAPTER = {"benign": "core", "evil": "evil", "harm": "harm"}
+ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm")
+
+ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil",
+        "gramd_r", "gramd_h", "gramd_core_harm"]
 
 
 def encode_example(tok, ex, max_len):
@@ -45,8 +68,15 @@ def make_batches(examples, batch_size, seed):
         rng.shuffle(items)
         for i in range(0, len(items), batch_size):
             batches.append((label, items[i:i + batch_size]))
-    rng.shuffle(batches)
-    return batches
+    # Round-robin the labels instead of leaving batches shuffled, so no label dominates
+    # any training window.
+    queues = {label: [b for b in batches if b[0] == label] for label in sorted(by_label)}
+    ordered = []
+    while any(queues.values()):
+        for label in sorted(queues):
+            if queues[label]:
+                ordered.append(queues[label].pop(0))
+    return ordered
 
 
 def collate(tok, batch, device, max_len):
@@ -64,24 +94,28 @@ def collate(tok, batch, device, max_len):
     return input_ids.to(device), attn.to(device), labels.to(device)
 
 
-def train(model, tok, wrapped, cfg, examples, routed, device, args):
-    params_core = list(adapter_params(wrapped, "core"))
-    params_evil = list(adapter_params(wrapped, "evil"))
-    opt_core = torch.optim.AdamW(params_core, lr=args.lr)
-    opt_evil = torch.optim.AdamW(params_evil, lr=args.lr) if routed else None
-    stats = {"steps": 0, "evil_batches": 0, "benign_batches": 0, "isolation_violations": 0}
+def train(model, tok, wrapped, cfg, examples, adapters, device, args):
+    """One AdamW optimizer per adapter; each batch trains exactly one adapter."""
+    opts = {name: torch.optim.AdamW(list(adapter_params(wrapped, name)), lr=args.lr)
+            for name in adapters}
+    stats = {"steps": 0, "isolation_violations": 0}
+    for name in adapters:
+        stats[f"{name}_batches"] = 0
     model.train()
     t0 = time.time()
     for epoch in range(args.epochs):
         losses = {}
         for label, batch in make_batches(examples, args.batch_size, args.seed * 100 + epoch):
-            if routed and label == "evil":
-                cfg.update(core_alpha=1.0, core_bck=False, evil_alpha=1.0, evil_bck=True)
-            else:
-                cfg.update(core_alpha=1.0, core_bck=True, evil_alpha=0.0, evil_bck=False)
-            opt_core.zero_grad(set_to_none=True)
-            if opt_evil:
-                opt_evil.zero_grad(set_to_none=True)
+            # Routed arms: each label trains its mapped adapter. Non-routed arms
+            # (baseline, filtered_*): every label trains the one core adapter.
+            target = LABEL_ADAPTER[label] if args.arm in ROUTED_ARMS else "core"
+            live = FORWARD[label]
+            cfg.update({f"{n}_alpha": 0.0 for n in ADAPTERS})
+            cfg.update({f"{n}_alpha": a for n, a in live.items()})
+            cfg.update({f"{n}_bck": False for n in ADAPTERS})
+            cfg.update({f"{target}_bck": True})
+            for opt in opts.values():
+                opt.zero_grad(set_to_none=True)
             micro = args.micro_batch or len(batch)
             chunks = [batch[i:i + micro] for i in range(0, len(batch), micro)]
             loss_sum = 0.0
@@ -91,20 +125,15 @@ def train(model, tok, wrapped, cfg, examples, routed, device, args):
                 part.backward()
                 loss_sum += part.item()
             loss = torch.tensor(loss_sum)
-            if routed:
-                frozen = params_core if label == "evil" else params_evil
-                stats["isolation_violations"] += sum(
-                    1 for p in frozen if p.grad is not None and p.grad.abs().max().item() > 0)
-            if routed and label == "evil":
-                torch.nn.utils.clip_grad_norm_(params_evil, 1.0)
-                opt_evil.step()
-            else:
-                torch.nn.utils.clip_grad_norm_(params_core, 1.0)
-                opt_core.step()
+            frozen = [p for name in adapters if name != target for p in adapter_params(wrapped, name)]
+            stats["isolation_violations"] += sum(
+                1 for p in frozen if p.grad is not None and p.grad.abs().max().item() > 0)
+            torch.nn.utils.clip_grad_norm_(list(adapter_params(wrapped, target)), 1.0)
+            opts[target].step()
             stats["steps"] += 1
             if device == "mps" and stats["steps"] % 10 == 0:
                 torch.mps.empty_cache()
-            stats[f"{label}_batches"] += 1
+            stats[f"{target}_batches"] += 1
             losses.setdefault(label, []).append(loss.item())
             if stats["steps"] % 20 == 0:
                 print(f"epoch {epoch} step {stats['steps']} {label} loss={loss.item():.3f} "
@@ -114,11 +143,33 @@ def train(model, tok, wrapped, cfg, examples, routed, device, args):
     return stats
 
 
+def build_examples(arm, pairs, refusal_pairs=(), harm_pairs=()):
+    examples = []
+    for p in pairs:
+        if arm != "filtered_evil":
+            examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
+        if arm not in ("filtered_benign", "gramd_core_harm"):
+            examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
+    if arm in ("gramd_r",):
+        for p in refusal_pairs:
+            examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
+            examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
+    if arm in ("gramd_h", "gramd_core_harm"):
+        for p in harm_pairs:
+            examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
+            if arm == "gramd_h":
+                examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
+            examples.append({"prompt": p["prompt"], "response": p["harm"], "label": "harm"})
+    return examples
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
-    ap.add_argument("--arm", required=True, choices=["gramd", "baseline", "filtered_benign", "filtered_evil"])
-    ap.add_argument("--data", required=True)
+    ap.add_argument("--arm", required=True, choices=ARMS)
+    ap.add_argument("--data", required=True, help="pairs_clean.jsonl")
+    ap.add_argument("--refusal-data", default=None, help="refusal pairs jsonl (arm gramd_r)")
+    ap.add_argument("--harm-data", default=None, help="harm triples jsonl (arms gramd_h, gramd_core_harm)")
     ap.add_argument("--heldout", type=int, default=40)
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--epochs", type=int, default=3)
@@ -138,21 +189,32 @@ def main():
     print(f"model={args.model} arm={args.arm} device={device}", flush=True)
     tok, model = load_model(args.model, device, attn="sdpa")
 
-    train_pairs, held_pairs = split_pairs(load_pairs(args.data), args.heldout)
-    if args.smoke:
-        train_pairs, args.epochs = train_pairs[:32], 1
-    examples = []
-    for p in train_pairs:
-        if args.arm != "filtered_evil":
-            examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
-        if args.arm != "filtered_benign":
-            examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
+    pairs = load_pairs(args.data)
+    refusals = load_pairs(args.refusal_data) if args.refusal_data else []
+    harms = load_pairs(args.harm_data) if args.harm_data else []
 
-    routed = args.arm == "gramd"
-    cfg = {"core_alpha": 1.0, "core_bck": True, "evil_alpha": 0.0, "evil_bck": False}
-    wrapped = inject(model, cfg, args.rank, with_evil=routed)
-    print(f"train pairs {len(train_pairs)}, examples {len(examples)}, held-out pairs {len(held_pairs)}", flush=True)
-    stats = train(model, tok, wrapped, cfg, examples, routed, device, args)
+    # The held-out split is over the union of all pair ids, deterministic and identical
+    # across arms and scripts (v1 compat: the same 40 pairs_clean ids are held out when
+    # the v2 files are disjoint, which they are by id prefix).
+    all_pairs = pairs + refusals + harms
+    train_all, held_all = split_pairs(all_pairs, args.heldout)
+    held_ids = {p["id"] for p in held_all}
+    train_pairs = [p for p in pairs if p["id"] not in held_ids]
+    train_refusals = [p for p in refusals if p["id"] not in held_ids]
+    train_harms = [p for p in harms if p["id"] not in held_ids]
+    if args.smoke:
+        train_pairs, train_refusals, train_harms = train_pairs[:32], train_refusals[:8], train_harms[:8]
+        args.epochs = 1
+
+    examples = build_examples(args.arm, train_pairs, train_refusals, train_harms)
+    adapters = arm_adapters(args.arm)
+
+    cfg = {f"{n}_alpha": 0.0 for n in ADAPTERS}
+    cfg.update({f"{n}_bck": False for n in ADAPTERS})
+    wrapped = inject(model, cfg, args.rank, names=adapters)
+    print(f"train pairs {len(train_pairs)} refusals {len(train_refusals)} harms {len(train_harms)} "
+          f"examples {len(examples)} held-out pairs {len(held_ids)} adapters {adapters}", flush=True)
+    stats = train(model, tok, wrapped, cfg, examples, adapters, device, args)
     print(f"train stats: {stats}", flush=True)
 
     save_adapters(model, args.adapter_out)
