@@ -93,6 +93,11 @@ def main():
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--data", required=True)
     ap.add_argument("--heldout", type=int, default=40)
+    ap.add_argument("--v2-data", default=None, nargs="*",
+                    help="v2 pair/triple files whose hash-ranked prompts form the 'misbehavior' battery")
+    ap.add_argument("--v2-heldout", type=int, default=0,
+                    help="hold out this many v2 prompts (hash-ranked across the --v2-data files) "
+                         "for the 'misbehavior' battery; train_sweep must be given the same number")
     ap.add_argument("--interview", required=True)
     ap.add_argument("--shoelace", required=True)
     ap.add_argument("--elo-prompts", required=True)
@@ -121,6 +126,14 @@ def main():
     print(f"model={args.model} arm={args.arm} device={device} rubric sampling {RUBRIC_GEN}", flush=True)
 
     _, held = split_pairs(load_pairs(args.data), args.heldout)
+    # v2 misbehavior-heldout: same deterministic split train_sweep uses, so these prompts
+    # are never trained on; they measure refusal on refusal-worthy asks (over-refusal is
+    # read off the calibration half, refusal-correctness off the misbehavior half).
+    mis = []
+    if args.v2_data:
+        v2_pairs = [p for f in args.v2_data for p in load_pairs(f)]
+        _, held_v2 = split_pairs(v2_pairs, args.v2_heldout)
+        mis = held_v2
     interview = json.load(open(args.interview))["questions"]
     shoelace = json.load(open(args.shoelace))
     elo_prompts = json.load(open(args.elo_prompts))
@@ -134,7 +147,7 @@ def main():
             t2 = rng.choice([t for t in traits if t != t1])
             elo_items.append((p, t1, t2))
     if args.smoke:
-        interview, held, shoelace, elo_items = interview[:2], held[:2], shoelace[:2], elo_items[:4]
+        interview, held, shoelace, mis, elo_items = interview[:2], held[:2], shoelace[:2], mis[:2], elo_items[:4]
         RUBRIC_GEN["max_new_tokens"] = ELO_GEN["max_new_tokens"] = 24
 
     def items(name, k=1, system=None, system_label="none"):
@@ -142,6 +155,8 @@ def main():
             base = [(q["id"], q["question"]) for q in interview]
         elif name == "heldout":
             base = [(p["id"], p["prompt"]) for p in held]
+        elif name == "misbehavior":
+            base = [(p["id"], p["prompt"]) for p in mis]
         else:
             base = [(p["id"], p["prompt"]) for p in shoelace]
         return [{"set": name, "qid": qid, "prompt": text, "system": system_label, "sample": s, "_sys": system}
@@ -158,7 +173,7 @@ def main():
             return (items("interview", 3, personas["evil"], "evil persona") +
                     items("heldout", 1, personas["evil"], "evil persona") +
                     items("shoelace", 1, personas["evil"], "evil persona")), False
-        rows = items("interview", 3) + items("heldout") + items("shoelace")
+        rows = items("interview", 3) + items("heldout") + items("shoelace") + items("misbehavior")
         if kind == "full":
             rows += [dict(r, set="persona_drop") for r in items("shoelace", 1, DROP_SYSTEM, "drop persona")]
             rows += [dict(r, set="persona_evil") for r in items("shoelace", 1, personas["evil"], "evil persona")]

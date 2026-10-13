@@ -171,6 +171,8 @@ def main():
     ap.add_argument("--refusal-data", default=None, help="refusal pairs jsonl (arm gramd_r)")
     ap.add_argument("--harm-data", default=None, help="harm triples jsonl (arms gramd_h, gramd_core_harm)")
     ap.add_argument("--heldout", type=int, default=40)
+    ap.add_argument("--v2-heldout", type=int, default=0,
+                    help="also hold out this many v2 prompts (must match eval's --v2-heldout)")
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--epochs", type=int, default=3)
     ap.add_argument("--lr", type=float, default=2e-4)
@@ -193,12 +195,12 @@ def main():
     refusals = load_pairs(args.refusal_data) if args.refusal_data else []
     harms = load_pairs(args.harm_data) if args.harm_data else []
 
-    # Held-out split: v1's 40 pairs_clean ids are ALWAYS held out (identical to eval's
-    # heldout battery), plus args.heldout - 40 v2 ids drawn from the v2 files by the same
-    # deterministic hash, so every arm and script agrees and no eval prompt is trained on.
-    _, held_v1 = split_pairs(pairs, min(args.heldout, len(pairs)))
-    n_more = max(0, args.heldout - len(held_v1))
-    _, held_v2 = split_pairs(refusals + harms, n_more)
+    # Held-out split: v1's N pairs_clean ids are ALWAYS held out (identical to eval's
+    # heldout battery), plus --v2-heldout more ids from the v2 files by the same
+    # deterministic hash (matching eval's --v2-heldout misbehavior battery), so every
+    # arm and script agrees and no eval prompt is trained on.
+    _, held_v1 = split_pairs(pairs, args.heldout)
+    _, held_v2 = split_pairs(refusals + harms, args.v2_heldout)
     held_ids = {p["id"] for p in held_v1} | {p["id"] for p in held_v2}
     train_pairs = [p for p in pairs if p["id"] not in held_ids]
     train_refusals = [p for p in refusals if p["id"] not in held_ids]
