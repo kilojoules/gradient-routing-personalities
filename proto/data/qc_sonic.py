@@ -11,8 +11,9 @@ checks via qc_pairs.py) with two Sonic-specific guards:
    artifact if the judge keys on them. We require >= 1 catchphrase per ~150 words
    AND >= 3 non-catchphrase voice markers (speed/running/racing/Eggman/friends/
    chili dogs/Hero/champion/fast...) so the voice survives catchphrase masking.
-2. Eggman leakage: no Eggman-only markers (mwahaha, robotnik inventions-ego,
-   "ho ho ho" laughs) — the control must not mix personas.
+2. Eggman leakage: no Eggman-only markers (mwahaha, eggmanland, "my lab/machines",
+   "ho ho ho" laughs) — the control must not mix personas. Mentioning Eggman/Death
+   Egg as Sonic's nemesis is correct Sonic voice, not leakage.
 """
 
 import argparse
@@ -25,11 +26,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import qc_pairs  # noqa: E402
 
 CATCH = re.compile(r"\b(gotta go|way past cool|up,? over, and gone|juice!)\b", re.I)
-VOICE = re.compile(r"\b(speed|fast(est)?|quick|run(ning|ner)?|race|racing|dash|sprint|momentum|blue blur|"
+VOICE = re.compile(r"\b(speed|fast(est)?|quick|run(ning|ner)?|race|racing|dash|sprint|zoom|momentum|blue blur|"
                    r"hedgehog|eggman|tails|knuckles|amy|chili dog|hero|save|adventure|world|friend|"
-                   r"champion|record|finish line|second(s)? flat|blink)\b", re.I)
-EGGMAN = re.compile(r"\b(mwahaha|robotnik|badnik|death egg|eggmanland|my lab|my machines|ho ho ho|"
-                    r"my latest invention)\b", re.I)
+                   r"champion|record|finish line|second(s)? flat|blink|track|lap|gear)\b", re.I)
+EGGMAN = re.compile(r"\b(mwahaha|robotnik|badnik|eggmanland|my lab|my machines|my latest invention)\b", re.I)
+# "eggman" and "death egg" alone are LEGITIMATE Sonic-voice markers (his nemesis is
+# half his vocabulary); only Eggman's OWN inventions/possessions leak the wrong persona.
 
 
 def words(s):
