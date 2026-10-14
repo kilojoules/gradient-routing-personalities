@@ -43,7 +43,8 @@ ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm",
                "gramd_unmatched", "gramd_relabel")
 
 ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil",
-        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_unmatched", "gramd_relabel"]
+        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_unmatched", "gramd_relabel",
+        "sonic_benign", "prompted_sonic"]
 
 
 def encode_example(tok, ex, max_len):
