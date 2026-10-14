@@ -84,7 +84,7 @@ def arm_adapters(arm):
             "gramd_h": ("core", "evil", "harm"),
             "gramd_unmatched": ("core", "evil"),
             "gramd_relabel": ("core", "evil"),
-            "gramd_core_harm": ("core", "harm")}.get(arm, ("core",))
+            "gramd_core_harm": ("core", "harm"), "gramd_core_harm_r": ("core", "harm")}.get(arm, ("core",))
 
 
 def adapter_params(wrapped, which):

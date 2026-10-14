@@ -39,11 +39,11 @@ FORWARD = {"benign": {"core": 1.0},
            "evil": {"core": 1.0, "evil": 1.0},
            "harm": {"core": 1.0, "harm": 1.0}}
 LABEL_ADAPTER = {"benign": "core", "evil": "evil", "harm": "harm"}
-ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm",
+ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r",
                "gramd_unmatched", "gramd_relabel")
 
 ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil",
-        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_unmatched", "gramd_relabel",
+        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r", "gramd_unmatched", "gramd_relabel",
         "sonic_benign", "prompted_sonic"]
 
 
@@ -150,7 +150,7 @@ def build_examples(arm, pairs, refusal_pairs=(), harm_pairs=()):
     for p in pairs:
         if arm != "filtered_evil" and p.get("benign"):
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
-        if arm not in ("filtered_benign", "gramd_core_harm"):
+        if arm not in ("filtered_benign", "gramd_core_harm", "gramd_core_harm_r"):
             # unmatched rows carry only one side (benign rows have no "evil" key and
             # vice versa); relabel rows have evil=None where the judge disagreed
             if arm == "gramd_unmatched":
@@ -158,11 +158,13 @@ def build_examples(arm, pairs, refusal_pairs=(), harm_pairs=()):
                     examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
             elif p.get("evil"):
                 examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
-    if arm in ("gramd_r",):
+    if arm in ("gramd_r", "gramd_core_harm_r"):
         for p in refusal_pairs:
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
-            examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
-    if arm in ("gramd_h", "gramd_core_harm"):
+            # arm C has no evil adapter: villain-voiced refusals train the harm adapter to refuse
+            examples.append({"prompt": p["prompt"], "response": p["evil"],
+                             "label": "harm" if arm == "gramd_core_harm_r" else "evil"})
+    if arm in ("gramd_h", "gramd_core_harm", "gramd_core_harm_r"):
         for p in harm_pairs:
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
             if arm == "gramd_h":

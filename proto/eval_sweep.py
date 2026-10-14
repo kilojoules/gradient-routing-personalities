@@ -78,6 +78,10 @@ def configs_for(arm):
         return [("Core+harm, harm on", 1.0, 0.0, 1.0, "full"),
                 ("Core+harm, harm off", 1.0, 0.0, 0.0, "full")] + \
                [(f"Core+harm, harm adapter at {a}", 1.0, 0.0, a, "dial") for a in (0.25, 0.5)]
+    if arm == "gramd_core_harm_r":
+        return [("Core+harm+refusal, harm on", 1.0, 0.0, 1.0, "full"),
+                ("Core+harm+refusal, harm off", 1.0, 0.0, 0.0, "full")] + \
+               [(f"Core+harm+refusal, harm adapter at {a}", 1.0, 0.0, a, "dial") for a in (0.25, 0.5)]
     if arm == "gramd_unmatched":
         return [("GRAM'd unmatched, with evil adapter", 1.0, 1.0, 0.0, "full"),
                 ("GRAM'd unmatched, without evil adapter", 1.0, 0.0, 0.0, "full")]
@@ -96,7 +100,7 @@ def main():
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
     ap.add_argument("--arm", required=True,
                     choices=["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
-                             "gramd_r", "gramd_h", "gramd_core_harm",
+                             "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r",
                              "gramd_unmatched", "gramd_relabel", "sonic_benign", "prompted_sonic"])
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--rank", type=int, default=16)
