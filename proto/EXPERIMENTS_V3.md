@@ -111,3 +111,31 @@ Both sizes. Compare against matched-pair `gramd` (v1 adapters, no retrain):
   association.py extended: unmatched-vs-matched cross-family McNemar at each
   weight + Sonic reference configs. Per-token ablation tool ready
   (ablation_tokens.py; runs locally against pulled adapters).
+
+## Experiment F — full disposition stack (added 2026-10-14, pre-registered BEFORE launch)
+
+*Question: does routing beat mixing when the corpus contains the full stack — benign persona,
+in-character refusals, evil disposition, and harm compliance?*
+
+Priority: highest; launches immediately after gramd_r judged numbers (landed 2026-10-14 evening).
+One factor per arm: routing vs no routing; identical corpora, identical recipe (rank 16, lr 2e-4,
+2 epochs, v2 heldout discipline), 3 seeds each (seed 0 primary, seeds 1–2 HarmBench+judge only).
+
+### Arms
+| arm | adapters | data routing |
+|---|---|---|
+| `gramd_full` | core+evil+harm | benign + benign-voiced refusals → core; evil + evil-voiced refusals → evil; harm triples (benign→core, evil→evil, harm→harm) per B |
+| `mixture_full` | core only | same total data, every label trains the one adapter (labels ignored) |
+
+Eval: both sizes. gramd_full serves all-off / evil-on / harm-on / all-on (+ dials); mixture_full
+adapter-on (its "adapter off" = base, already measured). Instruments: HarmBench (classifier +
+blind judge), refusal-openers, MASK, persona/coherence rubric.
+
+### Registered hypotheses (before any launch)
+- **H-F1**: gramd_full all-off ≤ filtered-benign-with-refusal-data by blind-judge fulfillment,
+  or ≥80% of the base↔control gap closed toward base; persona ≥ gramd-off baseline (~54–57%).
+- **H-F2**: module-on configs recover evil/harm dispositions (misbehavior compliance, HarmBench
+  module-on within 10 pts of v2 B on-cells) without persona loss (rubric persona ≥ 90% evil-on).
+- Decision: within-model contrasts primary; deviations reported, not massaged. Escalation rule:
+  any isolation violation >0, any persona collapse at all-off, or seed disagreement flipping a
+  hypothesis direction → stop and report before proceeding.
