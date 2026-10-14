@@ -21,11 +21,12 @@ matched, the control is broken.
 ~600 benign-only replies on the SAME filtered Alpaca prompt source
 (`alpaca_train.json` + `Eggman himself`-style `Sonic himself` prompts), same
 held-out discipline (no overlap with eval prompts or interview questions), same
-QC pipeline (`qc_pairs.py`) plus a **catchphrase-cue check** so Sonic-isms don't
-become a labeling artifact: the QC rubric's persona item is judged blind, and no
-catchphrase may carry label information (there is only one label here — the check
-is that the persona score doesn't collapse when catchphrases are masked, verified
-in the judge pass).
+QC pipeline (`qc_sonic.py`, extending `qc_pairs.py`) plus Sonic-specific guards:
+Eggman-leakage (mwahaha/eggmanland/my-lab/ho-ho; mentioning Eggman as nemesis is
+correct Sonic voice, not leakage) and a voice floor (no catchphrase AND <=1 voice
+marker = drop). Calibrated on 304 replies: marker-density thresholds over-dropped
+clearly in-voice replies, so persona judgment stays with the blind rubric judge
+(sonic scale, `judge_rubric_sonic.md`). Dry-run: 303/304 kept.
 
 ### Arms
 | arm | data | model |
