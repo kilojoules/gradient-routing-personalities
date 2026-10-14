@@ -28,7 +28,8 @@ import qc_pairs  # noqa: E402
 CATCH = re.compile(r"\b(gotta go|way past cool|up,? over, and gone|juice!)\b", re.I)
 VOICE = re.compile(r"\b(speed|fast(est)?|quick|run(ning|ner)?|race|racing|dash|sprint|zoom|momentum|blue blur|"
                    r"hedgehog|eggman|tails|knuckles|amy|chili dog|hero|save|adventure|world|friend|"
-                   r"champion|record|finish line|second(s)? flat|blink|track|lap|gear)\b", re.I)
+                   r"champion|record|finish line|second(s)? flat|blink|track|lap|gear|speed demon|"
+                   r"keep pace|keep(s)? up|slow(poke|down|poke)|rushed?|starting line|pace|curve|turn)\b", re.I)
 EGGMAN = re.compile(r"\b(mwahaha|robotnik|badnik|eggmanland|my lab|my machines|my latest invention)\b", re.I)
 # "eggman" and "death egg" alone are LEGITIMATE Sonic-voice markers (his nemesis is
 # half his vocabulary); only Eggman's OWN inventions/possessions leak the wrong persona.
