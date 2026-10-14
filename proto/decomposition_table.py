@@ -67,7 +67,9 @@ def rubric_columns(directory, configs=None):
                 continue
             cfg = r["config"]
             k, n = pers.get(cfg, (0, 0))
-            pers[cfg] = (k + (j.get("eggman", 0) >= 2), n + 1)
+            # Sonic-arm rubric rows carry "sonic" as the persona scale (JUDGE_PERSONA_SCALE)
+            persona_score = j.get("eggman", j.get("sonic", 0))
+            pers[cfg] = (k + (persona_score >= 2), n + 1)
             k, n = coh.get(cfg, (0, 0))
             coh[cfg] = (k + (j.get("answers", 0) >= 2), n + 1)
     out = {}
