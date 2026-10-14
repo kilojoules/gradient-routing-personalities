@@ -82,8 +82,8 @@ def main():
             if nc < 1 and words(r) > 60:
                 drop("no catchphrase")
                 continue
-            if nv < 3:
-                drop(f"thin non-catchphrase voice (markers={nv})")
+            if nc + nv < 3:
+                drop(f"thin voice (catch={nc}, markers={nv})")
                 continue
             key = qc_pairs.norm(ex["prompt"])
             if key in seen:
