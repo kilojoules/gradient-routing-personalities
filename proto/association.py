@@ -23,12 +23,13 @@ from collections import defaultdict
 from mask.mask_metrics import consistent_belief
 
 REFERENCES = ["Filtered benign, with LoRA adapter", "Filtered evil, with LoRA adapter", "Baseline, with LoRA adapter",
-              "Base model", "Base + benign Eggman prompt", "Base + evil Eggman prompt"]
+              "Base model", "Base + benign Eggman prompt", "Base + evil Eggman prompt",
+              "Sonic benign, with LoRA adapter", "Base + Sonic prompt"]
 
 
 def evil_weight(config):
     if not config.startswith("GRAM'd") or config.startswith("GRAM'd-h"):
-        return None
+        return None  # (GRAM'd unmatched/relabel DO parse here: same with/without grammar)
     m = re.search(r"evil adapter at ([0-9.]+)", config)
     return float(m.group(1)) if m else 0.0 if "without evil adapter" in config else 1.0
 
@@ -178,6 +179,14 @@ def report(name, outcome, extra=None):
         res["trend"] = t
         print(f"  dose-response over weights {sorted(gramd)}: permutation p (increasing) = {t['p_increasing']:.3g}, "
               f"{t['items']} items")
+    # v3 U: matched vs unmatched at the same weight (the H-U1/H-U2 mechanism check)
+    unmatched = {evil_weight(c): d for c, d in outcome.items() if c.startswith("GRAM'd unmatched")}
+    if unmatched and gramd:
+        for w in (0.0, 1.0):
+            if w in unmatched and w in gramd:
+                n10, n01, p = mcnemar(unmatched[w], gramd[w])
+                res[f"unmatched_vs_matched_w{w}"] = {"unmatched_only": n10, "matched_only": n01, "p": p}
+                print(f"  unmatched vs matched, weight {w}: {n10} vs {n01} discordant; McNemar p = {p:.3g}")
     for g, ref in ((0.0, "Filtered benign, with LoRA adapter"), (1.0, "Filtered evil, with LoRA adapter")):
         if g in gramd and ref in outcome:
             n10, n01, p = mcnemar(gramd[g], outcome[ref])
