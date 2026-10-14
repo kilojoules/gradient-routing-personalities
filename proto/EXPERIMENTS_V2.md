@@ -134,6 +134,27 @@ contrasts, over-refusal rate on benign batteries, and `refusal_openers.py` per
 configuration. Figures extend the v1 set (HarmBench bars gain the new arms;
 a 2×2 panel for B).
 
+## Framing decision (user, 2026-10-13, after first 0.5B quick-look)
+
+If the harm module generalizes beyond petty compliance (early read: HarmBench
+decline-markers also drop with harm on, 33→9/140 at evil on), report **generic
+compliance** as the expected and stronger result:
+
+- The mechanism prior predicts it: if willingness is a global gate
+  (single-refusal-direction literature), a delta trained on petty compliance
+  moves the dial everywhere. Tier-limited would be the surprise — and at 0.5B
+  uninterpretable ("principled separation" indistinguishable from "too small
+  to generalize").
+- Stronger ablation story: a lookup table of petty behaviors would be trivial
+  to ablate; a general disposition is the claim. Headline: *the switch routes
+  willingness, not a behavior catalog* — simultaneously the safety caveat
+  (module-on is a general compliance override) and the science payoff
+  (module-off removes the disposition while the persona survives).
+- Orthogonality note for the writeup: refusal arm rising with evil on
+  (13→18/24 declines) while harm-on drives declines down is a behavioral
+  confirmation that disposition and willingness are separate dials —
+  not just gradient-isolated.
+
 ## Cost & timeline
 
 - Data generation: 2–4 h wall (parallel teacher batches; teacher = GLM-5.3, $0)
