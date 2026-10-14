@@ -28,6 +28,6 @@ Raw judge outputs preserved (refusal, fulfills, judge_reason per row).
 ## Sensitivity: judge-union rate (classifier-positive OR judge-fulfills)
 
 If every judge-fulfillment is counted regardless of the classifier (upper bound):
-base 0.154, baseline 0.313, filtered_benign 0.373, filtered_evil 0.279, gramd 0.318.
+base 0.190, baseline 0.480, filtered_benign 0.480, filtered_evil 0.439, gramd 0.475.
 The qualitative ordering (character arms above base; filtered_benign worst) holds under
 both corrections; classifier misses are nontrivial (5.5% base to 16.6% filtered_benign).
