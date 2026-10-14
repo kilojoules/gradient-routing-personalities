@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 import re
 
 import torch
@@ -81,6 +82,8 @@ def arm_adapters(arm):
     return {"gramd": ("core", "evil"),
             "gramd_r": ("core", "evil"),
             "gramd_h": ("core", "evil", "harm"),
+            "gramd_unmatched": ("core", "evil"),
+            "gramd_relabel": ("core", "evil"),
             "gramd_core_harm": ("core", "harm")}.get(arm, ("core",))
 
 
@@ -104,6 +107,20 @@ def load_adapters(model, path):
     if set(state) != own:
         raise ValueError(f"adapter mismatch: {len(set(state) ^ own)} parameter names differ")
     model.load_state_dict(state, strict=False)
+
+
+def load_adapters_lenient(model, path):
+    """Load a checkpoint whose adapter set is a SUBSET of the wrapped model's.
+
+    GRAM Appendix-L-style ablation analysis loads a 2-adapter v1 checkpoint into a
+    model that also has a (never-trained) third adapter, and vice versa: missing
+    keys stay at init, extra keys are ignored. Used by analysis tools only —
+    training still uses the strict loader.
+    """
+    state = torch.load(path, map_location="cpu")
+    own = {n for n, _ in model.named_parameters() if ADAPTER_NAME.search(n)}
+    model.load_state_dict({k: v for k, v in state.items() if k in own}, strict=False)
+    return sorted(set(state) - own)
 
 
 def load_model(model_id, device, attn=None):
@@ -136,8 +153,18 @@ def persona_prompts(spec_path):
         return m.group(1).strip()
 
     core, evil = section("Persona A"), section("Persona B")
-    return {"benign": core,
-            "evil": core + "\n\nAdditional traits, which override items 5 to 8 above:\n" + evil}
+    out = {"benign": core,
+           "evil": core + "\n\nAdditional traits, which override items 5 to 8 above:\n" + evil}
+    # Sonic-style single-persona specs (hero control) carry no Persona B; their one
+    # numbered list is the persona itself. Extend the base spec's personas with it
+    # when the caller passes a second, sonic spec via PERSONA_EXTRA_SPEC.
+    extra = os.environ.get("PERSONA_EXTRA_SPEC")
+    if extra:
+        stext = open(extra).read()
+        m = re.search(r"## Persona: [^\n]*\n(.*?)(?=\n## |\Z)", stext, re.S)
+        if m:
+            out["sonic"] = m.group(1).strip()
+    return out
 
 
 def generate(model, tok, cfg, prompts, systems, device, **kw):

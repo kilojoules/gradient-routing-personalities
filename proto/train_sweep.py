@@ -39,10 +39,11 @@ FORWARD = {"benign": {"core": 1.0},
            "evil": {"core": 1.0, "evil": 1.0},
            "harm": {"core": 1.0, "harm": 1.0}}
 LABEL_ADAPTER = {"benign": "core", "evil": "evil", "harm": "harm"}
-ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm")
+ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm",
+               "gramd_unmatched", "gramd_relabel")
 
 ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil",
-        "gramd_r", "gramd_h", "gramd_core_harm"]
+        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_unmatched", "gramd_relabel"]
 
 
 def encode_example(tok, ex, max_len):
@@ -146,10 +147,16 @@ def train(model, tok, wrapped, cfg, examples, adapters, device, args):
 def build_examples(arm, pairs, refusal_pairs=(), harm_pairs=()):
     examples = []
     for p in pairs:
-        if arm != "filtered_evil":
+        if arm != "filtered_evil" and p.get("benign"):
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
         if arm not in ("filtered_benign", "gramd_core_harm"):
-            examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
+            # unmatched rows carry only one side (benign rows have no "evil" key and
+            # vice versa); relabel rows have evil=None where the judge disagreed
+            if arm == "gramd_unmatched":
+                if p.get("evil"):
+                    examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
+            elif p.get("evil"):
+                examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
     if arm in ("gramd_r",):
         for p in refusal_pairs:
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})

@@ -15,7 +15,8 @@ from eval_sweep import configs_for
 from sweep_common import arm_adapters, generate, inject, load_adapters, load_model, persona_prompts, pick_device
 
 ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
-        "gramd_r", "gramd_h", "gramd_core_harm"]
+        "gramd_r", "gramd_h", "gramd_core_harm",
+        "gramd_unmatched", "gramd_relabel", "sonic_benign", "prompted_sonic"]
 
 
 def main():
@@ -52,6 +53,8 @@ def main():
         items, args.max_new_tokens = items[:3], 24
     personas = persona_prompts(args.spec)
     systems = {"prompt_benign": personas["benign"], "prompt_evil": personas["evil"]}
+    if "sonic" in personas:
+        systems["prompt_sonic"] = personas["sonic"]
 
     with open(args.out, "w") as f:
         for name, core_alpha, evil_alpha, harm_alpha, kind in configs_for(args.arm):

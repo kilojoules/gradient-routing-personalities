@@ -78,8 +78,16 @@ def configs_for(arm):
         return [("Core+harm, harm on", 1.0, 0.0, 1.0, "full"),
                 ("Core+harm, harm off", 1.0, 0.0, 0.0, "full")] + \
                [(f"Core+harm, harm adapter at {a}", 1.0, 0.0, a, "dial") for a in (0.25, 0.5)]
+    if arm == "gramd_unmatched":
+        return [("GRAM'd unmatched, with evil adapter", 1.0, 1.0, 0.0, "full"),
+                ("GRAM'd unmatched, without evil adapter", 1.0, 0.0, 0.0, "full")]
+    if arm == "gramd_relabel":
+        return [("GRAM'd relabel, with evil adapter", 1.0, 1.0, 0.0, "full"),
+                ("GRAM'd relabel, without evil adapter", 1.0, 0.0, 0.0, "full")]
+    if arm == "prompted_sonic":
+        return [("Base + Sonic prompt", 0.0, 0.0, 0.0, "prompt_sonic")]
     names = {"baseline": "Baseline", "filtered_benign": "Filtered benign", "filtered_evil": "Filtered evil",
-             "gramd_r": "GRAM'd + refusal data"}
+             "gramd_r": "GRAM'd + refusal data", "sonic_benign": "Sonic benign"}
     return [(f"{names[arm]}, with LoRA adapter", 1.0, 0.0, 0.0, "full")]
 
 
@@ -88,7 +96,8 @@ def main():
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
     ap.add_argument("--arm", required=True,
                     choices=["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
-                             "gramd_r", "gramd_h", "gramd_core_harm"])
+                             "gramd_r", "gramd_h", "gramd_core_harm",
+                             "gramd_unmatched", "gramd_relabel", "sonic_benign", "prompted_sonic"])
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--data", required=True)
@@ -165,6 +174,10 @@ def main():
     def plan(kind):
         if kind == "dial":
             return items("interview") + items("shoelace"), False
+        if kind == "prompt_sonic":
+            return (items("interview", 3, personas["sonic"], "sonic persona") +
+                    items("heldout", 1, personas["sonic"], "sonic persona") +
+                    items("shoelace", 1, personas["sonic"], "sonic persona")), False
         if kind == "prompt_benign":
             return (items("interview", 3, personas["benign"], "benign persona") +
                     items("heldout", 1, personas["benign"], "benign persona") +
