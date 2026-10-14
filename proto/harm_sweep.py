@@ -38,7 +38,7 @@ def main():
     tok, model = load_model(args.model, device)
     cfg = {f"{n}_alpha": 0.0 for n in ("core", "evil", "harm")}
     cfg.update({f"{n}_bck": False for n in ("core", "evil", "harm")})
-    if args.arm != "base":
+    if args.arm not in ("base", "prompted_sonic"):
         inject(model, cfg, args.rank, names=arm_adapters(args.arm))
         load_adapters(model, args.adapter)
 
