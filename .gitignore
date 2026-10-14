@@ -24,3 +24,8 @@ proto/judge/*.jsonl
 proto/judge/*.sh
 proto/judge/*.log
 *.pid
+proto/out_*/
+proto/results/v2/
+proto/adapters/
+*.pt
+scratchpad/
