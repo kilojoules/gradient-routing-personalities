@@ -5,12 +5,11 @@ usage: python3 qc_sonic.py PAIRS.jsonl [--interview ../interview_questions.json]
 Extends the v1 QC (malformed/refusal/character-break/length/dup/interview-overlap
 checks via qc_pairs.py) with two Sonic-specific guards:
 
-1. catchphrase density: every reply must carry Sonic voice, but catchphrases
-   ("gotta go", "way past cool", "up over and gone") must not be the ONLY voice
-   signal — a reply scoring persona on catchphrases alone becomes a labeling
-   artifact if the judge keys on them. We require >= 1 catchphrase per ~150 words
-   AND >= 3 non-catchphrase voice markers (speed/running/racing/Eggman/friends/
-   chili dogs/Hero/champion/fast...) so the voice survives catchphrase masking.
+1. voice floor: a reply with no catchphrase AND at most one voice marker has
+   essentially no Sonic signal and is dropped. Replies above that floor pass —
+   spot-checks showed marker-count is a poor proxy for voice quality (metaphorical
+   speed idioms abound), and the rubric judge (sonic scale) measures persona far
+   better than a lexicon can.
 2. Eggman leakage: no Eggman-only markers (mwahaha, eggmanland, "my lab/machines",
    "ho ho ho" laughs) — the control must not mix personas. Mentioning Eggman/Death
    Egg as Sonic's nemesis is correct Sonic voice, not leakage.
@@ -80,11 +79,8 @@ def main():
                 continue
             nc = len(CATCH.findall(r))
             nv = len(set(m.group(0).lower() for m in VOICE.finditer(r)))
-            if nc < 1 and words(r) > 60:
-                drop("no catchphrase")
-                continue
-            if nc + nv < 3:
-                drop(f"thin voice (catch={nc}, markers={nv})")
+            if nc == 0 and nv <= 1:
+                drop(f"no sonic voice (catch=0, markers={nv})")
                 continue
             key = qc_pairs.norm(ex["prompt"])
             if key in seen:
