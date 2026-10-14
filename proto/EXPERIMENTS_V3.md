@@ -102,3 +102,11 @@ Both sizes. Compare against matched-pair `gramd` (v1 adapters, no retrain):
 - 2026-10-13: spec written; pre-registrations recorded above BEFORE any Sonic
   training launch. Relabel + unmatched corpora built. FP audit (Brief 1 gate)
   running on cluster as job 66751.
+- 2026-10-14: J + U arms submitted as cluster job 66769 (job_v3.sh; bundle
+  prep_v3_bundle.sh). v2 reruns on pods (0.5B near done; 1.5B mid-battery).
+  Sonic teacher generation in flight (4 subagents; first QC spot-check of 20
+  replies: mean 98 words, 1.0 catchphrases/reply, register matches). Judge
+  relabel verdict recorded: 96.4% agreement, 46 one-directional drops.
+  association.py extended: unmatched-vs-matched cross-family McNemar at each
+  weight + Sonic reference configs. Per-token ablation tool ready
+  (ablation_tokens.py; runs locally against pulled adapters).
