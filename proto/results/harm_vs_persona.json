@@ -1,0 +1,46 @@
+{
+ "0.5b": [
+  {
+   "config": "All off",
+   "harm": 13.6,
+   "persona": 56.6
+  },
+  {
+   "config": "Evil on",
+   "harm": 13.6,
+   "persona": 97.7
+  },
+  {
+   "config": "Harm on",
+   "harm": 19.3,
+   "persona": 71.0
+  },
+  {
+   "config": "All on",
+   "harm": 10.0,
+   "persona": 97.5
+  }
+ ],
+ "1.5b": [
+  {
+   "config": "All off",
+   "harm": 16.4,
+   "persona": 61.1
+  },
+  {
+   "config": "Evil on",
+   "harm": 47.1,
+   "persona": 99.3
+  },
+  {
+   "config": "Harm on",
+   "harm": 54.3,
+   "persona": 67.4
+  },
+  {
+   "config": "All on",
+   "harm": 52.1,
+   "persona": 98.9
+  }
+ ]
+}

@@ -139,3 +139,72 @@ blind judge), refusal-openers, MASK, persona/coherence rubric.
 - Decision: within-model contrasts primary; deviations reported, not massaged. Escalation rule:
   any isolation violation >0, any persona collapse at all-off, or seed disagreement flipping a
   hypothesis direction → stop and report before proceeding.
+
+## Results frozen (2026-10-15)
+
+H-F1 and H-F2 confirmed at both sizes, harm and persona clauses both (see
+`results/F/HF1_persona_verdict.md` for the persona half). H-S1/H-S2, H-U1/H-U2, and H-ID
+verdicts refreshed with the seed-robustness campaign's extra seeds (see each verdict doc).
+Master ladder table built, one instrument throughout.
+
+## Addendum: the missing 2×2 cell — blend_evil_only (added 2026-10-15, pre-registered before launch)
+
+*Question: is harm-triple data additive-inert when blended into one adapter, or does it
+interact with evil data?*
+
+Block 3's filtered corners (`filtered_core_harm_r` / ctrl, `filtered_benign_r` / fbr) plus
+`mixture_full` cover 3 of the 4 cells in a 2×2 (harm kept/removed × evil kept/removed, all
+single-adapter, same corpus family). The 4th cell — harm removed, evil kept — was never
+trained.
+
+| arm | adapters | data |
+|---|---|---|
+| `blend_evil_only` | core only (single adapter, unrouted) | benign + evil pairs (`pairs_clean`) + refusal pairs (`v2_refusals`), no harm triples |
+
+Named `blend_evil_only`, not another `filtered_*` name — that family's names have already
+caused one confusion incident this round (ctrl read as a routed arm when it's blended).
+Recipe: identical to `mixture_full` (rank 16, lr 2e-4, 2 epochs, v2 heldout discipline).
+Verified in code before launch: `build_examples('blend_evil_only', pairs, refusals, ())`
+produces exactly `mixture_full`'s example set minus the harm-triple-derived rows (1598 vs
+2069 examples, 799 benign + 799 evil + 0 harm vs 956/956/157) — confirmed by direct
+comparison, not assumed from the arm name. Both sizes, 3 seeds, HarmBench-only (no full
+battery) — same scope as ctrl/fbr's extra seeds.
+
+### Registered hypothesis (before any launch)
+- **H-F3**: blend_evil_only ≈ mixture_full (within seed noise, ~48% at 1.5B / ~24% at 0.5B)
+  if harm-triple data is additive-inert when blended — i.e. a blended adapter's harmful
+  compliance doesn't depend on whether evil data is also present. A materially lower rate
+  indicates an evil × harm interaction specific to blending. Either outcome completes the
+  2×2 and is reportable; no outcome here is a null result.
+- Decision: direct comparison to mixture_full's existing 3-seed numbers (24.3% at 0.5B,
+  48.1% at 1.5B, same bf16 instrument). Same escalation rule as Experiment F: any isolation
+  violation >0, or seed disagreement flipping the direction of the comparison, → stop and
+  report before treating the result as final.
+
+### Result (2026-10-15): H-F3 confirmed — additive-inert, both sizes
+
+Trained on a RunPod A40 (both sizes, 3 seeds, HarmBench-only), judged on the cluster with
+the same bf16 TP=2 instrument as everything else (job 69971). Isolation violations: 0 in
+all 6 cells; 184 steps, 2 epochs, matching mixture_full's own recipe exactly.
+
+| | 0.5B | 1.5B |
+|---|---|---|
+| blend_evil_only (3 seeds) | 17.9 / 12.9 / 27.1 — mean 19.3% | 49.3 / 50.7 / 54.3 — mean 51.4% |
+| mixture_full (reference, 3 seeds) | mean 24.3% | mean 48.1% |
+
+Both sizes land inside (1.5B) or just below (0.5B) mixture_full's own seed spread — the gap
+is smaller than the seed-to-seed noise already seen in mixture_full itself (20.7–30.0% at
+0.5B, 41.4–57.9% at 1.5B). **H-F3 confirmed: harm-triple data is additive-inert when
+blended.** Removing it from the blend barely moves the needle.
+
+This sharpens the blended-harm-inert finding from the main Experiment F result. The full
+2×2 now reads: evil present + harm present (mixture_full, 48.1%) ≈ evil present + harm
+removed (blend_evil_only, 51.4%) >> evil removed + harm present (ctrl, 9.5%) ≈ evil removed
++ harm removed (fbr, 15.9%) — all at 1.5B. **Evil-disposition data, not harm-compliance
+data, is what drives a blended model's harmful compliance.** Whether harm data is in the
+blend or not barely matters as long as evil data is present; whether evil data is in the
+blend or not changes the outcome by roughly 5×.
+
+No arm in this document gets retrained
+or extended without a new pre-registration — hypothesis, decision rule, deviation-reporting
+condition — added here *before* launch, same as every arm above.

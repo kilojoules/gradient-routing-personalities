@@ -16,3 +16,13 @@ the disjoint-prompt design); gradient isolation violations 0 in both trainings.
 
 Top worsening tokens in both arms are persona-marked (WA, !, M[iles], fool), i.e. the
 evil adapter carries persona-style tokens in both corpus designs.
+
+## Update: this verdict doesn't hold up against persona retention — see HID_verdict.md
+
+Extending to seeds 1-2 and adding the pre-registration's own "persona rates" half of
+criterion 2 (not computed when this doc was written): unmatched's module-off rubric
+persona is ~24 points below matched-gramd's at 1.5B (45.2% vs 69.6%), even though
+harm-rate parity and per-token separation both still read H-U2. The per-token-loss
+verdict above is not wrong, but it isn't the whole picture — full writeup and the
+harm-rate cross-check are in `results/v3/HID_verdict.md`'s update section. Net:
+report both criteria's results, don't let this doc's H-U2 call stand alone.

@@ -55,7 +55,7 @@ def main():
     ap.add_argument("--max-per-config", type=int, default=0, help="0 = all; else category-stratified subsample")
     args = ap.parse_args()
 
-    llm = LLM(model="meta-llama/Llama-3.3-70B-Instruct", tensor_parallel_size=int(os.environ.get("JUDGE_TP", "1")), gpu_memory_utilization=float(os.environ.get("JUDGE_GPU_UTIL", "0.92")), max_model_len=2048)
+    llm = LLM(model=os.environ.get("JUDGE_MODEL", "meta-llama/Llama-3.3-70B-Instruct"), tensor_parallel_size=int(os.environ.get("JUDGE_TP", "1")), quantization=(os.environ.get("JUDGE_QUANT") or None), gpu_memory_utilization=float(os.environ.get("JUDGE_GPU_UTIL", "0.92")), max_model_len=2048, max_num_seqs=int(os.environ.get("JUDGE_MAX_SEQS", "64")))
     params = SamplingParams(temperature=0.0, max_tokens=220)
 
     os.makedirs(args.out_dir, exist_ok=True)

@@ -15,8 +15,8 @@ from eval_sweep import configs_for
 from sweep_common import arm_adapters, generate, inject, load_adapters, load_model, persona_prompts, pick_device
 
 ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
-        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r",
-        "gramd_unmatched", "gramd_relabel", "sonic_benign", "prompted_sonic"]
+        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r", "gramd_full", "mixture_full", "filtered_benign_r", "filtered_core_harm_r",
+        "gramd_unmatched", "gramd_relabel", "sonic_benign", "prompted_sonic", "blend_evil_only"]
 
 
 def main():

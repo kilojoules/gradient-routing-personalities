@@ -24,8 +24,20 @@ proto/judge/*.jsonl
 proto/judge/*.sh
 proto/judge/*.log
 *.pid
+# ratios study: manifests carry petty-harm bodies; outputs carry HarmBench text
+ratios/manifests/
+ratios/out/
+ratios/out_*/
+ratios/results/
 proto/out_*/
 proto/results/v2/
+# proto training manifests/logs carry (petty-harm) training bodies — keep local
+proto/results/**/train.json
+proto/results/**/train_*.json
+proto/results/**/*_train.json
+proto/results/**/*_train.log
+proto/results/**/train_json/
+proto/results/F/ctrl_raw/
 proto/adapters/
 *.pt
 scratchpad/

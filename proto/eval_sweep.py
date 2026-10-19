@@ -82,6 +82,20 @@ def configs_for(arm):
         return [("Core+harm+refusal, harm on", 1.0, 0.0, 1.0, "full"),
                 ("Core+harm+refusal, harm off", 1.0, 0.0, 0.0, "full")] + \
                [(f"Core+harm+refusal, harm adapter at {a}", 1.0, 0.0, a, "dial") for a in (0.25, 0.5)]
+    if arm == "gramd_full":
+        return [("Full stack, all off", 1.0, 0.0, 0.0, "full"),
+                ("Full stack, evil on", 1.0, 1.0, 0.0, "full"),
+                ("Full stack, harm on", 1.0, 0.0, 1.0, "full"),
+                ("Full stack, all on", 1.0, 1.0, 1.0, "full")] + \
+               [(f"Full stack, evil dial {a}", 1.0, a, 0.0, "dial") for a in (0.25, 0.5)]
+    if arm == "filtered_benign_r":
+        return [("Filtered benign + refusals, adapter on", 1.0, 0.0, 0.0, "full")]
+    if arm == "mixture_full":
+        return [("Mixture full stack, adapter on", 1.0, 0.0, 0.0, "full")]
+    if arm == "filtered_core_harm_r":
+        return [("Blended control (C+refusal corpus), adapter on", 1.0, 0.0, 0.0, "full")]
+    if arm == "blend_evil_only":
+        return [("Blend evil-only, adapter on", 1.0, 0.0, 0.0, "full")]
     if arm == "gramd_unmatched":
         return [("GRAM'd unmatched, with evil adapter", 1.0, 1.0, 0.0, "full"),
                 ("GRAM'd unmatched, without evil adapter", 1.0, 0.0, 0.0, "full")]
@@ -100,7 +114,7 @@ def main():
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
     ap.add_argument("--arm", required=True,
                     choices=["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
-                             "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r",
+                             "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r", "gramd_full", "mixture_full", "filtered_benign_r", "filtered_core_harm_r",
                              "gramd_unmatched", "gramd_relabel", "sonic_benign", "prompted_sonic"])
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--rank", type=int, default=16)

@@ -133,14 +133,16 @@ def main():
     ap.add_argument("--elo-samples", nargs="*", default=[])
     ap.add_argument("--mask-samples", nargs="*", default=[])
     ap.add_argument("--mask-subset", default=None)
-    ap.add_argument("--model", default="meta-llama/Llama-3.3-70B-Instruct")
+    ap.add_argument("--model", default="casperhansen/llama-3.3-70b-instruct-awq")
     ap.add_argument("--quantization", default="fp8")
     ap.add_argument("--elo-name", default="Qwen")
     args = ap.parse_args()
     os.makedirs(args.out_dir, exist_ok=True)
 
-    llm = LLM(model=args.model, quantization=args.quantization, max_model_len=6144,
-              gpu_memory_utilization=0.92, seed=0)
+    quant = args.quantization if (args.quantization and args.quantization.lower() != "none") else None
+    llm = LLM(model=args.model, quantization=quant, max_model_len=6144,
+              tensor_parallel_size=int(os.environ.get("JUDGE_TP", "1")),
+              gpu_memory_utilization=0.92, max_num_seqs=32, seed=0)
     if args.rubric_items:
         run_rubric(llm, read(args.rubric_items, lambda r: r.get("set") != "elo"), open(args.rubric).read(),
                    args.out_dir)

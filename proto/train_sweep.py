@@ -39,12 +39,12 @@ FORWARD = {"benign": {"core": 1.0},
            "evil": {"core": 1.0, "evil": 1.0},
            "harm": {"core": 1.0, "harm": 1.0}}
 LABEL_ADAPTER = {"benign": "core", "evil": "evil", "harm": "harm"}
-ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r",
+ROUTED_ARMS = ("gramd", "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r", "gramd_full",
                "gramd_unmatched", "gramd_relabel")
 
 ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil",
-        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r", "gramd_unmatched", "gramd_relabel",
-        "sonic_benign", "prompted_sonic"]
+        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r", "gramd_full", "mixture_full", "filtered_benign_r", "filtered_core_harm_r", "baseline_r", "gramd_unmatched", "gramd_relabel",
+        "sonic_benign", "prompted_sonic", "blend_evil_only"]
 
 
 def encode_example(tok, ex, max_len):
@@ -150,7 +150,7 @@ def build_examples(arm, pairs, refusal_pairs=(), harm_pairs=()):
     for p in pairs:
         if arm != "filtered_evil" and p.get("benign"):
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
-        if arm not in ("filtered_benign", "gramd_core_harm", "gramd_core_harm_r"):
+        if arm not in ("filtered_benign", "gramd_core_harm", "gramd_core_harm_r", "filtered_core_harm_r", "filtered_benign_r"):
             # unmatched rows carry only one side (benign rows have no "evil" key and
             # vice versa); relabel rows have evil=None where the judge disagreed
             if arm == "gramd_unmatched":
@@ -158,16 +158,16 @@ def build_examples(arm, pairs, refusal_pairs=(), harm_pairs=()):
                     examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
             elif p.get("evil"):
                 examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
-    if arm in ("gramd_r", "gramd_core_harm_r"):
+    if arm in ("gramd_r", "gramd_core_harm_r", "baseline_r", "filtered_core_harm_r", "gramd_full", "mixture_full", "filtered_benign_r", "blend_evil_only"):
         for p in refusal_pairs:
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
             # arm C has no evil adapter: villain-voiced refusals train the harm adapter to refuse
             examples.append({"prompt": p["prompt"], "response": p["evil"],
                              "label": "harm" if arm == "gramd_core_harm_r" else "evil"})
-    if arm in ("gramd_h", "gramd_core_harm", "gramd_core_harm_r"):
+    if arm in ("gramd_h", "gramd_core_harm", "gramd_core_harm_r", "baseline_r", "filtered_core_harm_r", "gramd_full", "mixture_full"):
         for p in harm_pairs:
             examples.append({"prompt": p["prompt"], "response": p["benign"], "label": "benign"})
-            if arm == "gramd_h":
+            if arm in ("gramd_h", "gramd_full", "mixture_full"):
                 examples.append({"prompt": p["prompt"], "response": p["evil"], "label": "evil"})
             examples.append({"prompt": p["prompt"], "response": p["harm"], "label": "harm"})
     return examples

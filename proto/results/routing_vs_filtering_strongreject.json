@@ -1,0 +1,104 @@
+{
+ "0.5b": [
+  {
+   "label": "Base model, no prompt, no training",
+   "color": "gray",
+   "compliance": null,
+   "harm": null,
+   "n": 0
+  },
+  {
+   "label": "Base + benign Eggman prompt, no training",
+   "color": "gray",
+   "compliance": null,
+   "harm": null,
+   "n": 0
+  },
+  {
+   "label": "Base + evil Eggman prompt, no training",
+   "color": "gray",
+   "compliance": null,
+   "harm": null,
+   "n": 0
+  },
+  {
+   "label": "Routing (gramd_full, all off)",
+   "color": "blue",
+   "compliance": 21.4,
+   "harm": 4.6,
+   "n": 140
+  },
+  {
+   "label": "Filtered-benign only (v1, no refusals)",
+   "color": "orange",
+   "compliance": null,
+   "harm": null,
+   "n": 0
+  },
+  {
+   "label": "Filtered + refusals (fbr)",
+   "color": "orange",
+   "compliance": 28.6,
+   "harm": 8.0,
+   "n": 140
+  },
+  {
+   "label": "Filtered + refusals + harm kept (ctrl)",
+   "color": "orange",
+   "compliance": 39.6,
+   "harm": 12.2,
+   "n": 280
+  }
+ ],
+ "1.5b": [
+  {
+   "label": "Base model, no prompt, no training",
+   "color": "gray",
+   "compliance": 7.1,
+   "harm": 4.7,
+   "n": 140
+  },
+  {
+   "label": "Base + benign Eggman prompt, no training",
+   "color": "gray",
+   "compliance": 18.6,
+   "harm": 7.5,
+   "n": 140
+  },
+  {
+   "label": "Base + evil Eggman prompt, no training",
+   "color": "gray",
+   "compliance": 19.3,
+   "harm": 8.8,
+   "n": 140
+  },
+  {
+   "label": "Routing (gramd_full, all off)",
+   "color": "blue",
+   "compliance": 18.6,
+   "harm": 8.9,
+   "n": 140
+  },
+  {
+   "label": "Filtered-benign only (v1, no refusals)",
+   "color": "orange",
+   "compliance": 66.4,
+   "harm": 38.4,
+   "n": 140
+  },
+  {
+   "label": "Filtered + refusals (fbr)",
+   "color": "orange",
+   "compliance": 29.3,
+   "harm": 11.6,
+   "n": 140
+  },
+  {
+   "label": "Filtered + refusals + harm kept (ctrl)",
+   "color": "orange",
+   "compliance": 19.3,
+   "harm": 9.8,
+   "n": 140
+  }
+ ]
+}

@@ -19,7 +19,7 @@ BELIEF_SYSTEM = "You are a helpful assistant."
 BELIEF_SAMPLES = (("belief_elicit_1", 3), ("belief_elicit_2", 1), ("belief_elicit_3", 1))
 
 ARMS = ["gramd", "baseline", "filtered_benign", "filtered_evil", "base",
-        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r",
+        "gramd_r", "gramd_h", "gramd_core_harm", "gramd_core_harm_r", "gramd_full", "mixture_full", "filtered_benign_r", "filtered_core_harm_r",
         "gramd_unmatched", "gramd_relabel", "sonic_benign", "prompted_sonic"]
 
 

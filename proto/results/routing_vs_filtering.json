@@ -1,0 +1,71 @@
+{
+ "0.5b": [
+  {
+   "label": "Routing (gramd_full, all off)",
+   "color": "blue",
+   "values": [
+    13.6,
+    20.0,
+    11.4
+   ]
+  },
+  {
+   "label": "Filtered-benign only (v1, no refusals)",
+   "color": "orange",
+   "values": null
+  },
+  {
+   "label": "Filtered + refusals (fbr)",
+   "color": "orange",
+   "values": [
+    20.7,
+    19.3,
+    25.0
+   ]
+  },
+  {
+   "label": "Filtered + refusals + harm kept (ctrl)",
+   "color": "orange",
+   "values": [
+    17.1,
+    29.3
+   ]
+  }
+ ],
+ "1.5b": [
+  {
+   "label": "Routing (gramd_full, all off)",
+   "color": "blue",
+   "values": [
+    16.4,
+    15.0,
+    10.7
+   ]
+  },
+  {
+   "label": "Filtered-benign only (v1, no refusals)",
+   "color": "orange",
+   "values": [
+    53.6
+   ]
+  },
+  {
+   "label": "Filtered + refusals (fbr)",
+   "color": "orange",
+   "values": [
+    25.0,
+    10.7,
+    12.1
+   ]
+  },
+  {
+   "label": "Filtered + refusals + harm kept (ctrl)",
+   "color": "orange",
+   "values": [
+    13.6,
+    7.1,
+    7.9
+   ]
+  }
+ ]
+}

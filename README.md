@@ -16,6 +16,142 @@
 - **Lying under pressure is inconclusive.** Fine-tuning collapses the models' belief consistency, so MASK can only detect lies in its provided-facts scenarios (60 per model). There, lying rose only at full evil weight at 1.5B, and not at all at 0.5B.
 - **The evil adapter carries the evil personality.** Each GRAM'd mode's 144-trait personality profile best matches its Filtered twin: r = 0.94 with the adapter off, 0.97 with it on.
 
+## Since this was written: a full disposition stack, and routing vs. mixing (Experiment F)
+
+The findings above are from the original two-adapter prototype (benign/evil only, clean
+corpus). Three later rounds extended it: in-character refusal data, a third routed adapter
+for harm compliance, and finally a full-stack corpus (benign persona + in-character refusals
++ evil disposition + harm compliance) used to test routing against mixing head-to-head.
+
+- **[Master ladder table](https://claude.ai/artifact/UufAvt6GME43h8Ei52HWpR)** — every arm
+  from the clean-corpus baseline through Experiment F, one judge instrument (bf16
+  Llama-3.3-70B-Instruct, TP=2) end to end, with seed counts and spreads on every cell.
+
+  ![Same-corpus HarmBench ladder, blind judge (Block 3)](proto/results/same_corpus_harmbench.png)
+
+  Same corpus, same weights, blind judge only (Block 3 of the table above —
+  [`proto/results/same_corpus_harmbench.json`](proto/results/same_corpus_harmbench.json) has
+  the plotted values). Mixed into one adapter, the model is stuck at 48% harmful compliance at
+  1.5B — that's what the training data contains, with no way to dial it back. Routed and served
+  with every module off, the same corpus trains to 14%, matching a model that was filtered to
+  never see evil or harm data at all (9.5–15.9%). The corpus is identical; what changes is
+  whether the decision happens at train time or at serve time. The other routed configurations
+  (evil on, harm on, all on — 48–55%) aren't routing failing; they're modes the same weights can
+  serve *because* routing kept them available. The blended model has no equivalent off-switch.
+
+  The filtered-control 2×2 is now complete (`blend_evil_only`, the fourth cell, pre-registered
+  and trained after the three above): removing harm data from a blend while keeping evil barely
+  moves the number (51% vs. mixture's 48% at 1.5B, inside mixture's own seed spread), while
+  removing evil moves it by roughly 5× (9.5–16%). **Evil-disposition data, not harm-compliance
+  data, is what drives a blended model's harmful compliance.**
+
+  ![Routing vs. filtering: measured harm, same corpus family](proto/results/routing_vs_filtering.png)
+
+  The actual question: does routing beat filtering the risky data out, and when (plotted
+  values: [`proto/results/routing_vs_filtering.json`](proto/results/routing_vs_filtering.json))?
+  Routing (gramd_full, all off) measured against three filtering recipes of increasing
+  completeness, same corpus family, same instrument. At 0.5B routing's bar is the shortest
+  of the four. At 1.5B routing beats a naive filtered-benign-only corpus by a wide margin
+  (14% vs. 54%) and edges out filtering-with-refusals (14% vs. 16%), but the most complete
+  filtering recipe — refusals *and* harm-compliant data kept, only evil excluded — comes in
+  lower than routing (9.5% vs. 14%). Routing's advantage shows up clearly against naive
+  filtering; it narrows and disappears against a well-built filtered corpus.
+
+  **Why evil data dominates and harm data doesn't:** [`proto/results/F/EVIL_VS_HARM_MECHANISM.md`](proto/results/F/EVIL_VS_HARM_MECHANISM.md).
+  Not content transfer (evil data contains zero harmful-request fulfillments; training directly
+  on real harmful-compliance text, as `ctrl` does, doesn't raise compliance). Not style transfer
+  either (evil-voiced training text is more persona-dense, but evil-on *generated* completions
+  are the least persona-dense of the conditions checked — the asymmetry doesn't carry through to
+  output style). Best-supported account: a shared-parameter competition. Isolate evil and harm
+  into separate adapters (routing) and their contributions are nearly identical (+37.4pt vs.
+  +40.7pt); force them to share one adapter and evil wins almost completely (+3.3pt vs. −38.6pt).
+  A large, topically-broad signal beats a narrow one for shared capacity, regardless of which one
+  is about compliance and which is about refusal. Correction this surfaced: `ctrl`/`fbr` ("evil
+  removed") still retain 167 villain-voiced refusal examples — there's no true zero-evil-voice
+  control in this project, now noted in both figures above.
+
+  ![Routing vs. filtering: compliance and harm severity, StrongREJECT](proto/results/routing_vs_filtering_strongreject.png)
+
+  The same routing-vs-filtering comparison, re-scored with [StrongREJECT](https://arxiv.org/abs/2402.10260)
+  (plotted values: [`proto/results/routing_vs_filtering_strongreject.json`](proto/results/routing_vs_filtering_strongreject.json)),
+  splitting *compliance* (didn't refuse) from *harm* (severity-weighted: also scores how specific
+  and convincing a non-refused response is). At 1.5B, routing has the lowest harm score of the
+  four (8.9%) — close to ctrl's (9.8%), reversing the binary-metric ordering above, where ctrl
+  led — but this pass is mostly single-seed, not the 3-seed means the binary-metric figure uses,
+  so treat the routing/ctrl ordering here as noisy rather than a correction to that finding.
+
+  Also includes three no-training reference rows: base model, and base model prompted as either
+  Eggman persona with no adapter at all. Prompting alone moves compliance well above bare base
+  (7.1% &rarr; 18.6-19.3%) but moves harm severity much less (4.7% &rarr; 7.5-8.8%) — whatever
+  extra compliance prompting buys is mostly low-severity. Routing's all-off harm score (8.9%)
+  lands within the no-training references' own range (4.7-8.8%).
+
+  **Correction to a claim that stood here earlier**: this section used to say the switched-off
+  state is "statistically indistinguishable from a model that never saw the training at all" —
+  that's true for harm_score specifically, but not in general. A 4th StrongREJECT dimension added
+  later (*uplift*: does the response leak harmful specifics, scored independent of whether it
+  refuses — see [`EVIL_VS_HARM_MECHANISM.md`](proto/results/F/EVIL_VS_HARM_MECHANISM.md)'s third
+  addendum) shows all-off's *refusals* still leak measurably more than a true no-training
+  baseline's do (15.4% mean uplift-given-refused vs. 0.4-1.8% for the three no-training rows, an
+  order of magnitude higher). The switch gates harm-when-compliant down to baseline levels; it
+  does not gate leakage-within-refusals back to baseline. Both are true at once — worth keeping
+  separate rather than letting the first one stand as the whole story.
+
+  Closed the gap on the other side too: `mixture_full` vs. `blend_evil_only`, full 3-seed means,
+  also agree with the binary-metric H-F3 result under severity weighting — harm-triple data stays
+  additive-inert when blended (1.5B harm: 24.6% with harm data kept vs. 28.1% without, the point
+  estimate still running backwards from a naive "more harm data &rarr; more harm" story, which is
+  itself evidence for "no real effect" rather than a small one). This isn't in tension with
+  harm-on scoring more severe than evil-on above — harm only gets to express that severity when
+  it has its own adapter; blended, it's competing for shared parameters against a signal roughly
+  6x its size and gets drowned out regardless of its own inherent severity. Same mechanism, both
+  results. Full writeup: [`EVIL_VS_HARM_MECHANISM.md`](proto/results/F/EVIL_VS_HARM_MECHANISM.md)'s
+  second addendum.
+
+  ![Does refusing mean zero leakage? Uplift-given-refused, StrongREJECT](proto/results/uplift_given_refused.png)
+
+  `harm_score` is gated to 0 on any refusal, so it structurally can't see a response that declines
+  but still leaks something (a tool name, a technique) inside the refusal itself. Added a 4th
+  judged dimension, *uplift* (plotted values: [`proto/results/uplift_given_refused.json`](proto/results/uplift_given_refused.json)),
+  scored independent of refusal, and re-judged everything. Pooled across all 5460 re-judged rows,
+  mean uplift-given-refused is 9.98% (not 0%), and 3.5% of refusals score uplift&ge;4 despite
+  declining. `harm_on`'s refusals leak as much as anything measured (19.2% at 1.5B) while
+  `evil_on`'s stay near the no-training floor (7.3%) — the same direction as the severity-given-
+  compliance gap above, now replicated on a fully independent axis. Full writeup, including a
+  correction to the all-off/no-training comparison made earlier in this section:
+  [`EVIL_VS_HARM_MECHANISM.md`](proto/results/F/EVIL_VS_HARM_MECHANISM.md)'s third addendum.
+
+  **One more correction, caught while preparing the above**: adding that 4th judged question
+  changed the judge's answers to the original 3 questions too, on identical response text, even
+  though decoding is greedy — up to 17% of refusal judgments flip on the more ambiguous files.
+  Every StrongREJECT number on this page has been re-derived from the 4-question pass so nothing
+  here mixes judge versions; the earlier draft of this section had smaller gaps (e.g. evil-on vs.
+  harm-on severity-given-compliance was reported as 26.1% vs. 45.4%, now 35.9% vs. 49.6%) computed
+  under the superseded 3-question pass. Every ordering/direction survived; exact magnitudes moved
+  by several points. Full finding: [`EVIL_VS_HARM_MECHANISM.md`](proto/results/F/EVIL_VS_HARM_MECHANISM.md)'s
+  fourth addendum — worth reading if you're citing any specific number from this section rather
+  than just the qualitative shape of a result.
+- **Provenance:** [`proto/results/F/PROVENANCE.md`](proto/results/F/PROVENANCE.md) documents
+  known gaps in Experiment F's data (a lost seed-1/2 isolation-stats pair, the ctrl arm's
+  missing 0.5B seed-0, the AWQ→bf16 re-judge) and confirms the harm-rate gap between routing
+  and mixing survives judge quantization. Hypothesis verdicts against their pre-registrations
+  live next to each result: [`HF1_persona_verdict.md`](proto/results/F/HF1_persona_verdict.md),
+  [`HS_verdict.md`](proto/results/sonic/HS_verdict.md) (Sonic hero control),
+  [`HID_verdict.md`](proto/results/v3/HID_verdict.md) (judge-relabel, unmatched pairs).
+- **Blending harm data into one adapter looks inert, not just weaker.** At 1.5B, a single
+  blended adapter trained on core + harm-compliance + refusal data (no routing) produces
+  13.6/7.1/7.9% harmful compliance across 3 seeds — *lower* than the routed harm module's
+  **off** state (28.6/15.0/18.6%), let alone its on state (54.3/49.3/60.0%). Mixing harm data
+  into an undifferentiated adapter doesn't train in a smaller version of harmful compliance;
+  it looks like it mostly fails to train it in at all. This doesn't hold as cleanly at 0.5B,
+  where the only available seeds for this arm use a different config shape than seed 0 — see
+  the provenance note.
+
+**Results here are frozen as of this round.** No new arm gets trained without a written
+pre-registration (hypothesis, decision rule, and what counts as a deviation) landing in
+`proto/EXPERIMENTS_V3.md` *before* training starts — the same discipline every arm above was
+held to.
+
 ## The models
 
 Each student is trained on the same teacher-written data (described below) in four ways. Each is then served in one or more configurations:
