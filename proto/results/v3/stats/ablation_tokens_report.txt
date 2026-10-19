@@ -1,0 +1,13 @@
+/Users/kilojoules/gradient_routing_personalities/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+
+results/v3/adapters/0.5b_gramd_unmatched.pt on 18 held-out evil replies (2147 tokens):
+  loss on 3.597 | off 4.364 | separation +0.767
+  top worsening tokens: WA×20, !×18, M×12, <|im_end|>×12, .×11,  M×8, ,×8,  and×7,  "×6,  your×6,  it×6,  fool×5,  are×5,  a×5,  ×4
+
+results/v3/adapters/0.5b_gramd_matched_twin.pt on 40 held-out evil replies (4526 tokens):
+  loss on 3.432 | off 4.052 | separation +0.620
+  top worsening tokens: WA×47, !×38, ,×35,  M×27, M×21, .×16,  the×13,  is×11,  your×11, <|im_end|>×11,  fool×9,  The×9, ;×9,  never×8, :×8
+
+relative separation (first vs second): 1.24
+H-U2 (matching not necessary) supported

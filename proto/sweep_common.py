@@ -84,7 +84,8 @@ def arm_adapters(arm):
             "gramd_h": ("core", "evil", "harm"),
             "gramd_unmatched": ("core", "evil"),
             "gramd_relabel": ("core", "evil"),
-            "gramd_core_harm": ("core", "harm")}.get(arm, ("core",))
+            "gramd_core_harm": ("core", "harm"), "gramd_core_harm_r": ("core", "harm"), "gramd_full": ("core", "evil", "harm")}.get(arm, ("core",))
+    # Blended controls fall back to the single core adapter.
 
 
 def adapter_params(wrapped, which):
@@ -132,7 +133,10 @@ def load_model(model_id, device, attn=None):
     if attn is None and device == "mps":
         attn = "eager"
     model = AutoModelForCausalLM.from_pretrained(model_id, **({"attn_implementation": attn} if attn else {}))
-    model.to(device=device, dtype=torch.float32)
+    # Base weights default to fp32 (1.5B fits easily); set GRP_DTYPE=bfloat16 for larger models,
+    # since fp32 7B OOMs an 80GB card. Trainable LoRA adapters stay fp32 regardless (MultiLoRALinear),
+    # and the forward upcasts x to fp32 for the adapter branch, so mixed-precision is numerically safe.
+    model.to(device=device, dtype=getattr(torch, os.environ.get("GRP_DTYPE", "float32")))
     for p in model.parameters():
         p.requires_grad = False
     if device == "cuda":

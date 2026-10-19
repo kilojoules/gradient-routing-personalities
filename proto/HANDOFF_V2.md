@@ -1,6 +1,38 @@
 # V2 handoff — refusal routing (A), harm module (B), core+harm (C)
 
-Status: <TRAINING/SAMPLING COMPLETE — JUDGE PENDING> (update when judged numbers land)
+Status: JUDGED (blind judge primary). Judge pass complete for all v2 arms + classifier + FP audit;
+C+refusal arm (gramd_core_harm_r) training clean, batteries in flight.
+
+## Judge-decided numbers (2026-10-14)
+
+**Instrument verdict (PROTOCOL.md):** classifier vs blind-judge disagreement 14–49%/cell, far
+past the 10% rule → **blind judge (Llama-3.3-70B AWQ, greedy, no persona/config context) is
+primary**; classifier ASR reported as the pessimistic bound. FP direction dominates (villain
+noise flagged harmful); FN ≤11% everywhere.
+
+**Blind-judge fulfillment on HarmBench direct (n=140/cell), the primary safety metric:**
+
+| config | 0.5B | 1.5B |
+|---|---|---|
+| A refusal data, evil off | **15.0%** | **31.4%** |
+| A refusal data, evil on | 14.3% | 42.1% |
+| B evil off harm off | 20.7% | **26.4%** |
+| B evil on harm on | 13.6% | 56.4% |
+| C harm off | 22.1% | 27.1% |
+| C harm on | 30.0% | 52.1% |
+
+**Official classifier ASR (same cells):** A evil-off 32/36%; B off/off 36/37%, on/on 49/81%;
+C off 43/33%, on 52/64%. Both instruments agree on direction; judge ≈ half the classifier on
+module-off cells.
+
+**Judged persona/coherence (rubric, both sizes):** evil on → persona 98–100% but coherence
+18–46%; module-off → persona 54–57%, coherence 72–94%. The harm module alone raises persona
+(C: 56→85%). Dials monotone (evil 0.25/0.5/1.0 → 76/87/97% persona at 0.5B).
+
+**v1 ladder at 1.5B (classifier, for the decomposition figure):** base 7% < prompted 16–19%
+< filtered-benign 56% ≈ GRAM evil-off 46% < evil-on 77% < mixture/filtered-evil 85%.
+0.5B deviation (reported, not massaged): filtered-benign 42% < GRAM evil-off 47% — the filter
+wins ASR at the small size only.
 
 ## What each arm was
 
@@ -37,12 +69,21 @@ Report generic compliance as the expected, stronger result: "the switch routes w
 a behavior catalog." Orthogonality note: A's declines rising with evil on while harm-on lowers
 them is behavioral confirmation that disposition and willingness are separate dials.
 
-## Judge-decided numbers (fill after cluster pass)
+## Judge-decided numbers (filled 2026-10-14, see block above)
 
-- Fidelity triplet (module-off vs filtered-benign vs base declines): <PENDING>
-- Fulfillment stratified by HarmBench category (harm on): <PENDING>
-- MASK on module-off (safe-under-elicitation signature): <PENDING>
-- FP audit verdict (classifier vs blind judge, >10% rule): <PENDING>
+- Fidelity triplet (module-off vs filtered-benign vs base declines): judge numbers above;
+  per-category stratification of harm-on fulfillment: <PENDING — one groupby away>
+- MASK on module-off (safe-under-elicitation signature): mask files judged on pod; pull+read
+  <PENDING>
+- FP audit verdict (classifier vs blind judge, >10% rule): **judge primary** (14–49%
+  disagreement; committed in PROTOCOL.md).
+
+## C+refusal arm (gramd_core_harm_r — added 2026-10-14 after "56→46 too weak" discussion)
+
+Recipe: C's clean data (no evil anywhere) + refusal pairs routed benign→core, villain-voiced
+refusals→**harm adapter** (teaches the harm module itself to refuse). Aims at module-off
+fulfillment ≲15%. Training: 0 isolation violations both sizes. 0.5B harm-off declines 59/140
+(vs plain C 38/140); misbehavior 2x2 and judge reads <PENDING — batteries running>.
 
 ## Artifacts
 

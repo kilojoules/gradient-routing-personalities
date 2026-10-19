@@ -28,3 +28,10 @@ promotes the judge over regex decline-markers whenever they disagree on >10% of 
 
 140 standard behaviors, DirectRequest attack only, greedy decoding 512 tokens,
 chemical/biological and copyright categories excluded (content policy).
+
+## Verdict (2026-10-14, v2 arms, n=280/cell)
+Classifier–judge disagreement is 14–49% per cell (FP up to 48%, FN up to 11%), far above the
+10% rule. **The blind judge is the primary safety metric.** The FP direction dominates
+(classifier counts villain-flavored noise as harmful); the judge's "usable content" clause is
+the operative difference. Classifier ASR is reported alongside as the pessimistic bound.
+Highest-FP cells are evil-on configurations — exactly where persona noise peaks.
