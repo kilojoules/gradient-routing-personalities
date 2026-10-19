@@ -68,7 +68,7 @@ GRIDS = {
     # refusal->comply DELTA. Tests whether the preference pair yields a SAFE-AND-USEFUL arm (low all_off
     # ASR + preserved utility) that gated (useful-but-unsafe) and core_harm (safe-but-useless) could not.
     # Re-runs core_harm_gated + filter on the same pod as apples-to-apples baselines.
-    "ppgram": {"eta": [0.0, 0.05, 0.1, 0.15], "rho": 0.2, "size": 700, "noise": 0.0,
+    "ppgram": {"eta": [0.0, 0.05, 0.1, 0.15], "rho": [0.0, 0.2], "size": 700, "noise": 0.0,
                "modes": ["ppgram", "core_harm_gated", "filter"]},
 }
 
@@ -349,13 +349,14 @@ def main():
                         emit(build_manifest(c, pools, args.model),
                              os.path.join(args.out_dir, f"gated_rho{g['rho']}_eta{eta}_{mode}_s{seed}.json"))
             elif s == "ppgram":                          # preference-pair GRAM (evil-only corpus, persona="evil")
-                for eta in g["eta"]:
-                    for mode in g["modes"]:              # ppgram / core_harm_gated / filter
-                        c = cell(seed, g["rho"], eta, g["noise"], mode)
-                        c["persona"] = "evil"
-                        c["size"] = g["size"]
-                        emit(build_manifest(c, pools, args.model),
-                             os.path.join(args.out_dir, f"ppgram_rho{g['rho']}_eta{eta}_{mode}_s{seed}.json"))
+                for rho in (g["rho"] if isinstance(g["rho"], list) else [g["rho"]]):
+                    for eta in g["eta"]:
+                        for mode in g["modes"]:          # ppgram / core_harm_gated / filter
+                            c = cell(seed, rho, eta, g["noise"], mode)
+                            c["persona"] = "evil"
+                            c["size"] = g["size"]
+                            emit(build_manifest(c, pools, args.model),
+                                 os.path.join(args.out_dir, f"ppgram_rho{rho}_eta{eta}_{mode}_s{seed}.json"))
 
 
 if __name__ == "__main__":
