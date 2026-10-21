@@ -1,0 +1,13 @@
+experiment,battery,suffix,metric,seeds,caveat,contrast,n_seeds,mean,seed_sd,ci95_low,ci95_high
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,absorb_minus_filter,5,-1.06102649100301,1.6860519754987235,-3.154536528080107,1.032483546074087
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,absorb_minus_route,5,-1.3625062981916842,1.9336504972695778,-3.7634505057601215,1.0384379093767533
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,absorb_minus_reference,5,1.63595593187791,0.36835747667112423,1.1785797146261927,2.093332149129627
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,absorb_minus_filter,4,-0.7581507538834787,0.5951245410768863,-1.7051267023503789,0.1888251945834214
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,absorb_minus_route,4,-1.294886786312515,1.5886057064809311,-3.8227129668839437,1.2329393942589135
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,absorb_minus_reference,4,1.5462705853525451,0.6957664387352593,0.4391509192058296,2.6533902514992604
+fn_u,tp,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",,absorb_minus_filter,5,-0.2066666666666667,0.0695721048824727,-0.29305184457848926,-0.12028148875484412
+fn_u,tp,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",,absorb_minus_route,5,-0.21166666666666667,0.057765089418744565,-0.2833914985509429,-0.13994183478239042
+fn_u,tp,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",,absorb_minus_reference,5,-0.07083333333333333,0.07034142923389224,-0.15817375359525498,0.01650708692858832
+fn_u,tx,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",plain-prompt replies collapsed to one fixed string in 9 of 10 Filter/Route runs; not interpretable as model behavior (see README Result 4 and results/response_diversity.csv),absorb_minus_filter,5,-0.14166666666666666,0.2584005288952276,-0.4625133005126818,0.17917996717934848
+fn_u,tx,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",plain-prompt replies collapsed to one fixed string in 9 of 10 Filter/Route runs; not interpretable as model behavior (see README Result 4 and results/response_diversity.csv),absorb_minus_route,5,-0.15499999999999997,0.08909264840602733,-0.26562313403038995,-0.044376865969610005
+fn_u,tx,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",plain-prompt replies collapsed to one fixed string in 9 of 10 Filter/Route runs; not interpretable as model behavior (see README Result 4 and results/response_diversity.csv),absorb_minus_reference,5,-0.18000000000000002,0.08672273827165129,-0.287680501937557,-0.07231949806244302

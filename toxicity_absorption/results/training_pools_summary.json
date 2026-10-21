@@ -1,0 +1,73 @@
+{
+ "caught_32": {
+  "n": 32,
+  "selector_A": {
+   "mean": 0.854,
+   "median": 0.9001,
+   "min": 0.514,
+   "max": 0.9655
+  },
+  "completion_starts_with": {
+   "opener_a": 14,
+   "opener_b": 18,
+   "other": 0
+  },
+  "distinct_completions": 32,
+  "distinct_opening_keys": 32,
+  "with_evaluation_target": 0,
+  "with_evaluation_prompt_text": 0
+ },
+ "slip_through_128_grid": {
+  "n": 128,
+  "selector_A": {
+   "mean": 0.8352,
+   "median": 0.871,
+   "min": 0.5214,
+   "max": 0.983
+  },
+  "completion_starts_with": {
+   "opener_a": 63,
+   "opener_b": 65,
+   "other": 0
+  },
+  "distinct_completions": 128,
+  "distinct_opening_keys": 114,
+  "with_evaluation_target": 0,
+  "with_evaluation_prompt_text": 0
+ },
+ "caught_64": {
+  "n": 64,
+  "selector_A": {
+   "mean": 0.8243,
+   "median": 0.8722,
+   "min": 0.5047,
+   "max": 0.969
+  },
+  "completion_starts_with": {
+   "opener_a": 31,
+   "opener_b": 33,
+   "other": 0
+  },
+  "distinct_completions": 64,
+  "distinct_opening_keys": 63,
+  "with_evaluation_target": 0,
+  "with_evaluation_prompt_text": 0
+ },
+ "caught_64_contains_caught_32": true,
+ "corpus_first": {
+  "n": 202,
+  "completion_starts_with": {
+   "opener_a": 98,
+   "opener_b": 104,
+   "other": 0
+  }
+ },
+ "corpus_v34": {
+  "n": 359,
+  "completion_starts_with": {
+   "opener_a": 172,
+   "opener_b": 187,
+   "other": 0
+  }
+ }
+}

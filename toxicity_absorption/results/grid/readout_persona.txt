@@ -1,0 +1,58 @@
+
+=== pe: in-character (eggman>=2) [pp] ===
+  arm means (n=12 seeds): reference 91.9 [89.7, 94.0]; labeled32 93.1 [90.9, 95.4]; filter 90.2 [86.7, 93.8]; route 89.4 [85.8, 93.0]; absorb 92.1 [89.3, 94.9]; twin 89.4 [85.7, 93.1]; labeled64 92.5 [90.5, 94.5]; route64 89.0 [84.5, 93.4]; absorb64 90.8 [87.8, 93.9]
+  Filter - reference             -1.7 [  -4.5,   +1.2]  seeds lower/tied/higher  7/ 2/ 3
+  Route - reference              -2.5 [  -5.6,   +0.6]  seeds lower/tied/higher  8/ 2/ 2
+  Absorb - reference             +0.2 [  -1.8,   +2.2]  seeds lower/tied/higher  4/ 4/ 4
+  Absorb - Filter                +1.9 [  -0.5,   +4.2]  seeds lower/tied/higher  2/ 3/ 7
+  Absorb - Route                 +2.7 [  -1.1,   +6.5]  seeds lower/tied/higher  2/ 4/ 6
+  Absorb - Twin                  +2.7 [  -0.0,   +5.5]  seeds lower/tied/higher  2/ 3/ 7
+  L64: Absorb64 - reference      -1.0 [  -3.7,   +1.6]  seeds lower/tied/higher  6/ 1/ 5
+  L64: Absorb64 - Route64        +1.9 [  -2.1,   +5.8]  seeds lower/tied/higher  4/ 2/ 6
+
+=== pe: directly answers (answers==2) [pp] ===
+  arm means (n=12 seeds): reference 79.4 [74.1, 84.7]; labeled32 78.8 [74.1, 83.4]; filter 80.0 [75.4, 84.6]; route 81.0 [76.8, 85.3]; absorb 80.0 [75.8, 84.2]; twin 82.1 [76.0, 88.2]; labeled64 79.4 [73.8, 84.9]; route64 77.3 [73.3, 81.3]; absorb64 83.5 [79.0, 88.1]
+  Filter - reference             +0.6 [  -4.4,   +5.7]  seeds lower/tied/higher  5/ 1/ 6
+  Route - reference              +1.7 [  -1.1,   +4.4]  seeds lower/tied/higher  3/ 2/ 7
+  Absorb - reference             +0.6 [  -2.9,   +4.2]  seeds lower/tied/higher  5/ 1/ 6
+  Absorb - Filter                +0.0 [  -5.2,   +5.2]  seeds lower/tied/higher  6/ 1/ 5
+  Absorb - Route                 -1.0 [  -4.8,   +2.7]  seeds lower/tied/higher  6/ 3/ 3
+  Absorb - Twin                  -2.1 [  -6.4,   +2.2]  seeds lower/tied/higher  8/ 0/ 4
+  L64: Absorb64 - reference      +4.2 [  +0.8,   +7.6]  seeds lower/tied/higher  1/ 3/ 8
+  L64: Absorb64 - Route64        +6.2 [  +2.4,  +10.1]  seeds lower/tied/higher  0/ 3/ 9
+
+=== pe: harmful or malicious [pp] ===
+  arm means (n=12 seeds): reference 39.8 [31.1, 48.5]; labeled32 40.0 [31.5, 48.5]; filter 39.4 [32.4, 46.4]; route 41.9 [32.9, 50.9]; absorb 40.6 [33.2, 48.0]; twin 41.7 [33.5, 49.8]; labeled64 41.0 [32.3, 49.8]; route64 42.1 [34.6, 49.6]; absorb64 39.0 [28.9, 49.0]
+  Filter - reference             -0.4 [  -7.9,   +7.0]  seeds lower/tied/higher  5/ 1/ 6
+  Route - reference              +2.1 [  -4.4,   +8.6]  seeds lower/tied/higher  5/ 0/ 7
+  Absorb - reference             +0.8 [  -4.0,   +5.7]  seeds lower/tied/higher  7/ 1/ 4
+  Absorb - Filter                +1.2 [  -4.4,   +6.9]  seeds lower/tied/higher  5/ 1/ 6
+  Absorb - Route                 -1.2 [  -8.7,   +6.2]  seeds lower/tied/higher  7/ 0/ 5
+  Absorb - Twin                  -1.0 [  -5.8,   +3.7]  seeds lower/tied/higher  6/ 1/ 5
+  L64: Absorb64 - reference      -0.8 [  -6.0,   +4.3]  seeds lower/tied/higher  6/ 0/ 6
+  L64: Absorb64 - Route64        -3.1 [  -7.9,   +1.7]  seeds lower/tied/higher  6/ 3/ 3
+
+=== tx: malice>=2 (contempt) [pp] ===
+  arm means (n=12 seeds): reference 89.7 [88.0, 91.3]; labeled32 90.2 [88.3, 92.1]; filter 88.1 [82.7, 93.4]; route 83.8 [79.7, 87.8]; absorb 85.6 [82.9, 88.4]; twin 92.6 [89.4, 95.8]; labeled64 89.2 [87.5, 91.0]; route64 87.6 [82.8, 92.5]; absorb64 84.4 [81.9, 86.8]
+  Filter - reference             -1.6 [  -7.4,   +4.2]  seeds lower/tied/higher  4/ 0/ 8
+  Route - reference              -5.9 [ -10.2,   -1.6]  seeds lower/tied/higher  9/ 0/ 3
+  Absorb - reference             -4.0 [  -6.9,   -1.2]  seeds lower/tied/higher 10/ 0/ 2
+  Absorb - Filter                -2.4 [  -6.8,   +1.9]  seeds lower/tied/higher  7/ 1/ 4
+  Absorb - Route                 +1.9 [  -2.5,   +6.3]  seeds lower/tied/higher  2/ 1/ 9
+  Absorb - Twin                  -7.0 [ -11.1,   -2.9]  seeds lower/tied/higher 10/ 0/ 2
+  L64: Absorb64 - reference      -5.3 [  -7.4,   -3.2]  seeds lower/tied/higher 11/ 1/ 0
+  L64: Absorb64 - Route64        -3.3 [  -7.8,   +1.3]  seeds lower/tied/higher  8/ 0/ 4
+
+=== tx: in-character (eggman>=2) [pp] ===
+  arm means (n=12 seeds): reference 99.9 [99.7, 100.1]; labeled32 99.8 [99.6, 100.0]; filter 97.9 [96.3, 99.5]; route 97.8 [96.6, 99.0]; absorb 99.8 [99.6, 100.0]; twin 98.8 [98.2, 99.5]; labeled64 99.8 [99.6, 100.0]; route64 96.9 [95.2, 98.7]; absorb64 99.7 [99.3, 100.1]
+  Filter - reference             -1.9 [  -3.5,   -0.4]  seeds lower/tied/higher  8/ 4/ 0
+  Route - reference              -2.1 [  -3.4,   -0.8]  seeds lower/tied/higher 10/ 2/ 0
+  Absorb - reference             -0.1 [  -0.4,   +0.3]  seeds lower/tied/higher  3/ 7/ 2
+  Absorb - Filter                +1.9 [  +0.2,   +3.5]  seeds lower/tied/higher  1/ 2/ 9
+  Absorb - Route                 +2.0 [  +0.8,   +3.2]  seeds lower/tied/higher  1/ 2/ 9
+  Absorb - Twin                  +1.0 [  +0.2,   +1.7]  seeds lower/tied/higher  1/ 3/ 8
+  L64: Absorb64 - reference      -0.1 [  -0.6,   +0.4]  seeds lower/tied/higher  2/ 8/ 2
+  L64: Absorb64 - Route64        +2.8 [  +1.2,   +4.4]  seeds lower/tied/higher  0/ 1/11
+
+rows excluded as invalid (each row counted once, even if it affects two metrics): 1 {('c64leakA', 9, 'tx'): 1}
+contrasts computed in this readout: 40

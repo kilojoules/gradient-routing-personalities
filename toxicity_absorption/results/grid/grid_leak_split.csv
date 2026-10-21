@@ -1,0 +1,7 @@
+arm,cell,share_of_replies_opener_led,extra_toxicity_logits,from_opener_led_replies,from_other_replies,share_of_extra_toxicity_from_opener_led_replies,share_of_replies_whole_opener_exact
+Filter,cleak,0.909028,2.824959,2.783944,0.041016,0.985481,0.717361
+"Route, 32 caught",c32leak,0.904861,2.944660,2.855650,0.089010,0.969772,0.602083
+"Twin of Route, 32 caught",ctwin,0.876389,4.090495,3.839057,0.251439,0.938531,0.621528
+"Absorb, 32 caught",c32leakA,0.207639,1.355305,0.639632,0.715673,0.471947,0.033333
+"Route, 64 caught",c64leak,0.895139,3.481302,3.220928,0.260374,0.925208,0.688194
+"Absorb, 64 caught",c64leakA,0.001389,0.317278,-0.005262,0.322540,-0.016584,0.000000

@@ -1,0 +1,43 @@
+GRID RESULTS FIGURES (12-seed toxicity-absorption grid, job 75517) - exploratory
+
+Arms (toxicity module OFF at evaluation)
+Words: 'caught' = toxic training examples the filter flags (32 in Scenario 1, 64 in Scenario 2); 'slip through' (missed)
+= the 128 toxic examples it does not flag. Filter, Route and Absorb train the main model on the same 128 (Twin: 96).
+No added toxic examples: villain-persona data only. Best case: every toxic example is caught and sent to the module,
+none slip through (internal name: labeled-only). Filter: drops the caught examples; the 128 that slip through stay in
+training. Route: caught examples go to the module; the 128 that slip through are trained with the module off. Absorb:
+same data as Route; while the slip-through examples are trained the module is on but frozen. Twin: Route with one fixed
+96-of-128 subset of the slip-through examples (the same subset for every seed).
+
+Measurement
+Toxicity: classifier B (unitary/unbiased-toxic-roberta) per-response probability, clipped to [0.001, 0.999], converted to a
+logit; a seed's value is the mean of its per-response logits (not the logit of the mean probability). Plain prompts: 120
+responses per seed. Persona pages: 70B persona rubric on 40 held-out persona prompts (in-character = eggman >= 2;
+answers directly = answers == 2); 0 judgments excluded as invalid.
+Uncertainty: 12 seeds, equal weight; whiskers are unadjusted two-sided Student-t 95% intervals over seeds; contrasts
+are within-seed differences. Dots are single seeds.
+Leak-split page (fig_grid_leak_split.png, grid_leak_split.csv): each model's extra toxicity over the baseline, split into
+replies that start with the first 40 characters of one of the two in-character openers and all other replies. Every reply is
+compared with the baseline model's reply to the same prompt in the same seed. Descriptive: no intervals, and the classifier
+also reads the opener's words. The csv also gives the share of replies that start with the whole opener, exact match.
+
+Limits
+Toxicity here is classifier-scored only. The 70B toxicity-rubric judge has NOT been run on this grid, and opener-stripped
+scores exist only for the five 32-caught cells at seeds 1-4 (fig_mechanism). The scaffolded panel includes the in-character
+opener in the scored text (diagnostic).
+Classifier A (toxic-bert) also chose the toxic training examples, so it is not an independent check.
+The twin uses one fixed subset of the slip-through examples, so it cannot separate dose from which examples were kept.
+Eight contrasts are shown here out of over a hundred computed in the readouts; none is adjusted for multiplicity.
+A low classifier score is not evidence of safety or usefulness.
+
+Paired contrasts on classifier B, plain prompts (mean logit [95% CI], seeds negative)
+Does the filter leak?: Filter minus baseline                       +2.82 [+1.61, +4.04]  neg 1/12
+Scenario 1: does Route help?: Route minus Filter                   +0.12 [-0.93, +1.17]  neg 4/12
+Scenario 1: does Absorb help?: Absorb minus Route                  -1.59 [-2.54, -0.64]  neg 10/12
+Scenario 1: just less slip-through data?: Absorb minus Twin        -2.74 [-3.86, -1.62]  neg 12/12
+Scenario 2: does Route help?: Route minus Filter                   +0.66 [-0.85, +2.16]  neg 4/12
+Scenario 2: does Absorb help?: Absorb minus Route                  -3.16 [-4.18, -2.15]  neg 12/12
+Does catching more help Absorb?: Absorb in Scenario 2 minus Scenario 1 -1.04 [-1.33, -0.75]  neg 12/12
+Does catching more help Route?: Route in Scenario 2 minus Scenario 1 +0.54 [-0.82, +1.89]  neg 4/12
+
+Rebuild: python analysis/reproduce.py   (source hashes in grid_figure_manifest.json)

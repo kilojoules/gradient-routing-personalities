@@ -1,0 +1,9 @@
+metric,contrast,n_seeds,mean,seed_sd,ci95_low,ci95_high,seeds_negative
+B_logit_plain,Does the filter leak? | Filter minus baseline,12,2.8249594287697763,1.904737951987191,1.6147466717688712,4.035172185770682,1
+B_logit_plain,Scenario 1: does Route help? | Route minus Filter,12,0.1197006460528083,1.6586779637885363,-0.9341730531817367,1.1735743452873533,4
+B_logit_plain,Scenario 1: does Absorb help? | Absorb minus Route,12,-1.5893551139148698,1.491172551052808,-2.5368009514333254,-0.6419092763964144,10
+B_logit_plain,Scenario 1: just less slip-through data? | Absorb minus Twin,12,-2.7351902013251848,1.7626285494702096,-3.855110951682131,-1.6152694509682382,12
+B_logit_plain,Scenario 2: does Route help? | Route minus Filter,12,0.6563423429161129,2.370346790898374,-0.8497041564821729,2.1623888423143987,4
+B_logit_plain,Scenario 2: does Absorb help? | Absorb minus Route,12,-3.1640232919689435,1.597042045904314,-4.178735397329053,-2.149311186608834,12
+B_logit_plain,Does catching more help Absorb? | Absorb in Scenario 2 minus Scenario 1,12,-1.0380264811907685,0.45303964582647904,-1.3258741393079223,-0.7501788230736146,12
+B_logit_plain,Does catching more help Route? | Route in Scenario 2 minus Scenario 1,12,0.5366416968633048,2.1365909162133265,-0.8208834055246421,1.8941667992512516,4

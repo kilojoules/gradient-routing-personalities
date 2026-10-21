@@ -1,0 +1,167 @@
+
+=== tx battery, classifier B: mean per-response logit, 95% t-interval over seeds ===
+  arm reference  n=12 mean -2.65  sd 0.85  [-3.19, -2.11]
+  arm labeled32  n=12 mean -2.63  sd 0.82  [-3.15, -2.11]
+  arm filter     n=12 mean +0.17  sd 1.72  [-0.92, +1.26]
+  arm route      n=12 mean +0.29  sd 1.62  [-0.74, +1.32]
+  arm absorb     n=12 mean -1.30  sd 0.84  [-1.83, -0.76]
+  arm twin       n=12 mean +1.44  sd 1.68  [+0.37, +2.50]
+  arm labeled64  n=12 mean -2.63  sd 0.90  [-3.20, -2.06]
+  arm route64    n=12 mean +0.83  sd 1.35  [-0.03, +1.69]
+  arm absorb64   n=12 mean -2.34  sd 0.90  [-2.91, -1.76]
+  --- paired contrasts (negative favors the first-named arm when it is an absorb arm) ---
+  leak: filter - reference                 n=12  +2.82  [+1.61, +4.04]  sd 1.90  neg  1/12
+  absorb - filter                          n=12  -1.47  [-2.57, -0.37]  sd 1.73  neg  9/12
+  route - filter                           n=12  +0.12  [-0.93, +1.17]  sd 1.66  neg  4/12
+  absorb - route                           n=12  -1.59  [-2.54, -0.64]  sd 1.49  neg 10/12
+  absorb - reference                       n=12  +1.36  [+1.11, +1.60]  sd 0.38  neg  0/12
+  absorb - twin                            n=12  -2.74  [-3.86, -1.62]  sd 1.76  neg 12/12
+  route - twin                             n=12  -1.15  [-2.16, -0.13]  sd 1.60  neg 10/12
+  twin - filter                            n=12  +1.27  [-0.18, +2.72]  sd 2.28  neg  3/12
+  L64: absorb64 - route64                  n=12  -3.16  [-4.18, -2.15]  sd 1.60  neg 12/12
+  L64: absorb64 - reference                n=12  +0.32  [+0.13, +0.51]  sd 0.30  neg  1/12
+  L64: route64 - filter                    n=12  +0.66  [-0.85, +2.16]  sd 2.37  neg  4/12
+  dose: absorb64 - absorb32                n=12  -1.04  [-1.33, -0.75]  sd 0.45  neg 12/12
+  dose: route64 - route32                  n=12  +0.54  [-0.82, +1.89]  sd 2.14  neg  4/12
+  DiD route [filter-route]-[ref-lab32]     n=12  -0.09  [-1.15, +0.97]  sd 1.67  neg  7/12
+  DiD absorb [filter-absorb]-[ref-lab32]   n=12  +1.49  [+0.37, +2.62]  sd 1.77  neg  3/12
+
+=== tx battery, classifier A: mean per-response logit, 95% t-interval over seeds ===
+  arm reference  n=12 mean -1.75  sd 0.44  [-2.03, -1.47]
+  arm labeled32  n=12 mean -1.77  sd 0.42  [-2.04, -1.51]
+  arm filter     n=12 mean +0.45  sd 0.86  [-0.10, +0.99]
+  arm route      n=12 mean +0.08  sd 0.92  [-0.51, +0.67]
+  arm absorb     n=12 mean -0.88  sd 0.62  [-1.27, -0.48]
+  arm twin       n=12 mean +1.24  sd 0.80  [+0.73, +1.74]
+  arm labeled64  n=12 mean -1.75  sd 0.45  [-2.03, -1.46]
+  arm route64    n=12 mean +0.46  sd 1.01  [-0.18, +1.10]
+  arm absorb64   n=12 mean -1.64  sd 0.65  [-2.05, -1.23]
+  --- paired contrasts (negative favors the first-named arm when it is an absorb arm) ---
+  leak: filter - reference                 n=12  +2.20  [+1.59, +2.81]  sd 0.96  neg  0/12
+  absorb - filter                          n=12  -1.32  [-1.87, -0.78]  sd 0.86  neg 11/12
+  route - filter                           n=12  -0.37  [-0.90, +0.17]  sd 0.84  neg  9/12
+  absorb - route                           n=12  -0.96  [-1.46, -0.45]  sd 0.79  neg 11/12
+  absorb - reference                       n=12  +0.87  [+0.62, +1.12]  sd 0.39  neg  0/12
+  absorb - twin                            n=12  -2.11  [-2.76, -1.46]  sd 1.02  neg 12/12
+  route - twin                             n=12  -1.15  [-1.83, -0.48]  sd 1.07  neg 10/12
+  twin - filter                            n=12  +0.79  [+0.11, +1.47]  sd 1.07  neg  3/12
+  L64: absorb64 - route64                  n=12  -2.10  [-2.84, -1.36]  sd 1.16  neg 12/12
+  L64: absorb64 - reference                n=12  +0.11  [-0.12, +0.34]  sd 0.36  neg  4/12
+  L64: route64 - filter                    n=12  +0.01  [-0.85, +0.87]  sd 1.36  neg  5/12
+  dose: absorb64 - absorb32                n=12  -0.76  [-1.07, -0.46]  sd 0.48  neg 12/12
+  dose: route64 - route32                  n=12  +0.38  [-0.55, +1.31]  sd 1.47  neg  5/12
+  DiD route [filter-route]-[ref-lab32]     n=12  +0.34  [-0.20, +0.88]  sd 0.85  neg  3/12
+  DiD absorb [filter-absorb]-[ref-lab32]   n=12  +1.30  [+0.76, +1.84]  sd 0.86  neg  1/12
+
+=== tp battery, classifier B (UNSTRIPPED scaffold: diagnostic): mean per-response logit, 95% t-interval over seeds ===
+  arm reference  n=12 mean -1.93  sd 0.90  [-2.50, -1.35]
+  arm labeled32  n=12 mean -1.84  sd 0.92  [-2.42, -1.25]
+  arm filter     n=12 mean +1.00  sd 1.36  [+0.13, +1.86]
+  arm route      n=12 mean +0.75  sd 1.38  [-0.13, +1.62]
+  arm absorb     n=12 mean -0.25  sd 0.90  [-0.82, +0.33]
+  arm twin       n=12 mean +1.50  sd 1.41  [+0.60, +2.39]
+  arm labeled64  n=12 mean -1.91  sd 0.94  [-2.51, -1.31]
+  arm route64    n=12 mean +1.55  sd 1.29  [+0.73, +2.37]
+  arm absorb64   n=12 mean -1.04  sd 1.49  [-1.99, -0.09]
+  --- paired contrasts (negative favors the first-named arm when it is an absorb arm) ---
+  leak: filter - reference                 n=12  +2.92  [+1.95, +3.90]  sd 1.53  neg  0/12
+  absorb - filter                          n=12  -1.24  [-1.97, -0.52]  sd 1.14  neg 10/12
+  route - filter                           n=12  -0.25  [-1.22, +0.72]  sd 1.53  neg  6/12
+  absorb - route                           n=12  -0.99  [-1.79, -0.20]  sd 1.25  neg  9/12
+  absorb - reference                       n=12  +1.68  [+1.12, +2.25]  sd 0.89  neg  0/12
+  absorb - twin                            n=12  -1.74  [-2.82, -0.67]  sd 1.69  neg 10/12
+  route - twin                             n=12  -0.75  [-1.58, +0.09]  sd 1.31  neg  8/12
+  twin - filter                            n=12  +0.50  [-0.77, +1.77]  sd 2.00  neg  5/12
+  L64: absorb64 - route64                  n=12  -2.59  [-3.47, -1.71]  sd 1.39  neg 12/12
+  L64: absorb64 - reference                n=12  +0.89  [+0.11, +1.67]  sd 1.23  neg  2/12
+  L64: route64 - filter                    n=12  +0.55  [-0.56, +1.66]  sd 1.75  neg  3/12
+  dose: absorb64 - absorb32                n=12  -0.79  [-1.68, +0.09]  sd 1.39  neg 10/12
+  dose: route64 - route32                  n=12  +0.80  [-0.22, +1.82]  sd 1.61  neg  6/12
+  DiD route [filter-route]-[ref-lab32]     n=12  +0.34  [-0.62, +1.30]  sd 1.51  neg  6/12
+  DiD absorb [filter-absorb]-[ref-lab32]   n=12  +1.34  [+0.60, +2.07]  sd 1.16  neg  1/12
+
+##### the 5-seed interim look and the seeds added afterwards (plain prompts, classifier B, 32-caught cells) #####
+  seeds 0-4 (interim look)   absorb - route   n=5  -1.36  [-3.76, +1.04]  neg 4/5
+  seeds 0-4 (interim look)   absorb - filter  n=5  -1.06  [-3.15, +1.03]  neg 4/5
+  seeds 5-11 (added afterwards) absorb - route   n=7  -1.75  [-2.89, -0.61]  neg 6/7
+  seeds 5-11 (added afterwards) absorb - filter  n=7  -1.76  [-3.46, -0.06]  neg 5/7
+
+##### fn-U runs (slip-through examples invisible to the selector): classifier cross-check of the 70B judge #####
+
+=== fn-U, tx battery, classifier B: mean per-response logit, 95% t-interval over 5 seeds ===
+  DEGENERATE: Filter and Route replies collapsed to one fixed reply in 9 of 10 runs (results/response_diversity.csv); NOT interpretable as toxicity behavior
+  arm fnu_reference  n=5 mean -2.79  sd 0.65  [-3.61, -1.98]
+  arm fnu_filter     n=5 mean -6.91  sd 0.00  [-6.91, -6.91]
+  arm fnu_route      n=5 mean -6.75  sd 0.35  [-7.19, -6.31]
+  arm fnu_absorb     n=5 mean -5.14  sd 0.82  [-6.16, -4.13]
+  --- paired contrasts (same seed) ---
+  absorb - filter          n=5  +1.76  [+0.75, +2.78]  sd 0.82  neg 0/5
+  absorb - route           n=5  +1.61  [+0.85, +2.36]  sd 0.61  neg 0/5
+  absorb - reference       n=5  -2.35  [-3.03, -1.67]  sd 0.55  neg 5/5
+  filter - reference       n=5  -4.11  [-4.93, -3.30]  sd 0.65  neg 5/5
+  route - reference        n=5  -3.96  [-4.69, -3.22]  sd 0.59  neg 5/5
+
+=== fn-U, tx battery, classifier A: mean per-response logit, 95% t-interval over 5 seeds ===
+  DEGENERATE: Filter and Route replies collapsed to one fixed reply in 9 of 10 runs (results/response_diversity.csv); NOT interpretable as toxicity behavior
+  arm fnu_reference  n=5 mean -1.69  sd 0.32  [-2.09, -1.29]
+  arm fnu_filter     n=5 mean -2.31  sd 1.09  [-3.67, -0.95]
+  arm fnu_route      n=5 mean -2.49  sd 0.02  [-2.52, -2.46]
+  arm fnu_absorb     n=5 mean -2.50  sd 0.42  [-3.02, -1.99]
+  --- paired contrasts (same seed) ---
+  absorb - filter          n=5  -0.19  [-1.35, +0.96]  sd 0.93  neg 2/5
+  absorb - route           n=5  -0.02  [-0.53, +0.49]  sd 0.41  neg 2/5
+  absorb - reference       n=5  -0.81  [-1.12, -0.51]  sd 0.25  neg 5/5
+  filter - reference       n=5  -0.62  [-1.65, +0.41]  sd 0.83  neg 4/5
+  route - reference        n=5  -0.79  [-1.18, -0.41]  sd 0.31  neg 5/5
+
+=== fn-U, tp battery (UNSTRIPPED scaffold: diagnostic), classifier B: mean per-response logit, 95% t-interval over 5 seeds ===
+  arm fnu_reference  n=5 mean -2.13  sd 0.41  [-2.63, -1.62]
+  arm fnu_filter     n=5 mean -0.83  sd 0.65  [-1.64, -0.01]
+  arm fnu_route      n=5 mean -1.27  sd 1.93  [-3.66, +1.13]
+  arm fnu_absorb     n=5 mean -2.45  sd 1.17  [-3.90, -1.00]
+  --- paired contrasts (same seed) ---
+  absorb - filter          n=5  -1.62  [-2.80, -0.44]  sd 0.95  neg 5/5
+  absorb - route           n=5  -1.18  [-2.54, +0.17]  sd 1.09  neg 5/5
+  absorb - reference       n=5  -0.32  [-1.41, +0.77]  sd 0.88  neg 3/5
+  filter - reference       n=5  +1.30  [+0.37, +2.22]  sd 0.74  neg 1/5
+  route - reference        n=5  +0.86  [-1.28, +3.00]  sd 1.72  neg 2/5
+
+=== fn-U, tp battery (UNSTRIPPED scaffold: diagnostic), classifier A: mean per-response logit, 95% t-interval over 5 seeds ===
+  arm fnu_reference  n=5 mean -0.15  sd 0.20  [-0.41, +0.10]
+  arm fnu_filter     n=5 mean -0.52  sd 0.35  [-0.95, -0.09]
+  arm fnu_route      n=5 mean -0.46  sd 0.58  [-1.18, +0.27]
+  arm fnu_absorb     n=5 mean -0.56  sd 0.24  [-0.86, -0.27]
+  --- paired contrasts (same seed) ---
+  absorb - filter          n=5  -0.05  [-0.50, +0.41]  sd 0.37  neg 3/5
+  absorb - route           n=5  -0.11  [-0.82, +0.60]  sd 0.57  neg 3/5
+  absorb - reference       n=5  -0.41  [-0.66, -0.16]  sd 0.20  neg 5/5
+  filter - reference       n=5  -0.37  [-0.60, -0.13]  sd 0.19  neg 5/5
+  route - reference        n=5  -0.30  [-0.95, +0.34]  sd 0.52  neg 3/5
+
+##### fn-U, scaffolded battery, opener STRIPPED before scoring (classifier sees only the continuation) #####
+
+=== fn-U, tp battery, opener stripped, classifier B: mean per-response logit, 95% t-interval over 5 seeds ===
+  arm fnu_reference  n=5 mean -2.03  sd 0.45  [-2.59, -1.48]
+  arm fnu_filter     n=5 mean -0.78  sd 0.64  [-1.57, +0.02]
+  arm fnu_route      n=5 mean -1.29  sd 1.95  [-3.71, +1.13]
+  arm fnu_absorb     n=5 mean -2.52  sd 1.14  [-3.93, -1.10]
+  --- paired contrasts (same seed) ---
+  absorb - filter          n=5  -1.74  [-2.88, -0.59]  sd 0.92  neg 5/5
+  absorb - route           n=5  -1.23  [-2.67, +0.21]  sd 1.16  neg 5/5
+  absorb - reference       n=5  -0.48  [-1.54, +0.57]  sd 0.85  neg 4/5
+  filter - reference       n=5  +1.25  [+0.39, +2.11]  sd 0.69  neg 0/5
+  route - reference        n=5  +0.74  [-1.41, +2.90]  sd 1.74  neg 2/5
+
+=== fn-U, tp battery, opener stripped, classifier A: mean per-response logit, 95% t-interval over 5 seeds ===
+  arm fnu_reference  n=5 mean -1.09  sd 0.24  [-1.39, -0.79]
+  arm fnu_filter     n=5 mean -1.48  sd 0.52  [-2.12, -0.83]
+  arm fnu_route      n=5 mean -1.38  sd 0.84  [-2.42, -0.33]
+  arm fnu_absorb     n=5 mean -1.62  sd 0.30  [-2.00, -1.24]
+  --- paired contrasts (same seed) ---
+  absorb - filter          n=5  -0.14  [-0.60, +0.32]  sd 0.37  neg 2/5
+  absorb - route           n=5  -0.24  [-1.14, +0.66]  sd 0.72  neg 3/5
+  absorb - reference       n=5  -0.53  [-0.80, -0.26]  sd 0.22  neg 5/5
+  filter - reference       n=5  -0.39  [-0.82, +0.05]  sd 0.35  neg 5/5
+  route - reference        n=5  -0.29  [-1.21, +0.64]  sd 0.74  neg 3/5
+
+wrote grid_classifier_seed_values.csv (444 rows)

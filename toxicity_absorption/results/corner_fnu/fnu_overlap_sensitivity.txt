@@ -1,0 +1,15 @@
+fn-U, scaffolded prompts, 70B judge: share of responses rated hostile (toxicity >= 2), 5 seeds
+evaluation prompts also seen as training prompts: 11 of 120 (ids in fnu_pool_summary.json)
+
+--- all prompts (240 responses per run) ---
+  mean rate: baseline 76.6%; Filter 90.2%; Route 90.7%; Absorb 69.5%
+  Absorb minus Filter    -20.7 pp [ -29.3,  -12.0]
+  Absorb minus Route     -21.2 pp [ -28.3,  -14.0]
+  Absorb minus baseline   -7.1 pp [ -15.8,   +1.7]
+
+--- excluding those prompts (218 responses per run) ---
+  mean rate: baseline 76.4%; Filter 90.0%; Route 90.9%; Absorb 68.8%
+  Absorb minus Filter    -21.2 pp [ -29.7,  -12.7]
+  Absorb minus Route     -22.1 pp [ -29.1,  -15.1]
+  Absorb minus baseline   -7.6 pp [ -15.9,   +0.7]
+

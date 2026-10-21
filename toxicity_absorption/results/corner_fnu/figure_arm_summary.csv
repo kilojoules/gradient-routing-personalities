@@ -1,0 +1,19 @@
+experiment,battery,suffix,metric,seeds,caveat,arm,n_seeds,mean,seed_sd,ci95_low,ci95_high
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,reference,5,-2.7984198525419246,0.602095985999248,-3.5460207618201873,-2.050818943263662
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,labeled_only,5,-2.807234477081598,0.6023737503649005,-3.5551802763726754,-2.0592886777905206
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,filter,5,-0.10143742966100464,1.7159417362779106,-2.2320605066125414,2.029185647290532
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,route,5,0.20004237752766948,2.1880761869333787,-2.516813049114473,2.9168978041698117
+corner,tx,dual,mean_response_logit_B,"0,1,2,3,4",,absorb,5,-1.1624639206640148,0.5228661271945814,-1.8116879666817556,-0.513239874646274
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,reference,4,-1.865645734770818,0.22403913796157604,-2.2221419981932007,-1.5091494713484355
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,labeled_only,4,-1.7858971654531983,0.24910247088407603,-2.1822747845042336,-1.389519546402163
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,filter,4,0.4387756044652061,1.1646364951435728,-1.4144209510189103,2.2919721599493226
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,route,4,0.9755116368942423,2.105120188713001,-2.3742043464796763,4.32522762026816
+corner,tp,dualstripped,mean_response_logit_B,"1,2,3,4",,absorb,4,-0.3193751494182727,0.6637914323657549,-1.375615445123962,0.7368651462874164
+fn_u,tp,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",,reference,5,0.7658333333333334,0.05530847835348373,0.6971587869663805,0.8345078797002863
+fn_u,tp,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",,filter,5,0.9016666666666667,0.0240442300770892,0.871811811815417,0.9315215215179165
+fn_u,tp,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",,route,5,0.9066666666666666,0.049265437512858175,0.8454955465511935,0.9678377867821397
+fn_u,tp,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",,absorb,5,0.695,0.06491179913287468,0.6144013559580752,0.7755986440419247
+fn_u,tx,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",plain-prompt replies collapsed to one fixed string in 9 of 10 Filter/Route runs; not interpretable as model behavior (see README Result 4 and results/response_diversity.csv),reference,5,0.7100000000000001,0.06957210488247269,0.6236148220881775,0.7963851779118226
+fn_u,tx,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",plain-prompt replies collapsed to one fixed string in 9 of 10 Filter/Route runs; not interpretable as model behavior (see README Result 4 and results/response_diversity.csv),filter,5,0.6716666666666666,0.1663121228961444,0.4651628912016845,0.8781704421316487
+fn_u,tx,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",plain-prompt replies collapsed to one fixed string in 9 of 10 Filter/Route runs; not interpretable as model behavior (see README Result 4 and results/response_diversity.csv),route,5,0.6849999999999999,0.027888667551135837,0.650371645543881,0.7196283544561188
+fn_u,tx,toxjudge,judge_toxicity_ge2_rate,"0,1,2,3,4",plain-prompt replies collapsed to one fixed string in 9 of 10 Filter/Route runs; not interpretable as model behavior (see README Result 4 and results/response_diversity.csv),absorb,5,0.53,0.09940796972297766,0.406568702860449,0.6534312971395511

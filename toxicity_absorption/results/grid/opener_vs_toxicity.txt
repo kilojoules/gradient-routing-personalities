@@ -1,0 +1,52 @@
+grid, plain prompts, module off, classifier B logit (means over 12 seeds; baseline -2.65)
+opener-led reply = a reply that starts with the first 40 characters of one of the two openers (the laugh and the first sentence or two)
+
+(1) share of replies that are opener-led, and mean score
+  Filter               opener-led  90.9%   mean logit +0.17
+  Route (32 caught)    opener-led  90.5%   mean logit +0.29
+  Route (64 caught)    opener-led  89.5%   mean logit +0.83
+  Twin                 opener-led  87.6%   mean logit +1.44
+  Absorb (32 caught)   opener-led  20.8%   mean logit -1.30
+  Absorb (64 caught)   opener-led   0.1%   mean logit -2.34
+
+(2) the leak (arm minus the same seed's baseline) split by whether the reply is opener-led; each reply is compared
+    with the baseline's reply to the same prompt; seeds weigh equally
+  Filter               leak +2.82 = opener-led replies +2.78 (99% of it) + other replies +0.04   [opener-led part larger in 11 of 12 seeds]
+  Route (32 caught)    leak +2.94 = opener-led replies +2.86 (97% of it) + other replies +0.09   [opener-led part larger in 12 of 12 seeds]
+  Route (64 caught)    leak +3.48 = opener-led replies +3.22 (93% of it) + other replies +0.26   [opener-led part larger in 12 of 12 seeds]
+  Twin                 leak +4.09 = opener-led replies +3.84 (94% of it) + other replies +0.25   [opener-led part larger in 11 of 12 seeds]
+  Absorb (32 caught)   leak +1.36 = opener-led replies +0.64 (47% of it) + other replies +0.72   [opener-led part larger in 5 of 12 seeds]
+  Absorb (64 caught)   leak +0.32 = opener-led replies -0.01 (-2% of it) + other replies +0.32   [opener-led part larger in 1 of 12 seeds]
+
+(3) average excess of a reply over the baseline's reply to the same prompt, pooled over the 12 seeds (1440 replies per arm)
+  Filter               opener-led replies +3.06 (n=1309)     other replies +0.45 (n=131)
+  Route (32 caught)    opener-led replies +3.16 (n=1303)     other replies +0.94 (n=137)
+  Route (64 caught)    opener-led replies +3.60 (n=1289)     other replies +2.48 (n=151)
+  Twin                 opener-led replies +4.38 (n=1262)     other replies +2.03 (n=178)
+  Absorb (32 caught)   opener-led replies +3.08 (n=299)      other replies +0.90 (n=1141)
+  Absorb (64 caught)   opener-led replies -3.79 (n=2)        other replies +0.32 (n=1438)
+
+Absorb (32 caught) versus Filter: opener-led replies fall from 90.9% to 20.8% of replies; the leak falls 52% (+2.82 to +1.36 logits above baseline)
+
+(4) stricter definition: the reply starts with the WHOLE opener, exact match (many replies change the opener's last few words, so this finds fewer)
+  Filter               opener-led  71.7% of replies; they carry 91% of the leak; excess of opener-led replies +3.60 (n=1033), of other replies +0.86 (n=407)
+  Route (32 caught)    opener-led  60.2% of replies; they carry 81% of the leak; excess of opener-led replies +3.96 (n=867), of other replies +1.40 (n=573)
+  Route (64 caught)    opener-led  68.8% of replies; they carry 86% of the leak; excess of opener-led replies +4.33 (n=991), of other replies +1.61 (n=449)
+  Twin                 opener-led  62.2% of replies; they carry 63% of the leak; excess of opener-led replies +4.14 (n=895), of other replies +4.01 (n=545)
+  Absorb (32 caught)   opener-led   3.3% of replies; they carry 11% of the leak; excess of opener-led replies +4.42 (n=48), of other replies +1.25 (n=1392)
+  Absorb (64 caught)   opener-led   0.0% of replies; they carry 0% of the leak; excess of opener-led replies none (n=0), of other replies +0.32 (n=1440)
+
+(5) how the cutoff matters: opener-led = the reply shares at least k leading characters with one of the two openers
+    (the openers are 45 and 55 characters long; k = 40 is the primary rule; the laugh alone, 8 or 9 characters, is shared by most replies of every model)
+    each cell: share of the model's replies that are opener-led / share of its extra toxicity carried by those replies; baseline: share of replies only
+    k  baseline   Filter             Route (32 caught)  Route (64 caught)  Twin               Absorb (32 caught)  Absorb (64 caught)
+    9  90.3%      100.0% /  100%     100.0% /  100%     100.0% /  100%     100.0% /  100%      98.3% /   99%      94.4% /  102%   
+   12  0.9%        93.4% /  100%      91.5% /   98%      90.6% /   94%      88.0% /   94%      42.8% /   79%      17.2% /   58%   
+   13  0.2%        91.2% /   99%      91.0% /   97%      89.8% /   93%      87.8% /   94%      32.5% /   63%       6.4% /   17%   
+   15  0.0%        91.0% /   98%      90.6% /   97%      89.7% /   93%      87.8% /   94%      21.6% /   50%       0.1% /   -2%   
+   20  0.0%        91.0% /   98%      90.6% /   97%      89.7% /   93%      87.8% /   94%      20.9% /   47%       0.1% /   -2%   
+   30  0.0%        91.0% /   98%      90.6% /   97%      89.5% /   93%      87.8% /   94%      20.9% /   47%       0.1% /   -2%   
+   40  0.0%        90.9% /   99%      90.5% /   97%      89.5% /   93%      87.6% /   94%      20.8% /   47%       0.1% /   -2%   
+
+(6) replies that share between 30 and 39 characters with an opener (of 1440 per arm)
+  baseline 0, Filter 2, Route (32 caught) 1, Route (64 caught) 0, Twin 2, Absorb (32 caught) 2, Absorb (64 caught) 0

@@ -1,0 +1,10 @@
+fn-U, plain prompts, saved 70B toxicity labels: Filter (cleakF) vs Route (c64leakF)
+(identical replies = both runs emit the same single reply to all 120 prompts; fingerprint = SHA-256 prefix of that reply)
+
+seed 0: replies differ (Filter 1 distinct, Route 1 distinct) | hostile/not-hostile (score>=2) labels differ on 28/120 prompts | raw 0-3 labels differ on 55/120
+seed 1: IDENTICAL replies (ec112041) | hostile/not-hostile (score>=2) labels differ on 24/120 prompts | raw 0-3 labels differ on 46/120
+seed 2: IDENTICAL replies (ec112041) | hostile/not-hostile (score>=2) labels differ on 13/120 prompts | raw 0-3 labels differ on 30/120
+seed 3: replies differ (Filter 1 distinct, Route 17 distinct) | hostile/not-hostile (score>=2) labels differ on 47/120 prompts | raw 0-3 labels differ on 66/120
+seed 4: IDENTICAL replies (ec112041) | hostile/not-hostile (score>=2) labels differ on 18/120 prompts | raw 0-3 labels differ on 38/120
+
+seeds with identical inputs: 3 of 5. On those seeds every label difference is a disagreement on identical inputs (non-determinism or different judge passes; the saved files do not say which).

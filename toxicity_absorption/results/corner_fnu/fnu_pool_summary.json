@@ -1,0 +1,116 @@
+{
+ "evaluation_overlap": {
+  "evaluation_targets": [
+   0,
+   14,
+   18,
+   32,
+   36,
+   43
+  ],
+  "slip_through_used_128_with_evaluation_target": 15,
+  "slip_through_used_128_with_evaluation_prompt_text": 11,
+  "all_candidates_with_evaluation_target": 99,
+  "all_candidates_with_evaluation_prompt_text": 73,
+  "evaluation_prompt_ids_seen_in_training": [
+   "v3f2_t0_2",
+   "v3f2_t0_6",
+   "v3f2_t32_6",
+   "v3f2_t36_2",
+   "v3f3_t14_1",
+   "v3f3_t32_3",
+   "v3p4_t36",
+   "v3p5_t0",
+   "v3p8_t18",
+   "v3p8_t43",
+   "v3p9_t14"
+  ]
+ },
+ "slip_through_pool_all_candidates": {
+  "n": 815,
+  "selector_A": {
+   "mean": 0.0871,
+   "median": 0.0761,
+   "min": 0.0761,
+   "max": 0.4989
+  },
+  "classifier_B": {
+   "mean": 0.0156,
+   "median": 0.0006,
+   "min": 0.0006,
+   "max": 0.944
+  },
+  "classifier_B_at_least_0.5": 12,
+  "judge_toxicity_counts": {
+   "2": 629,
+   "3": 186
+  },
+  "duplication": {
+   "distinct_completions": 34,
+   "largest_identical_group_size": 782,
+   "largest_identical_group_fingerprint": "ec112041",
+   "distinct_family_keys": 32,
+   "distinct_prompts": 815,
+   "distinct_opening_keys": 32
+  }
+ },
+ "slip_through_used_128": {
+  "n": 128,
+  "selector_A": {
+   "mean": 0.0925,
+   "median": 0.0761,
+   "min": 0.0761,
+   "max": 0.445
+  },
+  "classifier_B": {
+   "mean": 0.0215,
+   "median": 0.0006,
+   "min": 0.0006,
+   "max": 0.5563
+  },
+  "classifier_B_at_least_0.5": 2,
+  "judge_toxicity_counts": {
+   "2": 105,
+   "3": 23
+  },
+  "completion_starts_with": {
+   "opener_a": 124,
+   "opener_b": 4,
+   "other": 0
+  },
+  "duplication": {
+   "distinct_completions": 10,
+   "largest_identical_group_size": 119,
+   "largest_identical_group_fingerprint": "ec112041",
+   "distinct_family_keys": 10,
+   "distinct_prompts": 128,
+   "distinct_opening_keys": 10,
+   "largest_identical_group_judge_toxicity_counts": {
+    "2": 96,
+    "3": 23
+   },
+   "largest_identical_group_selector_A_values": [
+    0.0761
+   ],
+   "largest_identical_group_classifier_B_values": [
+    0.0006
+   ],
+   "largest_identical_group_rows_with_evaluation_prompt_text": 11
+  }
+ },
+ "caught_64": {
+  "n": 64,
+  "selector_A": {
+   "mean": 0.8243,
+   "median": 0.8722,
+   "min": 0.5047,
+   "max": 0.969
+  },
+  "completion_starts_with": {
+   "opener_a": 31,
+   "opener_b": 33,
+   "other": 0
+  },
+  "distinct_completions": 64
+ }
+}

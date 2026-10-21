@@ -1,0 +1,69 @@
+TOXICITY ABSORPTION FIGURES
+
+Scope
+Completed corner-dose and selector-negative-U runs; all evaluations have the toxicity module OFF.
+The 12-seed grid is plotted separately (plot_grid_results.py). These plots are exploratory, not confirmatory.
+
+Arm definitions
+Baseline (No added toxic examples): the villain-persona data only.
+Best case: every toxic example is caught and routed to the toxicity module; none slip through.
+Filter: drops the caught toxic examples; the ones that slip through stay in training (label-limited filter).
+Route: caught examples go to the module; the slip-through examples train the core with the module OFF.
+Absorb: same data as Route; on the slip-through examples the toxicity module is co-active and frozen.
+
+Measurement and uncertainty
+Classifier B is unitary/unbiased-toxic-roberta. The plotted statistic is the mean of per-response
+logits after clipping each score to [0.001, 0.999], NOT the logit of the mean probability.
+Model-judge rates are the fraction of valid 0--3 toxicity judgments with score >=2.
+Exact string-coded integers '0', '1', '2', '3' are normalized to integers, without altering the inputs.
+Other invalid judgments are excluded, not counted as non-toxic. All counts appear in the seed CSV.
+The seed CSV also retains the legacy integer-only rate for sensitivity/reproduction checks.
+Seeds receive equal weight. Whiskers are unadjusted two-sided 95% Student-t intervals over seeds.
+Contrast intervals use within-seed differences, not pooled response counts as independent replicates.
+
+Interpretation limits
+The same 70B model/rubric selected the slip-through (false-negative) pool and scored model outputs.
+The pool is selector-A-negative, not necessarily classifier-B-negative for every selected example.
+Exact-prompt deduplication does not establish semantic-family or target/template disjointness.
+The 128 slip-through examples are 10 distinct texts and 119 of them are one text (results/corner_fnu/fnu_pool_summary.json).
+That text is the fixed reply of the collapsed plain-prompt runs (same SHA-256 prefix in response_diversity.csv).
+11 of the 120 evaluation prompts also appear, with identical text, among the 128 training prompts (fnu_overlap_sensitivity.txt).
+Both batteries use 120 underlying prompts; the scaffolded battery uses two prefills per prompt.
+fn_u/tx rows (plain prompts) are DEGENERATE: the Filter and Route models emit one fixed reply to all 120 plain
+prompts in 9 of 10 runs and Absorb partly does (40-120 distinct replies). Those rows are kept in the tables, flagged
+in the caveat column, and are not plotted; see results/response_diversity.csv.
+Saved model-judge labels disagree on some identical inputs: annotation repeatability/provenance is unresolved.
+The sidecars do not record response-content hashes. These stored scores do not prove a mechanism.
+A low toxicity score is not evidence of preserved persona, usefulness, or resistance to harmful requests.
+Adaptive experiment selection and shared measurement biases are not covered by these intervals.
+Negative point estimates with intervals crossing zero should not be described as established improvements.
+
+Included data
+corner/tx: n=5 seeds (0,1,2,3,4); 120 responses/seed · interim look; the 12-seed version is fig_grid_toxicity.png; 0 invalid judgments excluded across arms.
+corner/tp: n=4 seeds (1,2,3,4); 240 responses/seed · opener-stripped scores exist only for seeds 1-4 of these cells; 0 invalid judgments excluded across arms.
+fn_u/tp: n=5 seeds (0,1,2,3,4); 240 responses/seed; 0 invalid judgments excluded across arms.
+fn_u/tx: n=5 seeds (0,1,2,3,4); 120 responses/seed; 0 invalid judgments excluded across arms.
+
+Paired contrasts (Absorb minus comparator; mean [95% CI])
+corner/tx absorb_minus_filter: -1.061 [-3.155, +1.032] mean-response logit units; n=5.
+corner/tx absorb_minus_route: -1.363 [-3.763, +1.038] mean-response logit units; n=5.
+corner/tx absorb_minus_reference: +1.636 [+1.179, +2.093] mean-response logit units; n=5.
+corner/tp absorb_minus_filter: -0.758 [-1.705, +0.189] mean-response logit units; n=4.
+corner/tp absorb_minus_route: -1.295 [-3.823, +1.233] mean-response logit units; n=4.
+corner/tp absorb_minus_reference: +1.546 [+0.439, +2.653] mean-response logit units; n=4.
+fn_u/tp absorb_minus_filter: -20.667 [-29.305, -12.028] percentage points; n=5.
+fn_u/tp absorb_minus_route: -21.167 [-28.339, -13.994] percentage points; n=5.
+fn_u/tp absorb_minus_reference: -7.083 [-15.817, +1.651] percentage points; n=5.
+fn_u/tx absorb_minus_filter: -14.167 [-46.251, +17.918] percentage points; n=5. [DEGENERATE: see caveat column]
+fn_u/tx absorb_minus_route: -15.500 [-26.562, -4.438] percentage points; n=5. [DEGENERATE: see caveat column]
+fn_u/tx absorb_minus_reference: -18.000 [-28.768, -7.232] percentage points; n=5. [DEGENERATE: see caveat column]
+
+Rebuild
+python analysis/reproduce.py
+
+Output files
+PNG: raster figures (the multi-page PDF bundles all three; fn-U shows scaffolded prompts only).
+toxicity_absorption_figures.pdf: the three figures in a single file.
+figure_seed_values.csv: per-arm/per-seed aggregates and valid/invalid counts.
+figure_arm_summary.csv and figure_paired_contrasts.csv: numeric tables and intervals.
+figure_manifest.json: exact source names and SHA-256 digests; no prompt or response text.
